@@ -29,7 +29,7 @@ class Model3d extends HTMLElement{
                 var light = new BABYLON.PointLight("Omni0", new BABYLON.Vector3(-17.6, 18.8, -49.9), scene);  
                 
                 camera.setPosition(new BABYLON.Vector3(-15, 3, 0));
-                camera.attachControl(canvas, true);
+                camera.attachControl(cnv, true);
 
                 // Skybox
                 var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
