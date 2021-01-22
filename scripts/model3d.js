@@ -21,7 +21,7 @@ class Model3d extends HTMLElement{
 
             let createScene = function () {
                 var scene = new BABYLON.Scene(engine);
-                scene.clearColor = new BABYLON.Color3(1, 1, 1);
+                scene.clearColor = new BABYLON.Color3(2, 2, 2);
                 scene.createDefaultCameraOrLight(true, true, true);
                 return scene;
             }
