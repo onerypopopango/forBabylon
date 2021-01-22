@@ -22,8 +22,26 @@ class Model3d extends HTMLElement{
 
             let createScene = function () {
                 var scene = new BABYLON.Scene(engine);
-                scene.clearColor = new BABYLON.Color3(1, 100, 1);
-                scene.createDefaultCameraOrLight(true, true, true);
+                // scene.clearColor = new BABYLON.Color3(1, 100, 1);
+                // scene.createDefaultCameraOrLight(true, true, true);
+
+                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3.Zero(), scene);
+                var light = new BABYLON.PointLight("Omni0", new BABYLON.Vector3(-17.6, 18.8, -49.9), scene);  
+                
+                camera.setPosition(new BABYLON.Vector3(-15, 3, 0));
+                camera.attachControl(canvas, true);
+
+                // Skybox
+                var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
+                var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+                skyboxMaterial.backFaceCulling = false;
+                skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("/textures/TropicalSunnyDay", scene);
+                skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+                skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+                skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+                skyboxMaterial.disableLighting = true;
+                skybox.material = skyboxMaterial;
+                
                 return scene;
             }
 
