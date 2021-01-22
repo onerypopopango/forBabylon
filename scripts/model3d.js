@@ -32,15 +32,15 @@ class Model3d extends HTMLElement{
                 // camera.attachControl(shadow, true);
 
                 // Skybox
-                var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
-                var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-                skyboxMaterial.backFaceCulling = false;
-                skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("/textures/TropicalSunnyDay", scene);
-                skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-                skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-                skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-                skyboxMaterial.disableLighting = true;
-                skybox.material = skyboxMaterial;
+                // var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
+                // var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+                // skyboxMaterial.backFaceCulling = false;
+                // skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("/textures/TropicalSunnyDay", scene);
+                // skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+                // skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+                // skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+                // skyboxMaterial.disableLighting = true;
+                // skybox.material = skyboxMaterial;
                 
                 return scene;
             }
