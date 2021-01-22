@@ -16,6 +16,7 @@ class Model3d extends HTMLElement{
 
         //sets up the babylon environment for loading object into it
         function setUp3DEnvironment(){
+            console.log("setUp3DEnvironment");
             const engine = new BABYLON.Engine(cnv, true);
 
             let createScene = function () {
@@ -37,6 +38,7 @@ class Model3d extends HTMLElement{
         }
 
         let loadBJS = new Promise((resolve, reject) => {
+            console.log("loadBJS");
             try{
                 const bjs = document.createElement('script');
                 bjs.src = 'https://cdn.babylonjs.com/babylon.js';
@@ -84,6 +86,7 @@ class Model3d extends HTMLElement{
 
         this.loadGLTF = function(file){
             loadBJS.then(function(fulfilled){
+                console.log("loadGLTF");
                 loadGLTFAux(file);                
             })
             .catch(function (error){
@@ -107,6 +110,7 @@ class Model3d extends HTMLElement{
 
         //separates path from file name in given resource
         let decodePath = function(path){
+            console.log("decodePath");
             const fileStart = path.lastIndexOf('/') + 1;
             const fileName = path.substring(fileStart);
             const filePath = path.substring(0, fileStart);
