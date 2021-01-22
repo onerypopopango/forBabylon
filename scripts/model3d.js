@@ -26,9 +26,9 @@ class Model3d extends HTMLElement{
                 // scene.createDefaultCameraOrLight(true, true, true);
 
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3.Zero(), scene);
-                var light = new BABYLON.PointLight("Omni0", new BABYLON.Vector3(-17.6, 18.8, -49.9), scene);  
+                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-17.6, 18.8, -49.9), scene);  
                 
-                camera.setPosition(new BABYLON.Vector3(-15, 3, 0));
+                camera.setPosition(new BABYLON.Vector3(15, 3, 0));
                 camera.attachControl(cnv, true);
 
                 // Skybox
