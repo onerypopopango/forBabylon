@@ -15,13 +15,14 @@ class Model3d extends HTMLElement{
         let BJSloaded = false;
 
         //sets up the babylon environment for loading object into it
+        //this was called fourth (4)
         function setUp3DEnvironment(){
             console.log("setUp3DEnvironment");
             const engine = new BABYLON.Engine(cnv, true);
 
             let createScene = function () {
                 var scene = new BABYLON.Scene(engine);
-                scene.clearColor = new BABYLON.Color3(2, 2, 2);
+                scene.clearColor = new BABYLON.Color3(1, 100, 1);
                 scene.createDefaultCameraOrLight(true, true, true);
                 return scene;
             }
@@ -37,6 +38,7 @@ class Model3d extends HTMLElement{
             });
         }
 
+        //this loads first (1)
         let loadBJS = new Promise((resolve, reject) => {
             console.log("loadBJS");
             try{
@@ -84,6 +86,7 @@ class Model3d extends HTMLElement{
             assetsManager.load();
         };
 
+        //this loads fifth (5)
         this.loadGLTF = function(file){
             loadBJS.then(function(fulfilled){
                 console.log("loadGLTF");
@@ -109,12 +112,13 @@ class Model3d extends HTMLElement{
         };
 
         //separates path from file name in given resource
+        //this loads sixth (6)
         let decodePath = function(path){
             console.log("decodePath");
             const fileStart = path.lastIndexOf('/') + 1;
             const fileName = path.substring(fileStart);
             const filePath = path.substring(0, fileStart);
-            console.log(fileName);
+            //console.log(fileName);
             return [filePath, fileName];
         };
     }
@@ -124,13 +128,16 @@ class Model3d extends HTMLElement{
         return ['src', 'background-color'];
     }
 
+    //this was called second (2) and third (3)
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case 'src':
+                //(3)
                 console.log(`loading ${newValue}...` );    
                 this.loadGLTF(newValue); 
                 break;
             case 'background-color':
+                //(2)
                 console.log(`changing color to ${newValue} from ${oldValue}`);
                 this.changeBGColor(newValue);                
                 break;            
