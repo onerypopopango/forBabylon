@@ -26,8 +26,8 @@ class Model3d extends HTMLElement{
                 // scene.createDefaultCameraOrLight(true, true, true);
 
                 // Parameters: name, alpha, beta, radius, target position, scene
-                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3(10, 10, 10), scene);
-                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
+                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3(0, 0, 0), scene);
+                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, 1, 0), scene);  
                 var frameRate = 10;
 
                 //for camera to sweep round
@@ -61,6 +61,7 @@ class Model3d extends HTMLElement{
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 20, 40));
                 camera.attachControl(cnv, true);
+                camera.animations.push(rotate);
 
                 scene.beginDirectAnimation(camera, rotate, 0, frameRate, true);
 
