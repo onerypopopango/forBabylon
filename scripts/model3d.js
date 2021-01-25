@@ -32,7 +32,7 @@ class Model3d extends HTMLElement{
                 //for camera to sweep round
                 var rotate = new BABYLON.Animation(
                     "rotate",
-                    "rotation.y",
+                    "alpha",
                     frameRate,
                     BABYLON.Animation.ANIMATIONTYPE_FLOAT,
                     BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
