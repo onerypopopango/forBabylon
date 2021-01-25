@@ -35,14 +35,14 @@ class Model3d extends HTMLElement{
                     "rotation.y",
                     frameRate,
                     BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-                    BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+                    BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
                 );
 
                 var rotate_keys = [];
 
                 rotate_keys.push({
                     frame: 0,
-                    value: Math.PI
+                    value: 20
                 });
 
                 rotate.setKeys(rotate_keys);
@@ -50,7 +50,7 @@ class Model3d extends HTMLElement{
                 camera.setPosition(new BABYLON.Vector3(15, 15, 0));
                 // camera.attachControl(cnv, true);
 
-                scene.beginDirectAnimation(camera, [rotate], 0, 25 * frameRate, true);
+                scene.beginDirectAnimation(camera, rotate, 0, 30 * frameRate, true);
 
                 //Skybox
                 // var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
