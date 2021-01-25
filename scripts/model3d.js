@@ -47,12 +47,12 @@ class Model3d extends HTMLElement{
                 });
 
                 rotate_keys.push({
-                    frame: frameRate/2,
+                    frame: frameRate,
                     value: Math.PI/2
                 });
 
                 rotate_keys.push({
-                    frame: frameRate,
+                    frame: frameRate * 2,
                     value: Math.PI
                 });
 
@@ -63,7 +63,7 @@ class Model3d extends HTMLElement{
                 camera.attachControl(cnv, true);
                 camera.animations.push(rotate);
 
-                scene.beginAnimation(camera, 0, frameRate, true);
+                scene.beginAnimation(camera, 0, frameRate * 2, true);
 
                 //Skybox
                 // var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
