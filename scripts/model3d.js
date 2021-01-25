@@ -47,12 +47,12 @@ class Model3d extends HTMLElement{
                 });
 
                 rotate_keys.push({
-                    frame: frameRate * 4,
+                    frame: frameRate * 8,
                     value: Math.PI
                 });
 
                 rotate_keys.push({
-                    frame: frameRate * 8,
+                    frame: frameRate * 16,
                     value: Math.PI * 2
                 });
 
@@ -64,7 +64,7 @@ class Model3d extends HTMLElement{
 
                 //so beginDirectAnimation didn't work... this did instead
                 camera.animations.push(rotate);
-                scene.beginAnimation(camera, 0, frameRate * 8, true);
+                scene.beginAnimation(camera, 0, frameRate * 16, true);
 
                 //Skybox
                 // var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
