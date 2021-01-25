@@ -59,7 +59,7 @@ class Model3d extends HTMLElement{
                 rotate.setKeys(rotate_keys);
                 
                 // Positions the camera overwriting alpha, beta, radius
-                camera.setPosition(new BABYLON.Vector3(0, 0, 30));
+                camera.setPosition(new BABYLON.Vector3(0, 20, 40));
                 camera.attachControl(cnv, true);
 
                 scene.beginDirectAnimation(camera, rotate, 0, frameRate, true);
