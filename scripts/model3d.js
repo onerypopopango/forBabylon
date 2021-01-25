@@ -27,7 +27,7 @@ class Model3d extends HTMLElement{
 
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3.Zero(), scene);
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
-                var frameRate = 30;
+                var frameRate = 10;
 
                 //for camera to sweep round
                 var rotate = new BABYLON.Animation(
@@ -42,8 +42,14 @@ class Model3d extends HTMLElement{
 
                 rotate_keys.push({
                     frame: 0,
-                    value: 20
+                    value: 0
                 });
+
+                rotate_keys.push({
+                    frame: 2 * frameRate,
+                    value: 360
+                });
+
 
                 rotate.setKeys(rotate_keys);
                 
