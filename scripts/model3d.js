@@ -61,8 +61,9 @@ class Model3d extends HTMLElement{
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 20, 40));
                 camera.attachControl(cnv, true);
-                camera.animations.push(rotate);
 
+                //so beginDirectAnimation didn't work... this did instead
+                camera.animations.push(rotate);
                 scene.beginAnimation(camera, 0, frameRate * 2, true);
 
                 //Skybox
