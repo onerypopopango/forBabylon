@@ -63,7 +63,7 @@ class Model3d extends HTMLElement{
                 camera.attachControl(cnv, true);
                 camera.animations.push(rotate);
 
-                scene.beginDirectAnimation(camera, rotate, 0, frameRate, true);
+                scene.beginAnimation(camera, 0, frameRate, true);
 
                 //Skybox
                 // var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
