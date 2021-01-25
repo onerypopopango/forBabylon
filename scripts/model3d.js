@@ -20,14 +20,14 @@ class Model3d extends HTMLElement{
             console.log("setUp3DEnvironment");
             const engine = new BABYLON.Engine(cnv, true);
 
-            let createScene = function () {
-                var frameRate = 30;
+            let createScene = function() {
                 var scene = new BABYLON.Scene(engine);
                 // scene.clearColor = new BABYLON.Color3(1, 100, 1);
                 // scene.createDefaultCameraOrLight(true, true, true);
 
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3.Zero(), scene);
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
+                var frameRate = 30;
 
                 //for camera to sweep round
                 var rotate = new BABYLON.Animation(
