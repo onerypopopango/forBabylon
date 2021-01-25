@@ -27,9 +27,20 @@ class Model3d extends HTMLElement{
 
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3.Zero(), scene);
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
+
+                //for camera to sweep round
+                var rotate = new BABYLON.Animation (
+                    "rotate", 
+                    "rotation.y",
+                    frameRate,
+                    BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                    BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+                )
                 
-                camera.setPosition(new BABYLON.Vector3(15, 3, 0));
+                camera.setPosition(new BABYLON.Vector3(15, 15, 0));
                 camera.attachControl(cnv, true);
+
+                scene.beginDirectAnimation(camera, [rotate], 0, 25 * frameRate, true);
 
                 //Skybox
                 // var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
