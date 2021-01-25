@@ -42,16 +42,6 @@ class Model3d extends HTMLElement{
 
                 rotate_keys.push({
                     frame: 0,
-                    value: 0
-                });
-
-                rotate_keys.push({
-                    frame: 9 * frameRate,
-                    value: 0
-                });
-
-                rotate_keys.push({
-                    frame: 14 * frameRate,
                     value: Math.PI
                 });
 
