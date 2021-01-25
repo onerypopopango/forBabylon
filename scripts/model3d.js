@@ -29,13 +29,32 @@ class Model3d extends HTMLElement{
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
 
                 //for camera to sweep round
-                var rotate = new BABYLON.Animation (
-                    "rotate", 
+                var rotate = new BABYLON.Animation(
+                    "rotate",
                     "rotation.y",
                     frameRate,
                     BABYLON.Animation.ANIMATIONTYPE_FLOAT,
                     BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
-                )
+                );
+
+                var rotate_keys = [];
+
+                rotate_keys.push({
+                    frame: 0,
+                    value: 0
+                });
+
+                rotate_keys.push({
+                    frame: 9 * frameRate,
+                    value: 0
+                });
+
+                rotate_keys.push({
+                    frame: 14 * frameRate,
+                    value: Math.PI
+                });
+                
+                rotate.setKeys(rotate_keys);
                 
                 camera.setPosition(new BABYLON.Vector3(15, 15, 0));
                 camera.attachControl(cnv, true);
