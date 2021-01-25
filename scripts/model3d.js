@@ -47,12 +47,12 @@ class Model3d extends HTMLElement{
 
                 rotate_keys.push({
                     frame: frameRate/2,
-                    value: 180
+                    value: Math.PI/2
                 });
 
                 rotate_keys.push({
                     frame: frameRate,
-                    value: 360
+                    value: Math.PI
                 });
 
                 rotate.setKeys(rotate_keys);
