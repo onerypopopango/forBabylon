@@ -21,6 +21,7 @@ class Model3d extends HTMLElement{
             const engine = new BABYLON.Engine(cnv, true);
 
             let createScene = function () {
+                var frameRate = 30;
                 var scene = new BABYLON.Scene(engine);
                 // scene.clearColor = new BABYLON.Color3(1, 100, 1);
                 // scene.createDefaultCameraOrLight(true, true, true);
@@ -53,7 +54,7 @@ class Model3d extends HTMLElement{
                     frame: 14 * frameRate,
                     value: Math.PI
                 });
-                
+
                 rotate.setKeys(rotate_keys);
                 
                 camera.setPosition(new BABYLON.Vector3(15, 15, 0));
