@@ -27,7 +27,7 @@ class Model3d extends HTMLElement{
 
                 // Parameters: name, alpha, beta, radius, target position, scene
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3(0, 0, 0), scene);
-                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, 1, 0), scene);  
+                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
                 var frameRate = 24;
 
                 //for camera to sweep round
@@ -59,7 +59,7 @@ class Model3d extends HTMLElement{
                 rotate.setKeys(rotate_keys);
                 
                 // Positions the camera overwriting alpha, beta, radius
-                camera.setPosition(new BABYLON.Vector3(0, 90, 40));
+                camera.setPosition(new BABYLON.Vector3(0, 20, 40));
                 camera.attachControl(cnv, true);
 
                 //so beginDirectAnimation didn't work... this did instead
@@ -127,6 +127,8 @@ class Model3d extends HTMLElement{
         let loadGLTFAux = function(file){
             scene.meshes.pop();
             const path = decodePath(file);
+            console.log('file: ', file);
+            console.log('path: ', path);
             var assetsManager = new BABYLON.AssetsManager(scene);
             const meshTask = assetsManager.addMeshTask('glb task', '', path[0], path[1]);
             meshTask.onSuccess = function (task){
