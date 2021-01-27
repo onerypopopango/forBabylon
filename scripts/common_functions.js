@@ -47,16 +47,13 @@ class BabylonCall {
         } else { 
             return forSingleModel(arguments); 
         } 
-    }
+    };
     ///****************************************************************************///
 
-    set setCanvas(cnv) {
+    setCanvas(cnv) {
         this.cnv = cnv;
-    } 
-
-    get getCanvas() {
-        return this.cnv;
-    }
+        return;
+    };
 
     constructor() {
         
