@@ -122,30 +122,35 @@ class Model3d extends HTMLElement{
             return scene;
         };
 
-        /*LOAD 3D MODEL*/
-        //method that loads a 3d model into the created scene
-        let loadGLTFAux = function(file){
+        /*LOAD 3D MODELS*/
+        //method that loads 3d models into the created scene via assetsManager
+        let loadGLTFAux = function(fileArray){
+            console.log('file: ', fileArray);
             scene.meshes.pop();
-            const path = decodePath(file);
-            console.log('file: ', file);
-            console.log('path: ', path);
+
             var assetsManager = new BABYLON.AssetsManager(scene);
-            const meshTask = assetsManager.addMeshTask('glb task', '', path[0], path[1]);
-            meshTask.onSuccess = function (task){
-                task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
-            }
-            meshTask.onError = function(task, message, exception){
-                console.log(message, exception);
-            }
+
+            fileArray.forEach(file => {
+                const path = decodePath(file);
+                console.log('path: ', path);
+
+                const meshTask = assetsManager.addMeshTask(path[1], '', path[0], path[1]);
+                meshTask.onSuccess = function (task){
+                    task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
+                }
+                meshTask.onError = function(task, message, exception){
+                    console.log(message, exception);
+                }
+            });
 
             assetsManager.load();
         };
 
         //this loads fifth (5)
-        this.loadGLTF = function(file){
+        this.loadGLTF = function(fileArray){
             loadBJS.then(function(fulfilled){
                 console.log("loadGLTF");
-                loadGLTFAux(file);                
+                loadGLTFAux(fileArray);                
             })
             .catch(function (error){
                 console.log(error.message);
