@@ -50,8 +50,8 @@ class BabylonCall {
     }
     ///****************************************************************************///
 
-    setCanvas = function (cnv) {
-        this.cnv = cnv;
+    setCanvas() {
+        this.cnv = arguments[0];
     } 
 
     constructor() {
