@@ -1,4 +1,4 @@
-import { BabylonCall } from '/common_functions.js';
+import { BabylonCall } from '../scripts/common_functions.js';
 
 class Model3d extends HTMLElement{
     constructor() {
