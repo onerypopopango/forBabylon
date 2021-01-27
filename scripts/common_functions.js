@@ -50,14 +50,16 @@ class BabylonCall {
     };
     ///****************************************************************************///
 
-    setCanvas(cnv) {
-        this.cnv = cnv;
-        return;
+    setCanvas() {
+        var settingCanvas = function (arguments) {
+            this.cnv = arguments[0];
+            return;
+        }
     };
 
     constructor() {
         
-        let cnv;
+        
         let scene = null;
         let BJSloaded = false;
 
