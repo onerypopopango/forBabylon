@@ -26,7 +26,7 @@ class Model3d extends HTMLElement{
                 // scene.createDefaultCameraOrLight(true, true, true);
 
                 // Parameters: name, alpha, beta, radius, target position, scene
-                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, BABYLON.Vector3(0, -400, 400), scene);
+                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 20, 40, BABYLON.Vector3(0, -400, 400), scene);
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
                 var frameRate = 24;
 
@@ -59,7 +59,7 @@ class Model3d extends HTMLElement{
                 rotate.setKeys(rotate_keys);
                 
                 // Positions the camera overwriting alpha, beta, radius
-                camera.setPosition(new BABYLON.Vector3(0, 20, 40));
+                // camera.setPosition(new BABYLON.Vector3(0, 20, 40));
                 camera.attachControl(cnv, true);
 
                 //so beginDirectAnimation didn't work... this did instead
