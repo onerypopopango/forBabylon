@@ -192,7 +192,7 @@ class Model3d extends HTMLElement{
             case 'src':
                 //(3)
                 console.log(`loading ${newValue}`);  
-                urlArray = newValue.split("|");
+                let urlArray = newValue.split("|");
                 console.log(`loading `, urlArray);  
                 this.loadGLTF(urlArray); 
                 break;
