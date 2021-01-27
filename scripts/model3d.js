@@ -26,7 +26,7 @@ class Model3d extends HTMLElement{
                 // scene.createDefaultCameraOrLight(true, true, true);
 
                 // Parameters: name, alpha, beta, radius, target position, scene
-                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 20, 40, BABYLON.Vector3(20, -40, 40), scene);
+                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 20, 40, BABYLON.Vector3(0, 0, 0), scene);
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
                 var frameRate = 24;
 
