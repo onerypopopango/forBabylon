@@ -51,9 +51,9 @@ class BabylonCall {
     ///****************************************************************************///
 
     setCanvas() {
-        let canvas = arguments[0];
-        var settingCanvas = function () {
-            this.cnv = canvas;
+        var settingCanvas = function (arguments) {
+            console.log(arguments);
+            this.cnv = arguments[0];
             return;
         }
     };
