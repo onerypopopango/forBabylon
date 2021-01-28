@@ -106,16 +106,19 @@ class Model3d extends HTMLElement{
                 scene.beginAnimation(camera, 0, frameRate * 16, true);
                 // scene.beginAnimation(building, 0, frameRate * 2, false);
 
-                // this.building.actionManager = new BABYLON.ActionManager(scene);
-                // building.actionManager.registerAction(
-                //     new BABYLON.InterpolateValueAction (
-                //         BABYLON.ActionManager.OnPickUpTrigger,
-                //         building,
-                //         "scaling",
-                //         10,
-                //         1000
-                //     )
-                // );
+                function attachBuildingAction() {
+                    this.building.actionManager = new BABYLON.ActionManager(scene);
+                    building.actionManager.registerAction(
+                        new BABYLON.InterpolateValueAction (
+                            BABYLON.ActionManager.OnPickUpTrigger,
+                            building,
+                            "scaling",
+                            10,
+                            1000
+                        )
+                    );
+                }
+           
                 
                 return scene;
             }
@@ -190,6 +193,8 @@ class Model3d extends HTMLElement{
                 this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
 
                 console.log('building: ', this.building);
+
+                this.attachBuildingAction();
             };
 
 
