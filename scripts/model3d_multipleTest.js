@@ -131,6 +131,12 @@ class Model3d extends HTMLElement{
                 //     );
                 //     return;
                 // }.bind(this));
+
+                while((!building)) {
+                    console.log('there is no building: ', building);
+                } if (building) {
+                    console.log('there is a building: ', building);
+                }
                 
                 return scene;
             }
