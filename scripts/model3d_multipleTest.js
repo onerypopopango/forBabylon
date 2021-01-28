@@ -139,7 +139,8 @@ class Model3d extends HTMLElement{
                 const path = decodePath(file);
                 console.log('path: ', path);
 
-                const meshTask = assetsManager.addMeshTask(path[1], '', path[0], path[1]);
+                // taskName, meshesNames, rootUrl, sceneFilename
+                const meshTask = assetsManager.addMeshTask(path[1], path[1], path[0], path[1]);
                 meshTask.onSuccess = function (task){
                     task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
                     console.log('task: ', task);
