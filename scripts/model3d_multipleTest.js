@@ -122,6 +122,20 @@ class Model3d extends HTMLElement{
                 return scene;
             }
 
+            this.scene.registerBeforeRender(function() {
+                this.building.actionManager = new BABYLON.ActionManager(scene);
+                building.actionManager.registerAction(
+                new BABYLON.InterpolateValueAction (
+                    BABYLON.ActionManager.OnPickUpTrigger,
+                    building,
+                    "scaling",
+                    10,
+                    1000
+                    )
+                );
+                return;
+            }.bind(this));
+
             scene = createScene();
             //starts the render loop
             engine.runRenderLoop(function () { 
@@ -191,26 +205,11 @@ class Model3d extends HTMLElement{
                 this.building = scene.getMeshByName("SiteOffice001");
                 this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
                 console.log('building: ', this.building);
-                this.attachBuildingAction();
+                // this.attachBuildingAction();
                 
             };
 
-
             assetsManager.load();
-        };
-
-        function attachBuildingAction() {
-            this.building.actionManager = new BABYLON.ActionManager(scene);
-            building.actionManager.registerAction(
-            new BABYLON.InterpolateValueAction (
-                BABYLON.ActionManager.OnPickUpTrigger,
-                building,
-                "scaling",
-                10,
-                1000
-                )
-            );
-            return;
         };
 
         //this loads fifth (5)
