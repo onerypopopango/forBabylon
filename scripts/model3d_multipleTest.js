@@ -188,25 +188,29 @@ class Model3d extends HTMLElement{
             });
 
             assetsManager.onFinish = function (tasks) {
-                this.building =  scene.getMeshByName("SiteOffice001");
+                this.building = scene.getMeshByName("SiteOffice001");
                 this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
-
                 console.log('building: ', this.building);
-                    // this.attachBuildingAction();
-                    this.building.actionManager = new BABYLON.ActionManager(scene);
-                    building.actionManager.registerAction(
-                        new BABYLON.InterpolateValueAction (
-                            BABYLON.ActionManager.OnPickUpTrigger,
-                            building,
-                            "scaling",
-                            10,
-                            1000
-                        )
-                    );
+                this.attachBuildingAction();
+                
             };
 
 
             assetsManager.load();
+        };
+
+        function attachBuildingAction() {
+            this.building.actionManager = new BABYLON.ActionManager(scene);
+            building.actionManager.registerAction(
+            new BABYLON.InterpolateValueAction (
+                BABYLON.ActionManager.OnPickUpTrigger,
+                building,
+                "scaling",
+                10,
+                1000
+                )
+            );
+            return;
         };
 
         //this loads fifth (5)
