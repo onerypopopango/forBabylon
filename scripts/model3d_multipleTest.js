@@ -122,7 +122,7 @@ class Model3d extends HTMLElement{
                 return scene;
             }
 
-            this.scene.registerBeforeRender(function() {
+            scene.registerBeforeRender(function() {
                 this.building.actionManager = new BABYLON.ActionManager(scene);
                 building.actionManager.registerAction(
                 new BABYLON.InterpolateValueAction (
