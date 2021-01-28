@@ -224,6 +224,12 @@ class Model3d extends HTMLElement{
                 
             };
 
+            if (!building) {
+                console.log('there is no building: ', building);
+            } else {
+                console.log('there is a building: ', building);
+            }
+
             assetsManager.load();
         };
 
