@@ -208,18 +208,31 @@ class Model3d extends HTMLElement{
                 }
             });
 
+            function addBuilding() {
+                this.building = scene.getMeshByName("SiteOffice001");
+            }
+
             assetsManager.onFinish = function (tasks) {
-                this.building = scene.getMeshByName("SiteOffice001").then(() => {
-                    return;
+                var promisedBuilding = new Promise( function(addBuilding, error) {
+                    addBuilding();
+                    error();
+                })
+
+                promisedBuilding.then(() => {
+                    if (!building) {
+                        console.log('there is no building: ', building);
+                        this.building = scene.getMeshByName("SiteOffice001");
+                    } else {
+                        console.log('there is a building: ', building);
+                    }
                 });
+
+                // this.building = scene.getMeshByName("SiteOffice001").then(() => {
+                //     return;
+                // });
                 this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
 
-                if (!building) {
-                    console.log('there is no building: ', building);
-                    this.building = scene.getMeshByName("SiteOffice001");
-                } else {
-                    console.log('there is a building: ', building);
-                }
+                
 
                 console.log('building: ', this.building);
                 // this.attachBuildingAction();
