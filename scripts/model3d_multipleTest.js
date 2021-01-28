@@ -106,7 +106,7 @@ class Model3d extends HTMLElement{
                 scene.beginAnimation(camera, 0, frameRate * 16, true);
                 // scene.beginAnimation(building, 0, frameRate * 2, false);
 
-                this.building.actionManager = new BABYLON.ActionManager(scene);
+                // this.building.actionManager = new BABYLON.ActionManager(scene);
                 // building.actionManager.registerAction(
                 //     new BABYLON.InterpolateValueAction (
                 //         BABYLON.ActionManager.OnPickUpTrigger,
