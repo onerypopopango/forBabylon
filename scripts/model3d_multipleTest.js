@@ -13,6 +13,9 @@ class Model3d extends HTMLElement{
 
         let scene = null;
         let BJSloaded = false;
+        var building;
+        var buidlingGround;
+        var floorOne;
 
         //sets up the babylon environment for loading object into it
         //this was called fourth (4)
@@ -35,10 +38,6 @@ class Model3d extends HTMLElement{
                 pl.intensity = 0.8;
 
                 var frameRate = 24;
-
-                var building;
-                var buidlingGround;
-                var floorOne;
 
                 // animation loop for camera to sweep round
                 // (name, property, frames per second, property type, loop mode)
