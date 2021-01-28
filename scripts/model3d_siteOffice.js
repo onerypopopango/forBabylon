@@ -59,7 +59,7 @@ class Model3d extends HTMLElement{
                 rotate.setKeys(rotate_keys);
                 
                 // Positions the camera overwriting alpha, beta, radius
-                camera.setPosition(new BABYLON.Vector3(0, 30, 120));
+                camera.setPosition(new BABYLON.Vector3(0, 30, 140));
                 camera.attachControl(cnv, true);
 
                 //so beginDirectAnimation didn't work... this did instead

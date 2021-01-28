@@ -37,6 +37,7 @@ class Model3d extends HTMLElement{
                 var frameRate = 24;
 
                 var building;
+                var buidlingGround;
                 var floorOne;
 
                 // animation loop for camera to sweep round
@@ -150,9 +151,10 @@ class Model3d extends HTMLElement{
                 }
             });
 
-            // assetsManager.onFinish = function (tasks) {
-            //     this.building = scene.getMeshByName("")
-            // };
+            assetsManager.onFinish = function (tasks) {
+                this.building =  scene.getMeshByName("SiteOffice001");
+                this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
+            };
 
 
             assetsManager.load();
