@@ -50,6 +50,7 @@ class BabylonCall {
     };
     ///****************************************************************************///
 
+    //why is this not a function????????????????????????
     setCanvas() {
         var settingCanvas = function (args) {
             console.log(args);
@@ -60,7 +61,7 @@ class BabylonCall {
 
     constructor() {
         
-        
+        let cnv;
         let scene = null;
         let BJSloaded = false;
 
