@@ -106,19 +106,18 @@ class Model3d extends HTMLElement{
                 scene.beginAnimation(camera, 0, frameRate * 16, true);
                 // scene.beginAnimation(building, 0, frameRate * 2, false);
 
-                new function attachBuildingAction() {
-                    this.building.actionManager = new BABYLON.ActionManager(scene);
-                    building.actionManager.registerAction(
-                        new BABYLON.InterpolateValueAction (
-                            BABYLON.ActionManager.OnPickUpTrigger,
-                            building,
-                            "scaling",
-                            10,
-                            1000
-                        )
-                    );
-                }
-           
+                // new function attachBuildingAction() {
+                //     this.building.actionManager = new BABYLON.ActionManager(scene);
+                //     building.actionManager.registerAction(
+                //         new BABYLON.InterpolateValueAction (
+                //             BABYLON.ActionManager.OnPickUpTrigger,
+                //             building,
+                //             "scaling",
+                //             10,
+                //             1000
+                //         )
+                //     );
+                // }
                 
                 return scene;
             }
@@ -191,7 +190,17 @@ class Model3d extends HTMLElement{
             assetsManager.onFinish = function (tasks) {
                 this.building =  scene.getMeshByName("SiteOffice001").then(res => {
                     console.log('building: ', this.building);
-                    this.attachBuildingAction();
+                    // this.attachBuildingAction();
+                    this.building.actionManager = new BABYLON.ActionManager(scene);
+                    building.actionManager.registerAction(
+                        new BABYLON.InterpolateValueAction (
+                            BABYLON.ActionManager.OnPickUpTrigger,
+                            building,
+                            "scaling",
+                            10,
+                            1000
+                        )
+                    );
                 });
                 this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
             };
