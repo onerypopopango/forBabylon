@@ -132,11 +132,11 @@ class Model3d extends HTMLElement{
                 //     return;
                 // }.bind(this));
 
-                while((!building)) {
-                    console.log('there is no building: ', building);
-                } if (building) {
-                    console.log('there is a building: ', building);
-                }
+                // while((!building)) {
+                //     console.log('there is no building: ', building);
+                // } if (building) {
+                //     console.log('there is a building: ', building);
+                // }
                 
                 return scene;
             }
@@ -209,8 +209,15 @@ class Model3d extends HTMLElement{
             });
 
             assetsManager.onFinish = function (tasks) {
-                this.building = scene.getMeshByName("SiteOffice001");
                 this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
+
+                while((!building)) {
+                    console.log('there is no building: ', building);
+                    this.building = scene.getMeshByName("SiteOffice001");
+                } if (building) {
+                    console.log('there is a building: ', building);
+                }
+
                 console.log('building: ', this.building);
                 // this.attachBuildingAction();
                 
