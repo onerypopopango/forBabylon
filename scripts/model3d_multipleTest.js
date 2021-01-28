@@ -69,10 +69,10 @@ class Model3d extends HTMLElement{
                 rotate.setKeys(rotate_keys);
 
                 // animation to replace building with floor
-                var building_fade_out = new BABYLON.Animation(
-                    "building_fade_out",
+                // var building_fade_out = new BABYLON.Animation(
+                //     "building_fade_out",
 
-                );
+                // );
                 
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 30, 120));
