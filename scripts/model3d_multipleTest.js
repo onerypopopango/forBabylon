@@ -216,13 +216,19 @@ class Model3d extends HTMLElement{
 
                 if (!this.building) {
                     console.log('there is no building: ', this.building);
-                    this.building = scene.getMeshByName("SiteOffice001");
                 } else {
                     console.log('there is a building: ', this.building);
+                    this.building.actionManager = new BABYLON.ActionManager(scene);
+                    building.actionManager.registerAction(
+                        new BABYLON.InterpolateValueAction (
+                            BABYLON.ActionManager.OnPickUpTrigger,
+                            building,
+                            "scaling",
+                            10,
+                            1000
+                        )
+                    );
                 }
-
-                // this.attachBuildingAction();
-                
             };
 
             assetsManager.load();
