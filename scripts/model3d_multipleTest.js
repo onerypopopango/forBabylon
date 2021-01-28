@@ -188,8 +188,10 @@ class Model3d extends HTMLElement{
             });
 
             assetsManager.onFinish = function (tasks) {
-                this.building =  scene.getMeshByName("SiteOffice001").then(() => {
-                    console.log('building: ', this.building);
+                this.building =  scene.getMeshByName("SiteOffice001");
+                this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
+
+                console.log('building: ', this.building);
                     // this.attachBuildingAction();
                     this.building.actionManager = new BABYLON.ActionManager(scene);
                     building.actionManager.registerAction(
@@ -201,8 +203,6 @@ class Model3d extends HTMLElement{
                             1000
                         )
                     );
-                });
-                this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
             };
 
 
