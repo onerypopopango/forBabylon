@@ -188,7 +188,7 @@ class Model3d extends HTMLElement{
             });
 
             assetsManager.onFinish = function (tasks) {
-                this.building =  scene.getMeshByName("SiteOffice001").then(res => {
+                this.building =  scene.getMeshByName("SiteOffice001").then(() => {
                     console.log('building: ', this.building);
                     // this.attachBuildingAction();
                     this.building.actionManager = new BABYLON.ActionManager(scene);
