@@ -70,10 +70,27 @@ class Model3d extends HTMLElement{
                 rotate.setKeys(rotate_keys);
 
                 // animation to replace building with floor
-                // var building_fade_out = new BABYLON.Animation(
-                //     "building_fade_out",
+                var building_fade_out = new BABYLON.Animation(
+                    "building_fade_out",
+                    "scaling",
+                    frameRate,
+                    BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                    BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+                );
 
-                // );
+                var building_fade_out_keys = [];
+
+                building_fade_out_keys.push({
+                    frame: 0,
+                    value: 0
+                });
+
+                building_fade_out_keys.push({
+                    frame: frameRate * 2,
+                    value: 10
+                });
+
+                building_fade_out.setKeys(building_fade_out_keys);
                 
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 30, 120));
@@ -81,7 +98,24 @@ class Model3d extends HTMLElement{
 
                 //so beginDirectAnimation didn't work... this did instead
                 camera.animations.push(rotate);
+                building.animations.push(building_fade_out);
+
+                // target: any, from: number, to: number, loop?: boolean, 
+                // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
+                // stopCurrent?: boolean, targetMask?: (target: any) => boolean, onAnimationLoop?: () => void, isAdditive?: boolean
                 scene.beginAnimation(camera, 0, frameRate * 16, true);
+                // scene.beginAnimation(building, 0, frameRate * 2, false);
+
+                building.actionManager = new BABYLON.ActionManager(scene);
+                building.actionManager.registerAction(
+                    new BABYLON.InterpolateValueAction (
+                        BABYLON.ActionManager.OnPickUpTrigger,
+                        building,
+                        "scaling",
+                        10,
+                        1000
+                    )
+                );
                 
                 return scene;
             }
@@ -154,6 +188,8 @@ class Model3d extends HTMLElement{
             assetsManager.onFinish = function (tasks) {
                 this.building =  scene.getMeshByName("SiteOffice001");
                 this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
+
+                console.log('building: ', this.building);
             };
 
 
