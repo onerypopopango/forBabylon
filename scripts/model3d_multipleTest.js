@@ -98,7 +98,7 @@ class Model3d extends HTMLElement{
 
                 //so beginDirectAnimation didn't work... this did instead
                 camera.animations.push(rotate);
-                building.animations.push(building_fade_out);
+                // building.animations.push(building_fade_out);
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
