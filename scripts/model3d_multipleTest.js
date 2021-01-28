@@ -209,12 +209,13 @@ class Model3d extends HTMLElement{
             });
 
             assetsManager.onFinish = function (tasks) {
+                this.building = scene.getMeshByName("SiteOffice001");
                 this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
 
-                while((!building)) {
+                if (!building) {
                     console.log('there is no building: ', building);
                     this.building = scene.getMeshByName("SiteOffice001");
-                } if (building) {
+                } else {
                     console.log('there is a building: ', building);
                 }
 
