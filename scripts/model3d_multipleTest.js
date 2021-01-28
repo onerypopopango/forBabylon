@@ -212,15 +212,15 @@ class Model3d extends HTMLElement{
 
                 this.building = scene.getMeshByName("SiteOffice001");
                 this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
-
-                // if (!building) {
-                //     console.log('there is no building: ', building);
-                //     this.building = scene.getMeshByName("SiteOffice001");
-                // } else {
-                //     console.log('there is a building: ', building);
-                // }
-
                 console.log('building: ', this.building);
+
+                if (!building) {
+                    console.log('there is no building: ', building);
+                    this.building = scene.getMeshByName("SiteOffice001");
+                } else {
+                    console.log('there is a building: ', building);
+                }
+
                 // this.attachBuildingAction();
                 
             };
