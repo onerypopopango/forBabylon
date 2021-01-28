@@ -154,7 +154,8 @@ class Model3d extends HTMLElement{
 
         let changeBGColorAux = function(color){
             const s = scene;
-            s.clearColor = new BABYLON.Color3.FromHexString(color);
+            // s.clearColor = new BABYLON.Color3.FromHexString(color);
+            s.clearColor = new BABYLON.Color4(0, 0, 0, 0);
         };
 
         this.changeBGColor = function(color){
