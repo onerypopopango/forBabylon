@@ -120,7 +120,7 @@ class Model3d extends HTMLElement{
                 // }
 
                 scene.registerBeforeRender(function() {
-                    this.building.actionManager = new BABYLON.ActionManager(scene);
+                    srslybuilding.actionManager = new BABYLON.ActionManager(scene);
                     building.actionManager.registerAction(
                     new BABYLON.InterpolateValueAction (
                         BABYLON.ActionManager.OnPickUpTrigger,
