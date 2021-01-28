@@ -118,23 +118,25 @@ class Model3d extends HTMLElement{
                 //         )
                 //     );
                 // }
+
+                scene.registerBeforeRender(function() {
+                    this.building.actionManager = new BABYLON.ActionManager(scene);
+                    building.actionManager.registerAction(
+                    new BABYLON.InterpolateValueAction (
+                        BABYLON.ActionManager.OnPickUpTrigger,
+                        building,
+                        "scaling",
+                        10,
+                        1000
+                        )
+                    );
+                    return;
+                }.bind(this));
                 
                 return scene;
             }
 
-            scene.registerBeforeRender(function() {
-                this.building.actionManager = new BABYLON.ActionManager(scene);
-                building.actionManager.registerAction(
-                new BABYLON.InterpolateValueAction (
-                    BABYLON.ActionManager.OnPickUpTrigger,
-                    building,
-                    "scaling",
-                    10,
-                    1000
-                    )
-                );
-                return;
-            }.bind(this));
+            
 
             scene = createScene();
             //starts the render loop
