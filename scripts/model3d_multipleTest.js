@@ -25,12 +25,22 @@ class Model3d extends HTMLElement{
                 // scene.clearColor = new BABYLON.Color3(1, 100, 1);
                 // scene.createDefaultCameraOrLight(true, true, true);
 
-                // Parameters: name, alpha, beta, radius, target position, scene
+                // Parameters: name, alpha, beta, radius, target position (x, y, z), scene
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(15, 0, 22), scene);
+
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
+                var pl = new BABYLON.PointLight("pl", BABYLON.Vector3.Zero(), scene);
+                pl.diffuse = new BABYLON.Color3(1, 1, 1);
+                pl.specular = new BABYLON.Color3(1, 1, 1);
+                pl.intensity = 0.8;
+
                 var frameRate = 24;
 
-                //for camera to sweep round
+                var building;
+                var floorOne;
+
+                // animation loop for camera to sweep round
+                // (name, property, frames per second, property type, loop mode)
                 var rotate = new BABYLON.Animation(
                     "rotate",
                     "alpha",
@@ -57,6 +67,12 @@ class Model3d extends HTMLElement{
                 });
 
                 rotate.setKeys(rotate_keys);
+
+                // animation to replace building with floor
+                var building_fade_out = new BABYLON.Animation(
+                    "building_fade_out",
+
+                );
                 
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 30, 120));
@@ -123,16 +139,20 @@ class Model3d extends HTMLElement{
                 const path = decodePath(file);
                 console.log('path: ', path);
 
-
-
                 const meshTask = assetsManager.addMeshTask(path[1], '', path[0], path[1]);
                 meshTask.onSuccess = function (task){
                     task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
+                    console.log(task.loadedMeshes[0].name);
                 }
                 meshTask.onError = function(task, message, exception){
                     console.log(message, exception);
                 }
             });
+
+            // assetsManager.onFinish = function (tasks) {
+            //     this.building = scene.getMeshByName("")
+            // };
+
 
             assetsManager.load();
         };
