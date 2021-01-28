@@ -142,7 +142,7 @@ class Model3d extends HTMLElement{
                 const meshTask = assetsManager.addMeshTask(path[1], '', path[0], path[1]);
                 meshTask.onSuccess = function (task){
                     task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
-                    console.log(task.loadedMeshes[0].name);
+                    console.log('task: ', task);
                 }
                 meshTask.onError = function(task, message, exception){
                     console.log(message, exception);
