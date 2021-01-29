@@ -27,7 +27,10 @@ class Model3d extends HTMLElement{
 
                 // Parameters: name, alpha, beta, radius, target position, scene
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(23, 0, 25), scene);
-                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
+                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene); 
+
+                var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);  
+
                 var frameRate = 24;
 
                 //for camera to sweep round
@@ -66,17 +69,6 @@ class Model3d extends HTMLElement{
                 camera.animations.push(rotate);
                 scene.beginAnimation(camera, 0, frameRate * 16, true);
 
-                //Skybox
-                // var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
-                // var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-                // skyboxMaterial.backFaceCulling = false;
-                // skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("../textures/skybox.jpg", scene);
-                // skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-                // skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-                // skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-                // skyboxMaterial.disableLighting = true;
-                // skybox.material = skyboxMaterial;
-                
                 return scene;
             }
 

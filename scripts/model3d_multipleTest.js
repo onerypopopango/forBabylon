@@ -103,40 +103,6 @@ class Model3d extends HTMLElement{
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
                 // stopCurrent?: boolean, targetMask?: (target: any) => boolean, onAnimationLoop?: () => void, isAdditive?: boolean
                 scene.beginAnimation(camera, 0, frameRate * 16, true);
-                // scene.beginAnimation(building, 0, frameRate * 2, false);
-
-                // new function attachBuildingAction() {
-                //     this.building.actionManager = new BABYLON.ActionManager(scene);
-                //     building.actionManager.registerAction(
-                //         new BABYLON.InterpolateValueAction (
-                //             BABYLON.ActionManager.OnPickUpTrigger,
-                //             building,
-                //             "scaling",
-                //             10,
-                //             1000
-                //         )
-                //     );
-                // }
-
-                // scene.registerBeforeRender(function() {
-                //     building.actionManager = new BABYLON.ActionManager(scene);
-                //     building.actionManager.registerAction(
-                //     new BABYLON.InterpolateValueAction (
-                //         BABYLON.ActionManager.OnPickUpTrigger,
-                //         building,
-                //         "scaling",
-                //         10,
-                //         1000
-                //         )
-                //     );
-                //     return;
-                // }.bind(this));
-
-                // while((!building)) {
-                //     console.log('there is no building: ', building);
-                // } if (building) {
-                //     console.log('there is a building: ', building);
-                // }
                 
                 return scene;
             }
