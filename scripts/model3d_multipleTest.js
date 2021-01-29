@@ -187,11 +187,21 @@ class Model3d extends HTMLElement{
                     console.log('there is no building: ', this.building);
                 } else {
                     console.log('there is a building: ', this.building);
+
                     this.building.actionManager = new BABYLON.ActionManager(scene);
+                    this.buidlingGround.actionManager = new BABYLON.ActionManager(scene);
+
                     this.building.actionManager.registerAction(
                         new BABYLON.InterpolateValueAction (
                             BABYLON.ActionManager.OnPickUpTrigger,
                             this.building,
+                            "scaling",
+                            new BABYLON.Vector3(2, 2, 2),
+                            1000
+                        ),
+                        new BABYLON.InterpolateValueAction (
+                            BABYLON.ActionManager.OnPickUpTrigger,
+                            this.buidlingGround,
                             "scaling",
                             new BABYLON.Vector3(2, 2, 2),
                             1000
