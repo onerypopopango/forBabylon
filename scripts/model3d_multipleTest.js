@@ -46,8 +46,8 @@ class Model3d extends HTMLElement{
                 button1.onPointerUpObservable.add(function() {
 
                     console.log('button: ', button1);
-                    console.log('building from button: ', this.building);
-                    
+                    console.log('building from button: ', building);
+
                     this.building.actionManager.registerAction(
                         new BABYLON.InterpolateValueAction (
                             BABYLON.ActionManager.OnPickUpTrigger,
