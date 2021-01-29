@@ -37,7 +37,7 @@ class Model3d extends HTMLElement{
 
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-                var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Reset View");
+                var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Building");
                 button1.width = "150px"
                 button1.height = "40px";
                 button1.color = "white";
@@ -48,6 +48,7 @@ class Model3d extends HTMLElement{
                     console.log('button: ', button1);
                     console.log('building from button: ', building);
 
+                    building.actionManager = new BABYLON.ActionManager(scene);
                     building.actionManager.registerAction(
                         new BABYLON.InterpolateValueAction (
                             BABYLON.ActionManager.OnPickUpTrigger,
