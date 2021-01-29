@@ -38,25 +38,25 @@ class Model3d extends HTMLElement{
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
                 var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Reset View");
-                button1.width = "0.15vw"
-                button1.height = "0.05vh";
+                button1.width = "150px"
+                button1.height = "40px";
                 button1.color = "white";
                 button1.cornerRadius = 15;
                 button1.background = "black";
                 button1.onPointerClickObservable.add(function() {
 
                     console.log('button: ', button1);
-                    console.log('building from button: ', building);
+                    // console.log('building from button: ', building);
 
-                    this.building.actionManager.registerAction(
-                        new BABYLON.InterpolateValueAction (
-                            BABYLON.ActionManager.OnPickUpTrigger,
-                            this.building,
-                            "scaling",
-                            new BABYLON.Vector3(1, 1, 1),
-                            800
-                        )
-                    );
+                    // this.building.actionManager.registerAction(
+                    //     new BABYLON.InterpolateValueAction (
+                    //         BABYLON.ActionManager.OnPickUpTrigger,
+                    //         this.building,
+                    //         "scaling",
+                    //         new BABYLON.Vector3(1, 1, 1),
+                    //         800
+                    //     )
+                    // );
                 });
                 button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -205,22 +205,22 @@ class Model3d extends HTMLElement{
 
             assetsManager.onFinish = function (tasks) {
 
-                this.building = scene.getMeshByName("SiteOffice001");
-                this.buidlingGround = scene.getMeshByName("SiteOffice_Ground");
-                console.log('building: ', this.building);
+                building = scene.getMeshByName("SiteOffice001");
+                buidlingGround = scene.getMeshByName("SiteOffice_Ground");
+                console.log('building: ', building);
 
-                if (!this.building) {
-                    console.log('there is no building: ', this.building);
+                if (!building) {
+                    console.log('there is no building: ', building);
                 } else {
-                    console.log('there is a building: ', this.building);
+                    console.log('there is a building: ', building);
 
-                    this.building.actionManager = new BABYLON.ActionManager(scene);
-                    this.buidlingGround.actionManager = new BABYLON.ActionManager(scene);
+                    building.actionManager = new BABYLON.ActionManager(scene);
+                    buidlingGround.actionManager = new BABYLON.ActionManager(scene);
 
-                    this.building.actionManager.registerAction(
+                    building.actionManager.registerAction(
                         new BABYLON.InterpolateValueAction (
                             BABYLON.ActionManager.OnPickUpTrigger,
-                            this.building,
+                            building,
                             "scaling",
                             new BABYLON.Vector3(1.1, 1.1, 1.1),
                             800
