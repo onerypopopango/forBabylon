@@ -48,7 +48,7 @@ class Model3d extends HTMLElement{
                     console.log('button: ', button1);
                     console.log('building from button: ', building);
 
-                    // building.actionManager = new BABYLON.ActionManager(scene);
+                    building.actionManager = new BABYLON.ActionManager(scene);
 
                     building.actionManager.registerAction(
                         new BABYLON.InterpolateValueAction (
