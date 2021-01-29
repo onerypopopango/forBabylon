@@ -40,11 +40,11 @@ class Model3d extends HTMLElement{
                 var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Reset View");
                 button1.width = "150px"
                 button1.height = "40px";
-                button1.color = "black";
+                button1.color = "white";
                 button1.cornerRadius = 15;
                 button1.background = "black";
                 button1.onPointerUpObservable.add(function() {
-                    this.building.actionManager.registerAction(
+                    button1.actionManager.registerAction(
                         new BABYLON.InterpolateValueAction (
                             BABYLON.ActionManager.OnPickUpTrigger,
                             this.building,
