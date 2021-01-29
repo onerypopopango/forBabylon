@@ -38,8 +38,8 @@ class Model3d extends HTMLElement{
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
                 var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Reset View");
-                button1.width = "150vw"
-                button1.height = "40vh";
+                button1.width = "10vw"
+                button1.height = "5vh";
                 button1.color = "white";
                 button1.cornerRadius = 15;
                 button1.background = "black";
