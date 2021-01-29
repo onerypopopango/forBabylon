@@ -242,18 +242,18 @@ class Model3d extends HTMLElement{
                             BABYLON.ActionManager.OnPickUpTrigger,
                             building,
                             "scaling",
-                            new BABYLON.Vector3(1.1, 1.1, 1.1),
+                            new BABYLON.Vector3(1.5, 1.5, 1.5),
                             800
                         )
                     ).then (
-                            new BABYLON.InterpolateValueAction (
-                                BABYLON.ActionManager.OnPickUpTrigger,
-                                this.building,
-                                "scaling",
-                                new BABYLON.Vector3(1, 1, 1),
-                                800
-                            )
+                        new BABYLON.InterpolateValueAction (
+                            BABYLON.ActionManager.OnPickUpTrigger,
+                            building,
+                            "scaling",
+                            new BABYLON.Vector3(1, 1, 1),
+                            800
                         )
+                    );
                 }
             };
 
