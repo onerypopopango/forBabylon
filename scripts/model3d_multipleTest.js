@@ -49,15 +49,34 @@ class Model3d extends HTMLElement{
                     console.log('building from button: ', building);
 
                     building.actionManager = new BABYLON.ActionManager(scene);
+
                     building.actionManager.registerAction(
                         new BABYLON.InterpolateValueAction (
                             BABYLON.ActionManager.OnPickUpTrigger,
-                            this.building,
+                            building,
                             "scaling",
-                            new BABYLON.Vector3(1, 1, 1),
+                            new BABYLON.Vector3(1.1, 1.1, 1.1),
                             800
+                        ).then(
+                            new BABYLON.InterpolateValueAction (
+                                BABYLON.ActionManager.OnPickUpTrigger,
+                                this.building,
+                                "scaling",
+                                new BABYLON.Vector3(1, 1, 1),
+                                800
+                            )
                         )
                     );
+
+                    // building.actionManager.registerAction(
+                    //     new BABYLON.InterpolateValueAction (
+                    //         BABYLON.ActionManager.OnPickUpTrigger,
+                    //         this.building,
+                    //         "scaling",
+                    //         new BABYLON.Vector3(1, 1, 1),
+                    //         800
+                    //     )
+                    // );
                 });
                 button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -218,15 +237,15 @@ class Model3d extends HTMLElement{
                     building.actionManager = new BABYLON.ActionManager(scene);
                     buidlingGround.actionManager = new BABYLON.ActionManager(scene);
 
-                    building.actionManager.registerAction(
-                        new BABYLON.InterpolateValueAction (
-                            BABYLON.ActionManager.OnPickUpTrigger,
-                            building,
-                            "scaling",
-                            new BABYLON.Vector3(1.1, 1.1, 1.1),
-                            800
-                        )
-                    );
+                    // building.actionManager.registerAction(
+                    //     new BABYLON.InterpolateValueAction (
+                    //         BABYLON.ActionManager.OnPickUpTrigger,
+                    //         building,
+                    //         "scaling",
+                    //         new BABYLON.Vector3(1.1, 1.1, 1.1),
+                    //         800
+                    //     )
+                    // );
                     // .then (
                     //     new BABYLON.InterpolateValueAction (
                     //         BABYLON.ActionManager.OnPickUpTrigger,
