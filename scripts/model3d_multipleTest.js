@@ -41,8 +41,8 @@ class Model3d extends HTMLElement{
                 button1.width = "150px"
                 button1.height = "40px";
                 button1.color = "white";
-                button1.cornerRadius = 20;
-                button1.background = "green";
+                button1.cornerRadius = 15;
+                button1.background = "black";
                 button1.onPointerUpObservable.add(function() {
                     // this.building.actionManager.registerAction(
                     //     new BABYLON.InterpolateValueAction (
@@ -56,6 +56,8 @@ class Model3d extends HTMLElement{
 
                     alert("Test");
                 });
+                button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+                button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
                 advancedTexture.addControl(button1);    
 
                 var frameRate = 24;
