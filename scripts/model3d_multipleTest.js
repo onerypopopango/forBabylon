@@ -44,9 +44,11 @@ class Model3d extends HTMLElement{
                 button1.cornerRadius = 15;
                 button1.background = "black";
                 button1.onPointerUpObservable.add(function() {
-                    
+
                     console.log('button: ', button1);
-                    button1.actionManager.registerAction(
+                    console.log('building from button: ', this.building);
+                    
+                    this.building.actionManager.registerAction(
                         new BABYLON.InterpolateValueAction (
                             BABYLON.ActionManager.OnPickUpTrigger,
                             this.building,
