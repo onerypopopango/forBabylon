@@ -196,7 +196,7 @@ class Model3d extends HTMLElement{
                             BABYLON.ActionManager.OnPickUpTrigger,
                             this.building,
                             "scaling",
-                            new BABYLON.Vector3(1.5, 1.5, 1.5),
+                            new BABYLON.Vector3(1, 1, 1),
                             1000
                         )
                     ).then (
@@ -204,7 +204,7 @@ class Model3d extends HTMLElement{
                             BABYLON.ActionManager.OnPickUpTrigger,
                             this.building,
                             "scaling",
-                            new BABYLON.Vector3(1, 1, 1),
+                            new BABYLON.Vector3(1.5, 1.5, 1.5),
                             1000
                         )
                     );
