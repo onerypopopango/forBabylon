@@ -35,10 +35,28 @@ class Model3d extends HTMLElement{
                 var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
                 var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
 
-                // var pl = new BABYLON.PointLight("pl", BABYLON.Vector3.Zero(), scene);
-                // pl.diffuse = new BABYLON.Color3(1, 1, 1);
-                // pl.specular = new BABYLON.Color3(1, 1, 1);
-                // pl.intensity = 0.8;
+                // GUI
+                var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+                var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Click Me");
+                button1.width = "150px"
+                button1.height = "40px";
+                button1.color = "white";
+                button1.cornerRadius = 20;
+                button1.background = "green";
+                button1.onPointerUpObservable.add(function() {
+                    // this.building.actionManager.registerAction(
+                    //     new BABYLON.InterpolateValueAction (
+                    //         BABYLON.ActionManager.OnPickUpTrigger,
+                    //         this.building,
+                    //         "scaling",
+                    //         new BABYLON.Vector3(1, 1, 1),
+                    //         800
+                    //     )
+                    // );
+
+                    alert("Test");
+                });
+                advancedTexture.addControl(button1);    
 
                 var frameRate = 24;
 
@@ -209,16 +227,6 @@ class Model3d extends HTMLElement{
                     //         800
                     //     )
                     // );
-
-                    this.building.actionManager.registerAction(
-                        new BABYLON.InterpolateValueAction (
-                            BABYLON.ActionManager.OnPickUpTrigger,
-                            this.building,
-                            "scaling",
-                            new BABYLON.Vector3(1, 1, 1),
-                            800
-                        )
-                    );
                 }
             };
 
