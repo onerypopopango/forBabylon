@@ -244,7 +244,8 @@ class Model3d extends HTMLElement{
                             "scaling",
                             new BABYLON.Vector3(1.1, 1.1, 1.1),
                             800
-                        ).then (
+                        )
+                    ).then (
                             new BABYLON.InterpolateValueAction (
                                 BABYLON.ActionManager.OnPickUpTrigger,
                                 this.building,
@@ -253,7 +254,6 @@ class Model3d extends HTMLElement{
                                 800
                             )
                         )
-                    );
                 }
             };
 
