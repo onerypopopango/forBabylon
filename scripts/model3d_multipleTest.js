@@ -153,6 +153,10 @@ class Model3d extends HTMLElement{
                 bjsloader.src = 'https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js';
                 bjsloader.async = false;
                 document.head.appendChild(bjsloader);
+                const bjsGui = document.createElement('script');
+                bjsGui.src = "https://preview.babylonjs.com/gui/babylon.gui.js";
+                bjsGui.async = false;
+                document.head.appendChild(bjsGui);
                 const pep = document.createElement('script');
                 pep.src = 'https://code.jquery.com/pep/0.4.3/pep.js';
                 pep.async = false;
