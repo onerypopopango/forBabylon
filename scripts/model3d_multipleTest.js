@@ -60,7 +60,7 @@ class Model3d extends HTMLElement{
                         ).then(
                             new BABYLON.InterpolateValueAction (
                                 BABYLON.ActionManager.OnPickUpTrigger,
-                                this.building,
+                                building,
                                 "scaling",
                                 new BABYLON.Vector3(1, 1, 1),
                                 800
@@ -237,24 +237,23 @@ class Model3d extends HTMLElement{
                     building.actionManager = new BABYLON.ActionManager(scene);
                     buidlingGround.actionManager = new BABYLON.ActionManager(scene);
 
-                    // building.actionManager.registerAction(
-                    //     new BABYLON.InterpolateValueAction (
-                    //         BABYLON.ActionManager.OnPickUpTrigger,
-                    //         building,
-                    //         "scaling",
-                    //         new BABYLON.Vector3(1.1, 1.1, 1.1),
-                    //         800
-                    //     )
-                    // );
-                    // .then (
-                    //     new BABYLON.InterpolateValueAction (
-                    //         BABYLON.ActionManager.OnPickUpTrigger,
-                    //         this.building,
-                    //         "scaling",
-                    //         new BABYLON.Vector3(1, 1, 1),
-                    //         800
-                    //     )
-                    // );
+                    building.actionManager.registerAction(
+                        new BABYLON.InterpolateValueAction (
+                            BABYLON.ActionManager.OnPickUpTrigger,
+                            building,
+                            "scaling",
+                            new BABYLON.Vector3(1.1, 1.1, 1.1),
+                            800
+                        )
+                    ).then (
+                        new BABYLON.InterpolateValueAction (
+                            BABYLON.ActionManager.OnPickUpTrigger,
+                            this.building,
+                            "scaling",
+                            new BABYLON.Vector3(1, 1, 1),
+                            800
+                        )
+                    );
                 }
             };
 
