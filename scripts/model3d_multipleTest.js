@@ -46,17 +46,17 @@ class Model3d extends HTMLElement{
                 button1.onPointerClickObservable.add(function() {
 
                     console.log('button: ', button1);
-                    // console.log('building from button: ', building);
+                    console.log('building from button: ', building);
 
-                    // this.building.actionManager.registerAction(
-                    //     new BABYLON.InterpolateValueAction (
-                    //         BABYLON.ActionManager.OnPickUpTrigger,
-                    //         this.building,
-                    //         "scaling",
-                    //         new BABYLON.Vector3(1, 1, 1),
-                    //         800
-                    //     )
-                    // );
+                    this.building.actionManager.registerAction(
+                        new BABYLON.InterpolateValueAction (
+                            BABYLON.ActionManager.OnPickUpTrigger,
+                            this.building,
+                            "scaling",
+                            new BABYLON.Vector3(1, 1, 1),
+                            800
+                        )
+                    );
                 });
                 button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
