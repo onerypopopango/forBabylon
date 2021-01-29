@@ -48,7 +48,7 @@ class Model3d extends HTMLElement{
                     console.log('button: ', button1);
                     console.log('building from button: ', building);
 
-                    this.building.actionManager.registerAction(
+                    building.actionManager.registerAction(
                         new BABYLON.InterpolateValueAction (
                             BABYLON.ActionManager.OnPickUpTrigger,
                             this.building,
