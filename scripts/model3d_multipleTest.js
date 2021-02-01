@@ -136,20 +136,27 @@ class Model3d extends HTMLElement{
                 scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(
                     BABYLON.ActionManager.OnKeyDownTrigger, function (event) {
                         console.log('button pressed?')
-                        animating = true;
-                        expand = !expand;
+                        animateBuilding();
                 }));
 
-                if (animating == true) {
-                    if (expand == true) {
-                        console.log('expand');
-                        buildingAnimExpand.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
-                    } else {
-                        console.log('contract');
-                        buildingAnimContract.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
-                    }
-                    animating = false;
+                function animateBuilding() {
+                    animating = true;
+                    expand = !expand;
+
+                    if (animating == true) {
+                        if (expand == true) {
+                            console.log('expand');
+                            buildingAnimExpand.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
+                        } else {
+                            console.log('contract');
+                            buildingAnimContract.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
+                        }
+                        animating = false;
+                    };
+
                 };
+
+                
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
