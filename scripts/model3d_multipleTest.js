@@ -135,17 +135,19 @@ class Model3d extends HTMLElement{
                 scene.actionManager = new BABYLON.ActionManager(scene);
                 scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(
                     BABYLON.ActionManager.OnPickUpTrigger, function (event) {
-                    animating = true;
-                    expand = !expand;
+                        console.log('clicked?')
+                        animating = true;
+                        expand = !expand;
                 }));
 
                 if (animating) {
                     if (expand = true) {
+                        console.log('expand');
                         buildingAnimExpand.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
                     } else {
+                        console.log('contract');
                         buildingAnimContract.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
                     }
-
                     animating = false;
                 }
 
