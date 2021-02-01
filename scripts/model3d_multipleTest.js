@@ -134,8 +134,8 @@ class Model3d extends HTMLElement{
                 var inputMap = {};
                 scene.actionManager = new BABYLON.ActionManager(scene);
                 scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(
-                    BABYLON.ActionManager.OnPickUpTrigger, function (event) {
-                        console.log('clicked?')
+                    BABYLON.ActionManager.OnKeyDownTrigger, function (event) {
+                        console.log('button pressed?')
                         animating = true;
                         expand = !expand;
                 }));
@@ -149,8 +149,7 @@ class Model3d extends HTMLElement{
                         buildingAnimContract.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
                     }
                     animating = false;
-                }
-
+                };
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
