@@ -217,6 +217,7 @@ class Model3d extends HTMLElement{
                 const meshTask = assetsManager.addMeshTask(path[1], '', path[0], path[1]);
                 meshTask.onSuccess = function (task){
                     task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
+                    task.loadedAnimationGroups[0].stop();
                     console.log('task: ', task);
                 }
                 meshTask.onError = function(task, message, exception){
@@ -226,7 +227,6 @@ class Model3d extends HTMLElement{
 
             assetsManager.onFinish = function (tasks) {
 
-                scene.loadedAnimationGroups[0].stop();
                 building = scene.getMeshByName("SiteOffice001");
                 buidlingGround = scene.getMeshByName("SiteOffice_Ground");
                 console.log('building: ', building);
