@@ -153,12 +153,17 @@ class Model3d extends HTMLElement{
                             buildingAnimContract.start(true, 1.0, frameRate, frameRate * 16, false);
                             animating = false;
                         }
-                    } else {
+                    } 
+
+                    stopAnim();
+                };         
+                
+                function stopAnim() {
+                    if (animating == false) {
                         buildingAnimContract.stop();
                         buildingAnimExpand.stop();
-                    };
-
-                };                
+                    }
+                };
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
