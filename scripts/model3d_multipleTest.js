@@ -147,22 +147,24 @@ class Model3d extends HTMLElement{
                         if (expand == true) {
                             console.log('expand');
                             buildingAnimExpand.start(true, 1.0, frameRate, frameRate * 16, false);
-                            animating = false;
-                            stopAnim();
                         } else {
                             console.log('contract');
                             buildingAnimContract.start(true, 1.0, frameRate, frameRate * 16, false);
-                            animating = false;
-                            stopAnim();
                         }
-                    }                     
+                    }    
+
+                    stopAnim();
                 };         
                 
                 function stopAnim() {
-                    if (animating == false) {
-                        buildingAnimContract.stop();
-                        buildingAnimExpand.stop();
-                    }
+                    if (expand == true) {
+                        await buildingAnimExpand.waitAsync();
+                    } else {
+                        await buildingAnimContract.waitAsync();
+                    };
+                    animating = false;
+                    buildingAnimContract.stop();
+                    buildingAnimExpand.stop();
                 };
 
                 // target: any, from: number, to: number, loop?: boolean, 
