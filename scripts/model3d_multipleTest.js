@@ -148,14 +148,14 @@ class Model3d extends HTMLElement{
                             console.log('expand');
                             buildingAnimExpand.start(true, 1.0, frameRate, frameRate * 16, false);
                             animating = false;
+                            stopAnim();
                         } else {
                             console.log('contract');
                             buildingAnimContract.start(true, 1.0, frameRate, frameRate * 16, false);
                             animating = false;
+                            stopAnim();
                         }
-                    } 
-
-                    stopAnim();
+                    }                     
                 };         
                 
                 function stopAnim() {
