@@ -153,19 +153,22 @@ class Model3d extends HTMLElement{
                         }
                     }    
 
-                    // stopAnim();
+                    stopAnim();
                 };         
                 
-                // function stopAnim() {
-                //     if (expand == true) {
-                //         await buildingAnimExpand.waitAsync();
-                //     } else {
-                //         await buildingAnimContract.waitAsync();
-                //     };
-                //     animating = false;
-                //     buildingAnimContract.stop();
-                //     buildingAnimExpand.stop();
-                // };
+                function stopAnim() {
+                    if (expand == true) {
+                        buildingAnimExpand.onAnimationEndObservable.add(() => {
+                            buildingAnimExpand.stop();
+                            animating = false;
+                        })
+                    } else {
+                        buildingAnimExpand.onAnimationEndObservable.add(() => {
+                            buildingAnimContract.stop();
+                            animating = false;
+                        })
+                    };
+                };
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
