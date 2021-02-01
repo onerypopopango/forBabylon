@@ -149,8 +149,6 @@ class Model3d extends HTMLElement{
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
                 // stopCurrent?: boolean, targetMask?: (target: any) => boolean, onAnimationLoop?: () => void, isAdditive?: boolean
                 scene.beginAnimation(camera, 0, frameRate * 16, true);
-
-                animationGroups[0].stop();
                 
                 return scene;
             }
@@ -257,6 +255,8 @@ class Model3d extends HTMLElement{
                     //         800
                     //     )
                     // );
+
+                    building.animationGroups[0].stop();
                 }
             };
 
