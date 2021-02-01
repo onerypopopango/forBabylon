@@ -226,6 +226,7 @@ class Model3d extends HTMLElement{
 
             assetsManager.onFinish = function (tasks) {
 
+                scene.loadedAnimationGroups[0].stop();
                 building = scene.getMeshByName("SiteOffice001");
                 buidlingGround = scene.getMeshByName("SiteOffice_Ground");
                 console.log('building: ', building);
@@ -256,7 +257,6 @@ class Model3d extends HTMLElement{
                     //     )
                     // );
 
-                    building.animationGroups[0].stop();
                 }
             };
 
