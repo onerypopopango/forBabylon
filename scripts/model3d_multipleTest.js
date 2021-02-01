@@ -140,8 +140,8 @@ class Model3d extends HTMLElement{
                         expand = !expand;
                 }));
 
-                if (animating) {
-                    if (expand = true) {
+                if (animating == true) {
+                    if (expand == true) {
                         console.log('expand');
                         buildingAnimExpand.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
                     } else {
