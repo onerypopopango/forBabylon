@@ -13,9 +13,17 @@ class Model3d extends HTMLElement{
 
         let scene = null;
         let BJSloaded = false;
+
+        //meshes
         var building;
         var buidlingGround;
         var floorOne;
+
+        // animation groups and animation stuff
+        var buildingAnimExpand;
+        var buildingAnimContract;
+        var expand = false;
+        var animating = false;
 
         //sets up the babylon environment for loading object into it
         //this was called fourth (4)
@@ -32,6 +40,7 @@ class Model3d extends HTMLElement{
                 // var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(15, 0, 22), scene);
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
 
+                // lights in scene
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
                 var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
                 var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
@@ -113,29 +122,6 @@ class Model3d extends HTMLElement{
                 });
 
                 rotate.setKeys(rotate_keys);
-
-                // animation to replace building with floor
-                var building_fade_out = new BABYLON.Animation(
-                    "building_fade_out",
-                    "scaling",
-                    frameRate,
-                    BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-                    BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
-                );
-
-                var building_fade_out_keys = [];
-
-                building_fade_out_keys.push({
-                    frame: 0,
-                    value: 0
-                });
-
-                building_fade_out_keys.push({
-                    frame: frameRate * 2,
-                    value: 10
-                });
-
-                building_fade_out.setKeys(building_fade_out_keys);
                 
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 30, 120));
@@ -143,7 +129,25 @@ class Model3d extends HTMLElement{
 
                 //so beginDirectAnimation didn't work... this did instead
                 camera.animations.push(rotate);
-                // building.animations.push(building_fade_out);
+
+                // attempt to create actionManager for scene
+                var inputMap = {};
+                scene.actionManager = new BABYLON.ActionManager(scene);
+                scene.actionManager.registerAction(new BABYLON.ActionManager.OnPickUpTrigger, function (event) {
+                    animating = true;
+                    expand = !expand;
+                });
+
+                if (animating) {
+                    if (expand = true) {
+                        buildingAnimExpand.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
+                    } else {
+                        buildingAnimContract.start(true, 1.0, walkBackAnim.from, walkBackAnim.to, false);
+                    }
+
+                    animating = false;
+                }
+
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
@@ -153,13 +157,13 @@ class Model3d extends HTMLElement{
                 return scene;
             }
 
-            
-
             scene = createScene();
+
             //starts the render loop
             engine.runRenderLoop(function () { 
                 scene.render();
             });
+
             //manages resizing of container
             window.addEventListener("resize", function () {
                 engine.resize();
@@ -206,7 +210,6 @@ class Model3d extends HTMLElement{
         let loadGLTFAux = function(fileArray){
             console.log('file: ', fileArray);
             scene.meshes.pop();
-
             var assetsManager = new BABYLON.AssetsManager(scene);
 
             fileArray.forEach(file => {
@@ -216,17 +219,21 @@ class Model3d extends HTMLElement{
                 // taskName, meshesNames, rootUrl, sceneFilename
                 const meshTask = assetsManager.addMeshTask(path[1], '', path[0], path[1]);
                 meshTask.onSuccess = function (task){
-                    task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
-                    task.loadedAnimationGroups[0].stop();
+
                     console.log('task: ', task);
+                    task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
+                    task.loadedAnimationGroups[0].stop();   // stops default anim
+
+                    buildingAnimContract = task.loadedAnimationGroups[0];
+                    buildingAnimExpand = task.loadedAnimationGroups[1];
                 }
+
                 meshTask.onError = function(task, message, exception){
                     console.log(message, exception);
                 }
             });
 
             assetsManager.onFinish = function (tasks) {
-
                 building = scene.getMeshByName("SiteOffice001");
                 buidlingGround = scene.getMeshByName("SiteOffice_Ground");
                 console.log('building: ', building);
