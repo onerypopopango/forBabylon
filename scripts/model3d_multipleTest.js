@@ -133,10 +133,11 @@ class Model3d extends HTMLElement{
                 // attempt to create actionManager for scene
                 var inputMap = {};
                 scene.actionManager = new BABYLON.ActionManager(scene);
-                scene.actionManager.registerAction(new BABYLON.ActionManager.OnPickUpTrigger, function (event) {
+                scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(
+                    BABYLON.ActionManager.OnPickUpTrigger, function (event) {
                     animating = true;
                     expand = !expand;
-                });
+                }));
 
                 if (animating) {
                     if (expand = true) {
