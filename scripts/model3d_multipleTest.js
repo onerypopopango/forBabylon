@@ -77,16 +77,6 @@ class Model3d extends HTMLElement{
                             800
                         )
                     );
-
-                    // building.actionManager.registerAction(
-                    //     new BABYLON.InterpolateValueAction (
-                    //         BABYLON.ActionManager.OnPickUpTrigger,
-                    //         this.building,
-                    //         "scaling",
-                    //         new BABYLON.Vector3(1, 1, 1),
-                    //         800
-                    //     )
-                    // );
                 });
                 button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -153,24 +143,8 @@ class Model3d extends HTMLElement{
                             buildingAnimContract.start(false, 1.0, frameRate, frameRate * 16, false);
                         }
                     }    
-
                     animating = false;
                 };         
-                
-                // // Something STILL WRONG!@@@!!!
-                // function stopAnim() {
-                //     if (expand == true) {
-                //         buildingAnimExpand.onAnimationEndObservable.add(() => {
-                //             buildingAnimExpand.stop();
-                //             animating = false;
-                //         })
-                //     } else {
-                //         buildingAnimExpand.onAnimationEndObservable.add(() => {
-                //             buildingAnimContract.stop();
-                //             animating = false;
-                //         })
-                //     };
-                // };
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
