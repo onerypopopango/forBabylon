@@ -216,11 +216,10 @@ class Model3d extends HTMLElement{
                 // taskName, meshesNames, rootUrl, sceneFilename
                 const meshTask = assetsManager.addMeshTask(path[1], '', path[0], path[1]);
                 meshTask.onSuccess = function (task){
-
-                    console.log('task: ', task);
+                    
                     task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
                     task.loadedAnimationGroups[0].stop();   // stops default anim
-
+                    console.log('task: ', task);
                     buildingAnimContract = task.loadedAnimationGroups[0];
                     buildingAnimExpand = task.loadedAnimationGroups[1];
                 }
