@@ -143,32 +143,34 @@ class Model3d extends HTMLElement{
                     animating = true;
                     expand = !expand;
 
+                    // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
                     if (animating == true) {
                         if (expand == true) {
                             console.log('expand');
-                            buildingAnimExpand.start(true, 1.0, frameRate, frameRate * 16, false);
+                            buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 16, false);
                         } else {
                             console.log('contract');
-                            buildingAnimContract.start(true, 1.0, frameRate, frameRate * 16, false);
+                            buildingAnimContract.start(false, 1.0, frameRate, frameRate * 16, false);
                         }
                     }    
 
-                    stopAnim();
+                    animating = false;
                 };         
                 
-                function stopAnim() {
-                    if (expand == true) {
-                        buildingAnimExpand.onAnimationEndObservable.add(() => {
-                            buildingAnimExpand.stop();
-                            animating = false;
-                        })
-                    } else {
-                        buildingAnimExpand.onAnimationEndObservable.add(() => {
-                            buildingAnimContract.stop();
-                            animating = false;
-                        })
-                    };
-                };
+                // // Something STILL WRONG!@@@!!!
+                // function stopAnim() {
+                //     if (expand == true) {
+                //         buildingAnimExpand.onAnimationEndObservable.add(() => {
+                //             buildingAnimExpand.stop();
+                //             animating = false;
+                //         })
+                //     } else {
+                //         buildingAnimExpand.onAnimationEndObservable.add(() => {
+                //             buildingAnimContract.stop();
+                //             animating = false;
+                //         })
+                //     };
+                // };
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
