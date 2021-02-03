@@ -213,6 +213,7 @@ class Model3d extends HTMLElement{
                                 floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                             }
+                            break;
                         default:
                             console.log('Sorry, something went wrong...')
                     }
