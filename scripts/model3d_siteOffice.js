@@ -124,7 +124,9 @@ class Model3d extends HTMLElement{
             console.log('path: ', path);
             var assetsManager = new BABYLON.AssetsManager(scene);
             const meshTask = assetsManager.addMeshTask('glb task', '', path[0], path[1]);
+            
             meshTask.onSuccess = function (task){
+                task.loadedAnimationGroups[0].stop();   // stops default anim
                 task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
             }
             meshTask.onError = function(task, message, exception){
