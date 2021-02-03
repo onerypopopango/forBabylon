@@ -106,7 +106,17 @@ class Model3d extends HTMLElement{
                     //     )
                     // );
                 });
+
+                var button2 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Floor1");
+                button2.width = "150px"
+                button2.height = "40px";
+                button2.color = "white";
+                button2.cornerRadius = 15;
+                button2.background = "black";
+
                 button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+                button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+                button2.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
                 advancedTexture.addControl(button1);    
 
