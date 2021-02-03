@@ -115,12 +115,12 @@ class Model3d extends HTMLElement{
                 
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 30, 120));
-                camera.attachControl(cnv, true);
+                // camera.attachControl(cnv, true);
 
                 //so beginDirectAnimation didn't work... this did instead
                 camera.animations.push(rotate);
 
-                // attempt to create actionManager for scene
+                // attempt to create actionManager for scene for controlling building anim
                 var inputMap = {};
                 scene.actionManager = new BABYLON.ActionManager(scene);
                 scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(
