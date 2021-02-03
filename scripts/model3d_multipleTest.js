@@ -89,6 +89,7 @@ class Model3d extends HTMLElement{
                     animateBuilding();
                     zoomFloors();
                     floorFocus = false;
+                    buildingButtonClicked = !buildingButtonClicked;
                 });
                 panel.addControl(button1);
 
@@ -102,7 +103,14 @@ class Model3d extends HTMLElement{
                 button2.paddingTop = "10px";
                 button2.onPointerClickObservable.add(function() {
                     console.log('button 2 clicked');
-                    focusFloor(1); 
+                    if (buildingButtonClicked == false) {
+                        animateBuilding();
+                        zoomFloors();
+                        focusFloor(1); 
+                    } else {
+                        focusFloor(1); 
+                    };
+                    floorOneButtonClicked = !floorOneButtonClicked;
                 });
                 panel.addControl(button2);
 
