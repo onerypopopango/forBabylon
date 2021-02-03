@@ -102,10 +102,6 @@ class Model3d extends HTMLElement{
                 button2.paddingTop = "10px";
                 button2.onPointerClickObservable.add(function() {
                     console.log('button 2 clicked');
-                    if (!expand) {
-                        animateBuilding();
-                        zoomFloors();
-                    };
                     focusFloor(1); 
                 });
                 panel.addControl(button2);
