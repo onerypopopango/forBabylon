@@ -85,7 +85,7 @@ class Model3d extends HTMLElement{
                 button1.cornerRadius = 15;
                 button1.background = "black";
                 button1.onPointerClickObservable.add(function() {
-                    console.log('button 1 clicked');
+                    console.log('building button clicked');
                     if (floorOneButtonClicked == true) {
                         focusFloor(1);
                         floorOneButtonClicked = !floorOneButtonClicked;
@@ -97,7 +97,7 @@ class Model3d extends HTMLElement{
                 });
                 panel.addControl(button1);
 
-                var button2 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Floor1");
+                var button2 = BABYLON.GUI.Button.CreateSimpleButton("but2", "Floor1");
                 button2.width = "150px"
                 button2.height = "50px";
                 button2.color = "white";
@@ -106,7 +106,7 @@ class Model3d extends HTMLElement{
                 button2.paddingTop = "50px";
                 button2.paddingTop = "10px";
                 button2.onPointerClickObservable.add(function() {
-                    console.log('button 2 clicked');
+                    console.log('floor1 button clicked');
                     if (buildingButtonClicked == false) {
                         animateBuilding();
                         zoomFloors();
