@@ -47,7 +47,7 @@ class Model3d extends HTMLElement{
         var floor5Contract;
         var floor5Focus;
         var floor5Unfocus;
-        var floorExpand = false;
+        var floorExpand = true;
         var floorFocus = false;
 
         //sets up the babylon environment for loading object into it
