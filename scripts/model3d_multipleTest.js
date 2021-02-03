@@ -73,6 +73,7 @@ class Model3d extends HTMLElement{
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
                 var panel = new BABYLON.GUI.StackPanel();
+                panel.width = 0.2;
 
                 var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Building");
                 button1.width = "150px"
@@ -126,7 +127,7 @@ class Model3d extends HTMLElement{
                 // button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
 
                 panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-                // panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+                panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
                 advancedTexture.addControl(panel);    
 
                 var frameRate = 24;
