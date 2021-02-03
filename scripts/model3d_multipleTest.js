@@ -26,7 +26,7 @@ class Model3d extends HTMLElement{
         // animation groups and animation stuff
         var buildingAnimExpand;
         var buildingAnimContract;
-        var expand = false;
+        var expand = true;
         var animating = false;
 
         var floor1Expand;
@@ -157,20 +157,22 @@ class Model3d extends HTMLElement{
                 }));
 
                 function animateBuilding() {
-                    animating = true;
-                    expand = !expand;
+                    // animating = true;
+                                        
+                    // if (animating == true) {
+                        
+                    // }    
+                    // animating = false;
 
+                    expand = !expand;
                     // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
-                    if (animating == true) {
-                        if (expand == true) {
-                            console.log('building expand');
-                            buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 16, false);
-                        } else {
-                            console.log('contract');
-                            buildingAnimContract.start(false, 1.0, frameRate, frameRate * 16, false);
-                        }
-                    }    
-                    animating = false;
+                    if (expand == true) {
+                        console.log('building expand');
+                        buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 16, false);
+                    } else {
+                        console.log('contract');
+                        buildingAnimContract.start(false, 1.0, frameRate, frameRate * 16, false);
+                    }
                 };    
                 
                 function zoomFloors() {
