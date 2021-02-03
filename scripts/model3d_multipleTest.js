@@ -113,12 +113,12 @@ class Model3d extends HTMLElement{
 
                 var button2 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Floor1");
                 button2.width = "150px"
-                button2.height = "40px";
+                button2.height = "50px";
                 button2.color = "white";
                 button2.cornerRadius = 15;
                 button2.background = "black";
-                button2.paddingTop = "80px";
-                // button2.paddingTop = "10px";
+                button2.paddingTop = "50px";
+                button2.paddingTop = "10px";
                 panel.addControl(button2);
 
                 // button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
