@@ -50,8 +50,11 @@ class Model3d extends HTMLElement{
         var floorExpand = true;
         var floorFocus = false;
 
-        //sets up the babylon environment for loading object into it
-        //this was called fourth (4)
+        var buildingButtonClicked = false;
+        var floorOneButtonClicked = false;
+
+        // sets up the babylon environment for loading object into it
+        // this was called fourth (4)
         function setUp3DEnvironment(){
             console.log("setUp3DEnvironment");
             const engine = new BABYLON.Engine(cnv, true);
@@ -82,32 +85,9 @@ class Model3d extends HTMLElement{
                 button1.cornerRadius = 15;
                 button1.background = "black";
                 button1.onPointerClickObservable.add(function() {
-
-                    console.log('button: ', button1);
-                    console.log('building from button: ', building);
-
+                    console.log('button 1 clicked');
                     animateBuilding();
                     zoomFloors();
-
-                    // building.actionManager = new BABYLON.ActionManager(scene);
-
-                    // building.actionManager.registerAction(
-                    //     new BABYLON.InterpolateValueAction (
-                    //         BABYLON.ActionManager.OnPickUpTrigger,
-                    //         building,
-                    //         "scaling",
-                    //         new BABYLON.Vector3(1.1, 1.1, 1.1),
-                    //         800
-                    //     )
-                    // ).then(
-                    //     new BABYLON.InterpolateValueAction (
-                    //         BABYLON.ActionManager.OnPickUpTrigger,
-                    //         building,
-                    //         "scaling",
-                    //         new BABYLON.Vector3(1, 1, 1),
-                    //         800
-                    //     )
-                    // );
                 });
                 panel.addControl(button1);
 
@@ -119,12 +99,12 @@ class Model3d extends HTMLElement{
                 button2.background = "black";
                 button2.paddingTop = "50px";
                 button2.paddingTop = "10px";
+                button2.onPointerClickObservable.add(function() {
+                    console.log('button 2 clicked');
+                    focusFloor(1);
+                });
                 panel.addControl(button2);
 
-                // button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-                // button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
-                // button2.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-                // button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
 
                 panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -178,13 +158,6 @@ class Model3d extends HTMLElement{
                 // }));
 
                 function animateBuilding() {
-                    // animating = true;
-                                        
-                    // if (animating == true) {
-                        
-                    // }    
-                    // animating = false;
-
                     // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
                     if (expand == true) {
                         console.log('building expand');
@@ -197,9 +170,7 @@ class Model3d extends HTMLElement{
                 };    
                 
                 function zoomFloors() {
-                    
                     if (floorExpand == true) {
-                        console.log('floor expand');
                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -213,6 +184,29 @@ class Model3d extends HTMLElement{
                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                     }
                     floorExpand = !floorExpand;
+                }
+
+                function focusFloor(num) {
+                    switch (num) {
+                        case 1: 
+                            if (floorFocus == false) {
+                                floor1Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                            } else {
+                                floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                            }
+                            
+                        default:
+                            console.log('Sorry, something went wrong...')
+                    }
+                    floorFocus = !floorFocus
                 }
 
                 // target: any, from: number, to: number, loop?: boolean, 
