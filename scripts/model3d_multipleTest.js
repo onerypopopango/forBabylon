@@ -198,7 +198,7 @@ class Model3d extends HTMLElement{
 
                 function focusFloor(num) {
                     switch (num) {
-                        case 1: 
+                        case 1:
                             console.log('Floor 1 selected...')
                             if (floorFocus == false) {
                                 floor1Focus.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -206,14 +206,30 @@ class Model3d extends HTMLElement{
                                 floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else {
+                            } else if (floorFocus == true) {
                                 floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                            }
+                            };
                             break;
+                        case 2:
+                            console.log('Floor 1 selected...')
+                            if (floorFocus == false) {
+                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                            } else if (floorFocus == true) {
+                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                            };
+                            break;    
                         default:
                             console.log('Sorry, something went wrong...')
                     }
