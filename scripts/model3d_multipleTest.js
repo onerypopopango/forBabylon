@@ -73,7 +73,7 @@ class Model3d extends HTMLElement{
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
                 var panel = new BABYLON.GUI.StackPanel();
-                panel.width = 0.2;
+                panel.width = 0.2; // need to add this for alignment to work on panel
 
                 var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Building");
                 button1.width = "150px"
@@ -117,7 +117,7 @@ class Model3d extends HTMLElement{
                 button2.color = "white";
                 button2.cornerRadius = 15;
                 button2.background = "black";
-                button2.paddingTop = "50px";
+                button2.paddingTop = "80px";
                 // button2.paddingTop = "10px";
                 panel.addControl(button2);
 
