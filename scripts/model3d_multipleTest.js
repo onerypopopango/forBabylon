@@ -83,25 +83,27 @@ class Model3d extends HTMLElement{
                     console.log('button: ', button1);
                     console.log('building from button: ', building);
 
-                    building.actionManager = new BABYLON.ActionManager(scene);
+                    animateBuilding();
 
-                    building.actionManager.registerAction(
-                        new BABYLON.InterpolateValueAction (
-                            BABYLON.ActionManager.OnPickUpTrigger,
-                            building,
-                            "scaling",
-                            new BABYLON.Vector3(1.1, 1.1, 1.1),
-                            800
-                        )
-                    ).then(
-                        new BABYLON.InterpolateValueAction (
-                            BABYLON.ActionManager.OnPickUpTrigger,
-                            building,
-                            "scaling",
-                            new BABYLON.Vector3(1, 1, 1),
-                            800
-                        )
-                    );
+                    // building.actionManager = new BABYLON.ActionManager(scene);
+
+                    // building.actionManager.registerAction(
+                    //     new BABYLON.InterpolateValueAction (
+                    //         BABYLON.ActionManager.OnPickUpTrigger,
+                    //         building,
+                    //         "scaling",
+                    //         new BABYLON.Vector3(1.1, 1.1, 1.1),
+                    //         800
+                    //     )
+                    // ).then(
+                    //     new BABYLON.InterpolateValueAction (
+                    //         BABYLON.ActionManager.OnPickUpTrigger,
+                    //         building,
+                    //         "scaling",
+                    //         new BABYLON.Vector3(1, 1, 1),
+                    //         800
+                    //     )
+                    // );
                 });
                 button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -161,7 +163,7 @@ class Model3d extends HTMLElement{
                     // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
                     if (animating == true) {
                         if (expand == true) {
-                            console.log('expand');
+                            console.log('building expand');
                             buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 16, false);
                         } else {
                             console.log('contract');
@@ -169,7 +171,25 @@ class Model3d extends HTMLElement{
                         }
                     }    
                     animating = false;
-                };         
+                };    
+                
+                function zoomFloors() {
+                    floorExpand = !floorExpand;
+                    if (floorExpand == true) {
+                        console.log('floor expand');
+                        floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                    } else {
+                        floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                    }
+                }
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
@@ -252,6 +272,24 @@ class Model3d extends HTMLElement{
                         buildingAnimExpand = task.loadedAnimationGroups[1];
                     } else if (task.name === "floorPlanMultipleForAnim.glb") {
                         console.log('Transfering animation from: ', task.name);
+                        floor1Contract = task.loadedAnimationGroups[6];
+                        floor1Expand = task.loadedAnimationGroups[7];
+                        floor1Focus = task.loadedAnimationGroups[8];
+                        floor1Unfocus = task.loadedAnimationGroups[9];
+                        floor2Contract = task.loadedAnimationGroups[2];
+                        floor2Expand = task.loadedAnimationGroups[3];
+                        floor2Focus = task.loadedAnimationGroups[4];
+                        floor2Unfocus = task.loadedAnimationGroups[5];
+                        floor3Contract = task.loadedAnimationGroups[0];
+                        floor3Expand = task.loadedAnimationGroups[1];
+                        floor4Contract = task.loadedAnimationGroups[10];
+                        floor4Expand = task.loadedAnimationGroups[11];
+                        floor4Focus = task.loadedAnimationGroups[12];
+                        floor4Unfocus = task.loadedAnimationGroups[13];
+                        floor5Contract = task.loadedAnimationGroups[14];
+                        floor5Expand = task.loadedAnimationGroups[15];
+                        floor5Focus = task.loadedAnimationGroups[16];
+                        floor5Unfocus = task.loadedAnimationGroups[17];
                     } else {
                         console.log("ERROR: No task to transfer animations from...")
                     }
@@ -300,7 +338,7 @@ class Model3d extends HTMLElement{
             assetsManager.load();
         };
 
-        //this loads fifth (5)
+        // this loads fifth (5)
         this.loadGLTF = function(fileArray){
             loadBJS.then(function(fulfilled){
                 console.log("loadGLTF");
@@ -326,8 +364,8 @@ class Model3d extends HTMLElement{
             });
         };
 
-        //separates path from file name in given resource
-        //this loads sixth (6)
+        // separates path from file name in given resource
+        // this loads sixth (6)
         let decodePath = function(path){
             console.log("decodePath");
             const fileStart = path.lastIndexOf('/') + 1;
@@ -343,18 +381,18 @@ class Model3d extends HTMLElement{
         return ['src', 'background-color'];
     }
 
-    //this was called second (2) and third (3)
+    // this was called second (2) and third (3)
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case 'src':
-                //(3)
+                // (3)
                 console.log(`loading ${newValue}`);  
                 let urlArray = newValue.split("|");
                 console.log(`loading `, urlArray);  
                 this.loadGLTF(urlArray); 
                 break;
             case 'background-color':
-                //(2)
+                // (2)
                 console.log(`changing color to ${newValue} from ${oldValue}`);
                 this.changeBGColor(newValue);                
                 break;            
