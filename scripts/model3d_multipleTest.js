@@ -29,6 +29,27 @@ class Model3d extends HTMLElement{
         var expand = false;
         var animating = false;
 
+        var floor1Expand;
+        var floor1Contract;
+        var floor1Focus;
+        var floor1Unfocus;
+        var floor2Expand;
+        var floor2Contract;
+        var floor2Focus;
+        var floor2Unfocus;
+        var floor3Expand;
+        var floor3Contract;
+        var floor4Expand;
+        var floor4Contract;
+        var floor4Focus;
+        var floor4Unfocus;
+        var floor5Expand;
+        var floor5Contract;
+        var floor5Focus;
+        var floor5Unfocus;
+        var floorExpand = false;
+        var floorFocus = false;
+
         //sets up the babylon environment for loading object into it
         //this was called fourth (4)
         function setUp3DEnvironment(){
