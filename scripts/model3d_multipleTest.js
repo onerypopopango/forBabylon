@@ -199,6 +199,7 @@ class Model3d extends HTMLElement{
                 function focusFloor(num) {
                     switch (num) {
                         case 1: 
+                            console.log('Floor 1 selected...')
                             if (floorFocus == false) {
                                 floor1Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -212,7 +213,6 @@ class Model3d extends HTMLElement{
                                 floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                             }
-                            
                         default:
                             console.log('Sorry, something went wrong...')
                     }
