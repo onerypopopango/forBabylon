@@ -113,7 +113,7 @@ class Model3d extends HTMLElement{
                 button2.color = "white";
                 button2.cornerRadius = 15;
                 button2.background = "black";
-                button2.paddingTop = "10px";
+                button2.paddingTop = "50px";
 
                 button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
