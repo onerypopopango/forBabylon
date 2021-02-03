@@ -107,6 +107,7 @@ class Model3d extends HTMLElement{
                         animateBuilding();
                         zoomFloors();
                         focusFloor(1); 
+                        buildingButtonClicked = !buildingButtonClicked;
                     } else {
                         focusFloor(1); 
                     };
