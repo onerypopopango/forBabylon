@@ -117,7 +117,7 @@ class Model3d extends HTMLElement{
                 button2.cornerRadius = 15;
                 button2.background = "black";
                 button2.paddingTop = "50px";
-
+                button2.paddingTop = "10px";
                 panel.addControl(button2);
 
                 // button1.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
