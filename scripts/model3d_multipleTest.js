@@ -18,6 +18,10 @@ class Model3d extends HTMLElement{
         var building;
         var buidlingGround;
         var floorOne;
+        var floorTwo;
+        var floorThree;
+        var floorFour;
+        var floorFive;
 
         // animation groups and animation stuff
         var buildingAnimExpand;
@@ -220,8 +224,17 @@ class Model3d extends HTMLElement{
                     task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
                     task.loadedAnimationGroups[0].stop();   // stops default anim
                     console.log('task: ', task);
-                    buildingAnimContract = task.loadedAnimationGroups[0];
-                    buildingAnimExpand = task.loadedAnimationGroups[1];
+
+                    if (task.name === "officeBlock.glb") {
+                        console.log('Transfering animation from: ', task.name);
+                        buildingAnimContract = task.loadedAnimationGroups[0];
+                        buildingAnimExpand = task.loadedAnimationGroups[1];
+                    } else if (task.name === "floorPlanMultipleForAnim.glb") {
+                        console.log('Transfering animation from: ', task.name);
+                    } else {
+                        console.log("ERROR: No task to transfer animations from...")
+                    }
+                    
                 }
 
                 meshTask.onError = function(task, message, exception){
