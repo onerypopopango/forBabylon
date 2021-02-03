@@ -86,10 +86,6 @@ class Model3d extends HTMLElement{
                 button1.background = "black";
                 button1.onPointerClickObservable.add(function() {
                     console.log('building button clicked');
-                    // if (floorOneButtonClicked == true) {
-                    //     focusFloor(1);
-                    //     floorOneButtonClicked = !floorOneButtonClicked;
-                    // };
                     animateBuilding();
                     zoomFloors();
                     floorFocus = false;
