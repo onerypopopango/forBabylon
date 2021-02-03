@@ -84,6 +84,7 @@ class Model3d extends HTMLElement{
                     console.log('building from button: ', building);
 
                     animateBuilding();
+                    zoomFloors();
 
                     // building.actionManager = new BABYLON.ActionManager(scene);
 
@@ -148,13 +149,13 @@ class Model3d extends HTMLElement{
                 camera.animations.push(rotate);
 
                 // attempt to create actionManager for scene for controlling building anim
-                var inputMap = {};
-                scene.actionManager = new BABYLON.ActionManager(scene);
-                scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(
-                    BABYLON.ActionManager.OnKeyDownTrigger, function (event) {
-                        console.log('button pressed?')
-                        animateBuilding();
-                }));
+                // var inputMap = {};
+                // scene.actionManager = new BABYLON.ActionManager(scene);
+                // scene.actionManager.registerAction(new BABYLON.ExecuteCodeAction(
+                //     BABYLON.ActionManager.OnKeyDownTrigger, function (event) {
+                //         console.log('button pressed?')
+                //         animateBuilding();
+                // }));
 
                 function animateBuilding() {
                     // animating = true;
@@ -164,7 +165,6 @@ class Model3d extends HTMLElement{
                     // }    
                     // animating = false;
 
-                    expand = !expand;
                     // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
                     if (expand == true) {
                         console.log('building expand');
@@ -173,10 +173,11 @@ class Model3d extends HTMLElement{
                         console.log('contract');
                         buildingAnimContract.start(false, 1.0, frameRate, frameRate * 16, false);
                     }
+                    expand = !expand;
                 };    
                 
                 function zoomFloors() {
-                    floorExpand = !floorExpand;
+                    
                     if (floorExpand == true) {
                         console.log('floor expand');
                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -191,6 +192,7 @@ class Model3d extends HTMLElement{
                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                     }
+                    floorExpand = !floorExpand;
                 }
 
                 // target: any, from: number, to: number, loop?: boolean, 
