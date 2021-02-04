@@ -305,7 +305,7 @@ class Model3d extends HTMLElement{
                             };
                             break;
                         case 2:
-                            console.log('Floor 1 selected...')
+                            console.log('Floor 2 selected...')
                             if (floorFocus == false) {
                                 floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor2Focus.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -321,7 +321,7 @@ class Model3d extends HTMLElement{
                             };
                             break;
                         case 3:
-                            console.log('Floor 1 selected...')
+                            console.log('Floor 3 selected...')
                             if (floorFocus == false) {
                                 floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -337,7 +337,7 @@ class Model3d extends HTMLElement{
                             };
                             break;
                         case 4:
-                            console.log('Floor 1 selected...')
+                            console.log('Floor 4 selected...')
                             if (floorFocus == false) {
                                 floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -353,7 +353,7 @@ class Model3d extends HTMLElement{
                             };
                             break; 
                         case 5:
-                            console.log('Floor 1 selected...')
+                            console.log('Floor 5 selected...')
                             if (floorFocus == false) {
                                 floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
