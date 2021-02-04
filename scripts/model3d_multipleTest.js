@@ -490,14 +490,11 @@ class Model3d extends HTMLElement{
             assetsManager.onFinish = function (tasks) {
                 building = scene.getMeshByName("SiteOffice001");
                 buidlingGround = scene.getMeshByName("SiteOffice_Ground");
-
                 floorOne = scene.getMeshByName("2.5D Floorplan.001");
                 floorTwo = scene.getMeshByName("2.5D Floorplan.002");
                 floorThree = scene.getMeshByName("2.5D Floorplan.003");
                 floorFour = scene.getMeshByName("2.5D Floorplan.004");
                 floorFive = scene.getMeshByName("2.5D Floorplan.005");
-
-                console.log('building: ', building);
 
                 //********************************
                 // Over/Out <= this is it!!!!
@@ -517,6 +514,11 @@ class Model3d extends HTMLElement{
 
                     building.actionManager = new BABYLON.ActionManager(scene);
                     buidlingGround.actionManager = new BABYLON.ActionManager(scene);
+                    floorOne.actionManager = new BABYLON.ActionManager(scene);
+                    floorTwo.actionManager = new BABYLON.ActionManager(scene);
+                    floorThree.actionManager = new BABYLON.ActionManager(scene);
+                    floorFour.actionManager = new BABYLON.ActionManager(scene);
+                    floorFive.actionManager = new BABYLON.ActionManager(scene);
 
                     makeOverOut(building);
                     makeOverOut(floorOne);
