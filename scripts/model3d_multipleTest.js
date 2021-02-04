@@ -507,7 +507,9 @@ class Model3d extends HTMLElement{
                 }
 
                 if (!building) {
-                    console.log('there is no building: ', building);
+                    console.log('there is no building');
+                } else if (!floorOne) {
+                    console.log('there is no floorplan');
                 } else {
                     console.log('there is a building: ', building);
                     console.log('there are also floorPlans, eg: ', floorOne);
