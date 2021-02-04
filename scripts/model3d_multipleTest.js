@@ -509,10 +509,10 @@ class Model3d extends HTMLElement{
                                 goToColorAction,    // First click: root action. Second click: child action. Third click: going back to root action and so on...   
                                 new BABYLON.SetValueAction(BABYLON.ActionManager.NothingTrigger, mesh.material, "wireframe", false)
                             ]));
-                        // mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPickTrigger, mesh.material, "wireframe", true))
-                        //     .then(new BABYLON.DoNothingAction());
-                        // mesh.actionManager.registerAction(new BABYLON.SetStateAction(BABYLON.ActionManager.OnPickTrigger, light, "off"))
-                        //     .then(new BABYLON.SetStateAction(BABYLON.ActionManager.OnPickTrigger, light, "on"));
+                        mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPickTrigger, mesh.material, "wireframe", true))
+                            .then(new BABYLON.DoNothingAction());
+                        mesh.actionManager.registerAction(new BABYLON.SetStateAction(BABYLON.ActionManager.OnPickTrigger, light, "off"))
+                            .then(new BABYLON.SetStateAction(BABYLON.ActionManager.OnPickTrigger, light, "on"));
                     }
 
                     var light1 = new BABYLON.PointLight("omni", new BABYLON.Vector3(0, 50, 0), scene);
