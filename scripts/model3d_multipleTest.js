@@ -117,6 +117,28 @@ class Model3d extends HTMLElement{
                 });
                 panel.addControl(button2);
 
+                var button3 = BABYLON.GUI.Button.CreateSimpleButton("but3", "Floor2");
+                button3.width = "150px"
+                button3.height = "50px";
+                button3.color = "white";
+                button3.cornerRadius = 15;
+                button3.background = "black";
+                button3.paddingTop = "50px";
+                button3.paddingTop = "10px";
+                button3.onPointerClickObservable.add(function() {
+                    console.log('floor1 button clicked');
+                    if (buildingButtonClicked == false) {
+                        animateBuilding();
+                        zoomFloors();
+                        focusFloor(2); 
+                        buildingButtonClicked = !buildingButtonClicked;
+                    } else {
+                        focusFloor(2); 
+                    };
+                    floorOneButtonClicked = !floorOneButtonClicked;
+                });
+                panel.addControl(button3);
+
 
                 panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -225,13 +247,61 @@ class Model3d extends HTMLElement{
                                 floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                             } else if (floorFocus == true) {
-                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor2Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                 floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                             };
-                            break;    
+                            break;
+                        case 3:
+                            console.log('Floor 1 selected...')
+                            if (floorFocus == false) {
+                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                            } else if (floorFocus == true) {
+                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                            };
+                            break;
+                        case 4:
+                            console.log('Floor 1 selected...')
+                            if (floorFocus == false) {
+                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                            } else if (floorFocus == true) {
+                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                            };
+                            break; 
+                        case 5:
+                            console.log('Floor 1 selected...')
+                            if (floorFocus == false) {
+                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                            } else if (floorFocus == true) {
+                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                floor5Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                            };
+                            break; 
                         default:
                             console.log('Sorry, something went wrong...')
                     }
