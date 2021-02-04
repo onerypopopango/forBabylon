@@ -491,6 +491,16 @@ class Model3d extends HTMLElement{
                 buidlingGround = scene.getMeshByName("SiteOffice_Ground");
                 console.log('building: ', building);
 
+                //********************************
+                // Over/Out <= this is it!!!!
+                //********************************
+                var makeOverOut = function (mesh) {
+                    mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
+                    mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color3.White()));
+                    mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh, "scaling", new BABYLON.Vector3(1, 1, 1), 150));
+                    mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh, "scaling", new BABYLON.Vector3(1.1, 1.1, 1.1), 150));
+                }
+
                 if (!building) {
                     console.log('there is no building: ', building);
                 } else {
@@ -498,14 +508,6 @@ class Model3d extends HTMLElement{
 
                     building.actionManager = new BABYLON.ActionManager(scene);
                     buidlingGround.actionManager = new BABYLON.ActionManager(scene);
-
-                    // Over/Out
-                    var makeOverOut = function (mesh) {
-                        mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
-                        mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color3.White()));
-                        mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh, "scaling", new BABYLON.Vector3(1, 1, 1), 150));
-                        mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh, "scaling", new BABYLON.Vector3(1.1, 1.1, 1.1), 150));
-                    }
 
                     makeOverOut(building);
 
