@@ -181,17 +181,17 @@ class Model3d extends HTMLElement{
                 
                 function zoomFloors() {
                     if (floorExpand == true) {
-                        floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                        floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                        floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                        floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                        floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor3Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor4Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor5Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                     } else {
-                        floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                        floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                        floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                        floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                        floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                        floor1Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor2Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor3Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor4Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor5Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                     }
                     floorExpand = !floorExpand;
                 }
