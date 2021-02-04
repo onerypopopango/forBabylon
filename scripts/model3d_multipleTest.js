@@ -519,6 +519,11 @@ class Model3d extends HTMLElement{
                     buidlingGround.actionManager = new BABYLON.ActionManager(scene);
 
                     makeOverOut(building);
+                    makeOverOut(floorOne);
+                    makeOverOut(floorTwo);
+                    makeOverOut(floorThree);
+                    makeOverOut(floorFour);
+                    makeOverOut(floorFive);
 
                     // On pick interpolations
                     // var prepareButton = function (mesh, color, light) {
