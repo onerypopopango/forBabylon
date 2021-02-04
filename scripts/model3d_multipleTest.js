@@ -171,10 +171,10 @@ class Model3d extends HTMLElement{
                     // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
                     if (expand == true) {
                         console.log('building expand');
-                        buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 16, false);
+                        buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
                     } else {
                         console.log('contract');
-                        buildingAnimContract.start(false, 1.0, frameRate, frameRate * 16, false);
+                        buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
                     }
                     expand = !expand;
                 };    
