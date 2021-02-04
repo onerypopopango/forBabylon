@@ -126,7 +126,7 @@ class Model3d extends HTMLElement{
                 button3.paddingTop = "50px";
                 button3.paddingTop = "10px";
                 button3.onPointerClickObservable.add(function() {
-                    console.log('floor1 button clicked');
+                    console.log('floor2 button clicked');
                     if (buildingButtonClicked == false) {
                         animateBuilding();
                         zoomFloors();
@@ -138,6 +138,72 @@ class Model3d extends HTMLElement{
                     floorOneButtonClicked = !floorOneButtonClicked;
                 });
                 panel.addControl(button3);
+
+                var button4 = BABYLON.GUI.Button.CreateSimpleButton("but4", "Floor3");
+                button4.width = "150px"
+                button4.height = "50px";
+                button4.color = "white";
+                button4.cornerRadius = 15;
+                button4.background = "black";
+                button4.paddingTop = "50px";
+                button4.paddingTop = "10px";
+                button4.onPointerClickObservable.add(function() {
+                    console.log('floor3 button clicked');
+                    if (buildingButtonClicked == false) {
+                        animateBuilding();
+                        zoomFloors();
+                        focusFloor(3); 
+                        buildingButtonClicked = !buildingButtonClicked;
+                    } else {
+                        focusFloor(3); 
+                    };
+                    floorOneButtonClicked = !floorOneButtonClicked;
+                });
+                panel.addControl(button4);
+
+                var button5 = BABYLON.GUI.Button.CreateSimpleButton("but5", "Floor4");
+                button5.width = "150px"
+                button5.height = "50px";
+                button5.color = "white";
+                button5.cornerRadius = 15;
+                button5.background = "black";
+                button5.paddingTop = "50px";
+                button5.paddingTop = "10px";
+                button5.onPointerClickObservable.add(function() {
+                    console.log('floor4 button clicked');
+                    if (buildingButtonClicked == false) {
+                        animateBuilding();
+                        zoomFloors();
+                        focusFloor(4); 
+                        buildingButtonClicked = !buildingButtonClicked;
+                    } else {
+                        focusFloor(4); 
+                    };
+                    floorOneButtonClicked = !floorOneButtonClicked;
+                });
+                panel.addControl(button5);
+
+                var button6 = BABYLON.GUI.Button.CreateSimpleButton("but6", "Floor5");
+                button6.width = "150px"
+                button6.height = "50px";
+                button6.color = "white";
+                button6.cornerRadius = 15;
+                button6.background = "black";
+                button6.paddingTop = "50px";
+                button6.paddingTop = "10px";
+                button6.onPointerClickObservable.add(function() {
+                    console.log('floor5 button clicked');
+                    if (buildingButtonClicked == false) {
+                        animateBuilding();
+                        zoomFloors();
+                        focusFloor(5); 
+                        buildingButtonClicked = !buildingButtonClicked;
+                    } else {
+                        focusFloor(5); 
+                    };
+                    floorOneButtonClicked = !floorOneButtonClicked;
+                });
+                panel.addControl(button6);
 
 
                 panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
