@@ -499,24 +499,34 @@ class Model3d extends HTMLElement{
                     building.actionManager = new BABYLON.ActionManager(scene);
                     buidlingGround.actionManager = new BABYLON.ActionManager(scene);
 
-                    // On pick interpolations
-                    var prepareButton = function (mesh, color, light) {
-                        var goToColorAction = new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPickTrigger, light, "diffuse", color, 1000, null, true);
-
-                        mesh.actionManager = new BABYLON.ActionManager(scene);
-                        mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPickTrigger, light, "diffuse", BABYLON.Color3.Black(), 1000))
-                            .then(new BABYLON.CombineAction(BABYLON.ActionManager.NothingTrigger, [ // Then is used to add a child action used alternatively with the root action. 
-                                goToColorAction,    // First click: root action. Second click: child action. Third click: going back to root action and so on...   
-                                new BABYLON.SetValueAction(BABYLON.ActionManager.NothingTrigger, mesh.material, "wireframe", false)
-                            ]));
-                        mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPickTrigger, mesh.material, "wireframe", true))
-                            .then(new BABYLON.DoNothingAction());
-                        mesh.actionManager.registerAction(new BABYLON.SetStateAction(BABYLON.ActionManager.OnPickTrigger, light, "off"))
-                            .then(new BABYLON.SetStateAction(BABYLON.ActionManager.OnPickTrigger, light, "on"));
+                    // Over/Out
+                    var makeOverOut = function (mesh) {
+                        mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
+                        mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color3.White()));
+                        mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh, "scaling", new BABYLON.Vector3(1, 1, 1), 150));
+                        mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh, "scaling", new BABYLON.Vector3(1.1, 1.1, 1.1), 150));
                     }
 
-                    var light1 = new BABYLON.PointLight("omni", new BABYLON.Vector3(0, 50, 0), scene);
-                    prepareButton(building, BABYLON.Color3.Red(), light1);
+                    makeOverOut(building);
+
+                    // On pick interpolations
+                    // var prepareButton = function (mesh, color, light) {
+                    //     var goToColorAction = new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPickTrigger, light, "diffuse", color, 1000, null, true);
+
+                    //     mesh.actionManager = new BABYLON.ActionManager(scene);
+                    //     mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPickTrigger, light, "diffuse", BABYLON.Color3.Black(), 1000))
+                    //         .then(new BABYLON.CombineAction(BABYLON.ActionManager.NothingTrigger, [ // Then is used to add a child action used alternatively with the root action. 
+                    //             goToColorAction,    // First click: root action. Second click: child action. Third click: going back to root action and so on...   
+                    //             new BABYLON.SetValueAction(BABYLON.ActionManager.NothingTrigger, mesh.material, "wireframe", false)
+                    //         ]));
+                    //     mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPickTrigger, mesh.material, "wireframe", true))
+                    //         .then(new BABYLON.DoNothingAction());
+                    //     mesh.actionManager.registerAction(new BABYLON.SetStateAction(BABYLON.ActionManager.OnPickTrigger, light, "off"))
+                    //         .then(new BABYLON.SetStateAction(BABYLON.ActionManager.OnPickTrigger, light, "on"));
+                    // }
+
+                    // var light1 = new BABYLON.PointLight("omni", new BABYLON.Vector3(0, 50, 0), scene);
+                    // prepareButton(building, BABYLON.Color3.Red(), light1);
 
                     // building.actionManager.registerAction(
                     //     new BABYLON.InterpolateValueAction (
