@@ -39,6 +39,8 @@ class Model3d extends HTMLElement{
         var floor2Unfocus;
         var floor3Expand;
         var floor3Contract;
+        var floor3Focus;
+        var floor3Unfocus;
         var floor4Expand;
         var floor4Contract;
         var floor4Focus;
@@ -317,24 +319,26 @@ class Model3d extends HTMLElement{
                         buildingAnimExpand = task.loadedAnimationGroups[1];
                     } else if (task.name === "floorPlanMultipleForAnim.glb") {
                         console.log('Transfering animation from: ', task.name);
-                        floor1Contract = task.loadedAnimationGroups[6];
-                        floor1Expand = task.loadedAnimationGroups[7];
-                        floor1Focus = task.loadedAnimationGroups[8];
-                        floor1Unfocus = task.loadedAnimationGroups[9];
-                        floor2Contract = task.loadedAnimationGroups[2];
-                        floor2Expand = task.loadedAnimationGroups[3];
-                        floor2Focus = task.loadedAnimationGroups[4];
-                        floor2Unfocus = task.loadedAnimationGroups[5];
+                        floor1Contract = task.loadedAnimationGroups[8];
+                        floor1Expand = task.loadedAnimationGroups[9];
+                        floor1Focus = task.loadedAnimationGroups[10];
+                        floor1Unfocus = task.loadedAnimationGroups[11];
+                        floor2Contract = task.loadedAnimationGroups[4];
+                        floor2Expand = task.loadedAnimationGroups[5];
+                        floor2Focus = task.loadedAnimationGroups[6];
+                        floor2Unfocus = task.loadedAnimationGroups[7];
                         floor3Contract = task.loadedAnimationGroups[0];
                         floor3Expand = task.loadedAnimationGroups[1];
-                        floor4Contract = task.loadedAnimationGroups[10];
-                        floor4Expand = task.loadedAnimationGroups[11];
-                        floor4Focus = task.loadedAnimationGroups[12];
-                        floor4Unfocus = task.loadedAnimationGroups[13];
-                        floor5Contract = task.loadedAnimationGroups[14];
-                        floor5Expand = task.loadedAnimationGroups[15];
-                        floor5Focus = task.loadedAnimationGroups[16];
-                        floor5Unfocus = task.loadedAnimationGroups[17];
+                        floor3Focus = task.loadedAnimationGroups[2];
+                        floor3Unfocus = task.loadedAnimationGroups[3];
+                        floor4Contract = task.loadedAnimationGroups[12];
+                        floor4Expand = task.loadedAnimationGroups[13];
+                        floor4Focus = task.loadedAnimationGroups[14];
+                        floor4Unfocus = task.loadedAnimationGroups[15];
+                        floor5Contract = task.loadedAnimationGroups[16];
+                        floor5Expand = task.loadedAnimationGroups[17];
+                        floor5Focus = task.loadedAnimationGroups[18];
+                        floor5Unfocus = task.loadedAnimationGroups[19];
                     } else {
                         console.log("ERROR: No task to transfer animations from...")
                     }
