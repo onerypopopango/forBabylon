@@ -449,6 +449,7 @@ class Model3d extends HTMLElement{
                     task.loadedAnimationGroups[0].stop();   // stops default anim
                     console.log('task: ', task);
 
+                    // assigning animations from imported glbs
                     if (task.name === "officeBlock.glb") {
                         console.log('Transfering animation from: ', task.name);
                         buildingAnimContract = task.loadedAnimationGroups[0];
@@ -489,6 +490,13 @@ class Model3d extends HTMLElement{
             assetsManager.onFinish = function (tasks) {
                 building = scene.getMeshByName("SiteOffice001");
                 buidlingGround = scene.getMeshByName("SiteOffice_Ground");
+
+                floorOne = scene.getMeshByName("2.5D Floorplan.001");
+                floorTwo = scene.getMeshByName("2.5D Floorplan.002");
+                floorThree = scene.getMeshByName("2.5D Floorplan.003");
+                floorFour = scene.getMeshByName("2.5D Floorplan.004");
+                floorFive = scene.getMeshByName("2.5D Floorplan.005");
+
                 console.log('building: ', building);
 
                 //********************************
@@ -505,6 +513,7 @@ class Model3d extends HTMLElement{
                     console.log('there is no building: ', building);
                 } else {
                     console.log('there is a building: ', building);
+                    console.log('there are also floorPlans, eg: ', floorOne);
 
                     building.actionManager = new BABYLON.ActionManager(scene);
                     buidlingGround.actionManager = new BABYLON.ActionManager(scene);
