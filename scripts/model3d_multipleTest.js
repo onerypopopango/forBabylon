@@ -88,7 +88,7 @@ class Model3d extends HTMLElement{
                 button1.color = "white";
                 button1.cornerRadius = 15;
                 button1.background = "black";
-                button1.visibility = !expand;
+                button1.isVisible = !expand;
                 button1.onPointerClickObservable.add(function() {
                     console.log('building button clicked');
                     animateBuilding();
