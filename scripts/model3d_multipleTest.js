@@ -88,7 +88,7 @@ class Model3d extends HTMLElement{
                 button1.color = "white";
                 button1.cornerRadius = 15;
                 button1.background = "black";
-                button1.isVisible = !expand;
+                button1.isVisible = false;
                 button1.onPointerClickObservable.add(function() {
                     console.log('building button clicked');
                     animateBuilding();
@@ -262,9 +262,11 @@ class Model3d extends HTMLElement{
                     if (expand == true) {
                         console.log('building expand');
                         buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        button1.isVisible = true;
                     } else {
                         console.log('contract');
                         buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        button1.isVisible = false;
                     }
                     expand = !expand;
                 };    
@@ -641,6 +643,7 @@ class Model3d extends HTMLElement{
                             floor5Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                             expand = !expand;
                             floorExpand = !floorExpand;
+                            button1.isVisible = true;
                         }));
                 }
 
