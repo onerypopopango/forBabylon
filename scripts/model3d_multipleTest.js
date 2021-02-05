@@ -496,7 +496,7 @@ class Model3d extends HTMLElement{
                 //**************************************************************************************************//
                 //                      Animation Code Section Bit For Flash And Sizzle                             //
                 //**************************************************************************************************//
-                function animateBuilding() {
+                function animateBuildingInside() {
                     // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
                     if (expand == true) {
                         console.log('building expand');
@@ -630,9 +630,9 @@ class Model3d extends HTMLElement{
                 var meshClick = function (mesh) {
                     console.log('MeshClick: ', mesh);
                     mesh.actionManager.registerAction(
-                        new BABYLON.PlayAnimationAction(BABYLON.ActionManager.OnPickTrigger, buildingAnimExpand, 0, 24, false));
+                        new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, animateBuildingInside()));
                     mesh.actionManager.registerAction(
-                        new BABYLON.PlayAnimationAction(BABYLON.ActionManager.OnPickTrigger, buildingAnimContract, 0, 24, false));
+                        new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, animateBuildingInside()));
                 }
 
                 if (!building) {
@@ -651,7 +651,7 @@ class Model3d extends HTMLElement{
                     floorFour.actionManager = new BABYLON.ActionManager(scene);
                     floorFive.actionManager = new BABYLON.ActionManager(scene);
 
-                    // makeOverOut(building);
+                    makeOverOut(building);
                     makeOverOut(floorOne);
                     makeOverOut(floorTwo);
                     makeOverOut(floorThree);
