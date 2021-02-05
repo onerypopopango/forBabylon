@@ -627,6 +627,7 @@ class Model3d extends HTMLElement{
                 }
 
                 var meshClick = function (mesh) {
+                    console.log('MeshClick: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.PlayAnimationAction(BABYLON.ActionManager.OnPickTrigger, buildingAnimExpand, 0, 24, false));
                     mesh.actionManager.registerAction(
