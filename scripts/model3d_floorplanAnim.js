@@ -478,11 +478,9 @@ class Model3d extends HTMLElement{
             });
 
             assetsManager.onFinish = function (tasks) {
-                building = scene.getMeshByName("SiteOffice001");
-                buidlingGround = scene.getMeshByName("SiteOffice_Ground");
-                floorOne = scene.getMeshByName("2.5D Floorplan.001");
+                floorOne = scene.getMeshByName("2.5D Floorplan.003");
                 floorTwo = scene.getMeshByName("2.5D Floorplan.002");
-                floorThree = scene.getMeshByName("2.5D Floorplan.003");
+                floorThree = scene.getMeshByName("2.5D Floorplan.001");
                 floorFour = scene.getMeshByName("2.5D Floorplan.004");
                 floorFive = scene.getMeshByName("2.5D Floorplan.005");
 
@@ -708,7 +706,6 @@ class Model3d extends HTMLElement{
                                     console.log("no floorplan mesh??")
                             }
                             floorFocus= !floorFocus;
-                            button1.isVisible = true;
                         })
                     );
                 }
