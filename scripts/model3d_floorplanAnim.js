@@ -707,14 +707,6 @@ class Model3d extends HTMLElement{
                                 default:
                                     console.log("no floorplan mesh??")
                             }
-
-                            buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
-                            floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            floor3Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            floor4Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            floor5Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            expand = !expand;
                             floorExpand = !floorExpand;
                             button1.isVisible = true;
                         })
