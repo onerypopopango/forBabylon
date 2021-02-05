@@ -654,6 +654,7 @@ class Model3d extends HTMLElement{
                             // expand = !expand;
                             // buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
                             buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                            expand = !expand;
                         }));
                 }
 
