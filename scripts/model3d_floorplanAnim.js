@@ -628,6 +628,90 @@ class Model3d extends HTMLElement{
                     console.log('MeshClick: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
+                            switch (mesh) {
+                                case floorOne: 
+                                    console.log('Floor 1 selected...')
+                                    if (floorFocus == false) {
+                                        floor1Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    } else if (floorFocus == true) {
+                                        floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    };
+                                    break;
+                                case floorTwo:
+                                    console.log('Floor 2 selected...')
+                                    if (floorFocus == false) {
+                                        floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    } else if (floorFocus == true) {
+                                        floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    };
+                                    break;
+                                case floorThree:
+                                    console.log('Floor 3 selected...')
+                                    if (floorFocus == false) {
+                                        floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    } else if (floorFocus == true) {
+                                        floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    };
+                                    break;
+                                case floorFour:
+                                    console.log('Floor 4 selected...')
+                                    if (floorFocus == false) {
+                                        floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    } else if (floorFocus == true) {
+                                        floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    };
+                                    break; 
+                                case floorFive:
+                                    console.log('Floor 5 selected...')
+                                    if (floorFocus == false) {
+                                        floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    } else if (floorFocus == true) {
+                                        floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        floor5Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                    };
+                                default:
+                                    console.log("no floorplan mesh??")
+                            }
+
                             buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
                             floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                             floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
@@ -641,38 +725,24 @@ class Model3d extends HTMLElement{
                     );
                 }
 
-                // var meshClick = function (mesh) {
-                //     console.log('MeshClick: ', mesh);
-                //     mesh.actionManager.registerAction(
-                //         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, animateBuildingInside()));
-                //     mesh.actionManager.registerAction(
-                //         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, animateBuildingInside()));
-                // }
-
-                if (!building) {
-                    console.log('there is no building');
-                } else if (!floorOne) {
+                if (!floorOne) {
                     console.log('there is no floorplan');
                 } else {
-                    console.log('there is a building: ', building);
                     console.log('there are also floorPlans, eg: ', floorOne);
 
-                    building.actionManager = new BABYLON.ActionManager(scene);
-                    buidlingGround.actionManager = new BABYLON.ActionManager(scene);
                     floorOne.actionManager = new BABYLON.ActionManager(scene);
                     floorTwo.actionManager = new BABYLON.ActionManager(scene);
                     floorThree.actionManager = new BABYLON.ActionManager(scene);
                     floorFour.actionManager = new BABYLON.ActionManager(scene);
                     floorFive.actionManager = new BABYLON.ActionManager(scene);
 
-                    makeOverOut(building);
                     makeOverOut(floorOne);
                     makeOverOut(floorTwo);
                     makeOverOut(floorThree);
                     makeOverOut(floorFour);
                     makeOverOut(floorFive);
 
-                    meshClick(building);
+                    meshClick(floorOne);
 
                     // On pick interpolations
                     // var prepareButton = function (mesh, color, light) {
