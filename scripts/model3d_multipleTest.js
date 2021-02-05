@@ -55,6 +55,8 @@ class Model3d extends HTMLElement{
         var buildingButtonClicked = false;
         var floorOneButtonClicked = false;
 
+        var frameRate = 24;
+
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
         function setUp3DEnvironment(){
@@ -208,7 +210,7 @@ class Model3d extends HTMLElement{
                 panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
                 advancedTexture.addControl(panel);    
 
-                var frameRate = 24;
+                
 
                 // animation loop for camera to sweep round
                 // (name, property, frames per second, property type, loop mode)
