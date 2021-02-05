@@ -707,7 +707,7 @@ class Model3d extends HTMLElement{
                                 default:
                                     console.log("no floorplan mesh??")
                             }
-                            floorExpand = !floorExpand;
+                            floorFocus= !floorFocus;
                             button1.isVisible = true;
                         })
                     );
