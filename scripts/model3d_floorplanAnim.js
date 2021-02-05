@@ -444,12 +444,8 @@ class Model3d extends HTMLElement{
                     task.loadedAnimationGroups[0].stop();   // stops default anim
                     console.log('task: ', task);
 
-                    // assigning animations from imported glbs
-                    if (task.name === "officeBlock.glb") {
-                        console.log('Transfering animation from: ', task.name);
-                        buildingAnimContract = task.loadedAnimationGroups[0];
-                        buildingAnimExpand = task.loadedAnimationGroups[1];
-                    } else if (task.name === "floorPlanMultipleForAnim.glb") {
+                    // assigning animations from imported glb
+                    if (task.name === "floorPlanAnim.glb") {
                         console.log('Transfering animation from: ', task.name);
                         floor1Contract = task.loadedAnimationGroups[8];
                         floor1Expand = task.loadedAnimationGroups[9];
@@ -728,7 +724,7 @@ class Model3d extends HTMLElement{
                 if (!floorOne) {
                     console.log('there is no floorplan');
                 } else {
-                    console.log('there are also floorPlans, eg: ', floorOne);
+                    console.log('there are floorPlans, eg: ', floorOne);
 
                     floorOne.actionManager = new BABYLON.ActionManager(scene);
                     floorTwo.actionManager = new BABYLON.ActionManager(scene);
@@ -743,6 +739,10 @@ class Model3d extends HTMLElement{
                     makeOverOut(floorFive);
 
                     meshClick(floorOne);
+                    meshClick(floorTwo);
+                    meshClick(floorThree);
+                    meshClick(floorFour);
+                    meshClick(floorFive);
 
                     // On pick interpolations
                     // var prepareButton = function (mesh, color, light) {
