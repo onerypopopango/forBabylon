@@ -204,6 +204,8 @@ class Model3d extends HTMLElement{
                     floorOneButtonClicked = !floorOneButtonClicked;
                 });
                 panel.addControl(button6);
+
+
                 panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
                 advancedTexture.addControl(panel);    
@@ -493,144 +495,14 @@ class Model3d extends HTMLElement{
                 floorFour = scene.getMeshByName("2.5D Floorplan.004");
                 floorFive = scene.getMeshByName("2.5D Floorplan.005");
 
-                //**************************************************************************************************//
-                //                      Animation Code Section Bit For Flash And Sizzle                             //
-                //**************************************************************************************************//
-                function animateBuilding() {
-                    // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
-                    if (expand == true) {
-                        console.log('building expand');
-                        buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
-                    } else {
-                        console.log('contract');
-                        buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
-                    }
-                    expand = !expand;
-                };    
-                
-                function zoomFloors() {
-                    if (floorExpand == true) {
-                        floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor3Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor4Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor5Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                    } else {
-                        floor1Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor2Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor3Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor4Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor5Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                    }
-                    floorExpand = !floorExpand;
-                }
-
-                function focusFloor(num) {
-                    switch (num) {
-                        case 1:
-                            console.log('Floor 1 selected...')
-                            if (floorFocus == false) {
-                                floor1Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break;
-                        case 2:
-                            console.log('Floor 2 selected...')
-                            if (floorFocus == false) {
-                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break;
-                        case 3:
-                            console.log('Floor 3 selected...')
-                            if (floorFocus == false) {
-                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break;
-                        case 4:
-                            console.log('Floor 4 selected...')
-                            if (floorFocus == false) {
-                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break; 
-                        case 5:
-                            console.log('Floor 5 selected...')
-                            if (floorFocus == false) {
-                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break; 
-                        default:
-                            console.log('Sorry, something went wrong...')
-                    }
-                    floorFocus = !floorFocus
-                }
-                //**************************************************************************************************//
-
-                //****************************************************//
-                //  Over/Out <= this is it!!!! for hover flash anims  //
-                //****************************************************//
+                //********************************
+                // Over/Out <= this is it!!!!
+                //********************************
                 var makeOverOut = function (mesh) {
-                    mesh.actionManager.registerAction(
-                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
-                    mesh.actionManager.registerAction(
-                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color3.White()));
+                    mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
+                    mesh.actionManager.registerAction(new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color3.White()));
                     // mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh, "scaling", new BABYLON.Vector3(1, 1, 1), 150));
                     // mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh, "scaling", new BABYLON.Vector3(1.1, 1.1, 1.1), 150));
-                }
-
-                var meshClick = function (mesh) {
-                    mesh.actionManager.registerAction(
-                        new BABYLON.PlayAnimationAction(BABYLON.ActionManager.OnPickTrigger, buildingAnimExpand, 0, 24, false));
-                    mesh.actionManager.registerAction(
-                        new BABYLON.PlayAnimationAction(BABYLON.ActionManager.OnPickTrigger, buildingAnimContract, 0, 24, false));
                 }
 
                 if (!building) {
@@ -656,8 +528,6 @@ class Model3d extends HTMLElement{
                     makeOverOut(floorFour);
                     makeOverOut(floorFive);
 
-                    meshClick(building);
-
                     // On pick interpolations
                     // var prepareButton = function (mesh, color, light) {
                     //     var goToColorAction = new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPickTrigger, light, "diffuse", color, 1000, null, true);
@@ -676,6 +546,24 @@ class Model3d extends HTMLElement{
 
                     // var light1 = new BABYLON.PointLight("omni", new BABYLON.Vector3(0, 50, 0), scene);
                     // prepareButton(building, BABYLON.Color3.Red(), light1);
+
+                    // building.actionManager.registerAction(
+                    //     new BABYLON.InterpolateValueAction (
+                    //         BABYLON.ActionManager.OnPickUpTrigger,
+                    //         building,
+                    //         "scaling",
+                    //         new BABYLON.Vector3(1.5, 1.5, 1.5),
+                    //         800
+                    //     )
+                    // ).then (
+                    //     new BABYLON.InterpolateValueAction (
+                    //         BABYLON.ActionManager.OnPickUpTrigger,
+                    //         building,
+                    //         "scaling",
+                    //         new BABYLON.Vector3(1, 1, 1),
+                    //         800
+                    //     )
+                    // );
 
                 }
             };
