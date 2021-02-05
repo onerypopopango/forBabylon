@@ -618,6 +618,7 @@ class Model3d extends HTMLElement{
                 //  Over/Out <= this is it!!!! for hover flash anims  //
                 //****************************************************//
                 var makeOverOut = function (mesh) {
+                    console.log('makeOverOut: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
                     mesh.actionManager.registerAction(
