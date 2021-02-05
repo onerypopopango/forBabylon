@@ -631,15 +631,16 @@ class Model3d extends HTMLElement{
                     console.log('MeshClick: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-                        // if (expand == true) {
-                        //     console.log('building expand');
-                        //     buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
-                        // } else {
-                        //     console.log('contract');
-                        //     buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
-                        // }
-                        // expand = !expand;
-                        buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                            // if (expand == true) {
+                            //     console.log('building expand');
+                            //     buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                            // } else {
+                            //     console.log('contract');
+                            //     buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
+                            // }
+                            // expand = !expand;
+                            // buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                            buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
                         }));
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
@@ -651,7 +652,8 @@ class Model3d extends HTMLElement{
                             //     buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
                             // }
                             // expand = !expand;
-                            buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
+                            // buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
+                            buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
                         }));
                 }
 
