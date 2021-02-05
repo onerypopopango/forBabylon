@@ -57,6 +57,8 @@ class Model3d extends HTMLElement{
 
         var frameRate = 24;
 
+        var button1;
+
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
         function setUp3DEnvironment(){
@@ -82,7 +84,7 @@ class Model3d extends HTMLElement{
                 var panel = new BABYLON.GUI.StackPanel();
                 panel.width = 0.2; // need to add this for alignment to work on panel
 
-                var button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Building");
+                button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Building");
                 button1.width = "150px"
                 button1.height = "40px";
                 button1.color = "white";
@@ -644,7 +646,8 @@ class Model3d extends HTMLElement{
                             expand = !expand;
                             floorExpand = !floorExpand;
                             button1.isVisible = true;
-                        }));
+                        })
+                    );
                 }
 
                 // var meshClick = function (mesh) {
