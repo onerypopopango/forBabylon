@@ -117,7 +117,7 @@ class Model3d extends HTMLElement{
                     };
                     floorOneButtonClicked = !floorOneButtonClicked;
                 });
-                panel.addControl(button2);
+                // panel.addControl(button2);
 
                 var button3 = BABYLON.GUI.Button.CreateSimpleButton("but3", "Floor2");
                 button3.width = "150px"
@@ -139,7 +139,7 @@ class Model3d extends HTMLElement{
                     };
                     floorOneButtonClicked = !floorOneButtonClicked;
                 });
-                panel.addControl(button3);
+                // panel.addControl(button3);
 
                 var button4 = BABYLON.GUI.Button.CreateSimpleButton("but4", "Floor3");
                 button4.width = "150px"
@@ -161,7 +161,7 @@ class Model3d extends HTMLElement{
                     };
                     floorOneButtonClicked = !floorOneButtonClicked;
                 });
-                panel.addControl(button4);
+                // panel.addControl(button4);
 
                 var button5 = BABYLON.GUI.Button.CreateSimpleButton("but5", "Floor4");
                 button5.width = "150px"
@@ -183,7 +183,7 @@ class Model3d extends HTMLElement{
                     };
                     floorOneButtonClicked = !floorOneButtonClicked;
                 });
-                panel.addControl(button5);
+                // panel.addControl(button5);
 
                 var button6 = BABYLON.GUI.Button.CreateSimpleButton("but6", "Floor5");
                 button6.width = "150px"
@@ -205,7 +205,8 @@ class Model3d extends HTMLElement{
                     };
                     floorOneButtonClicked = !floorOneButtonClicked;
                 });
-                panel.addControl(button6);
+                // panel.addControl(button6);
+
                 panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
                 advancedTexture.addControl(panel);    
@@ -629,30 +630,8 @@ class Model3d extends HTMLElement{
 
                 var meshClick = function (mesh) {
                     console.log('MeshClick: ', mesh);
-                    // mesh.actionManager.registerAction(
-                    //     new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-                    //         // if (expand == true) {
-                    //         //     console.log('building expand');
-                    //         //     buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
-                    //         // } else {
-                    //         //     console.log('contract');
-                    //         //     buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
-                    //         // }
-                    //         // expand = !expand;
-                    //         // buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
-                    //         buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
-                    //     }));
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-                            // if (expand == true) {
-                            //     console.log('building expand');
-                            //     buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
-                            // } else {
-                            //     console.log('contract');
-                            //     buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
-                            // }
-                            // expand = !expand;
-                            // buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
                             buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
                             floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                             floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
