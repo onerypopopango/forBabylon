@@ -651,7 +651,7 @@ class Model3d extends HTMLElement{
                     floorFour.actionManager = new BABYLON.ActionManager(scene);
                     floorFive.actionManager = new BABYLON.ActionManager(scene);
 
-                    makeOverOut(building);
+                    // makeOverOut(building);
                     makeOverOut(floorOne);
                     makeOverOut(floorTwo);
                     makeOverOut(floorThree);
