@@ -84,7 +84,7 @@ class Model3d extends HTMLElement{
                 var panel = new BABYLON.GUI.StackPanel();
                 panel.width = 0.2; // need to add this for alignment to work on panel
 
-                button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Building");
+                button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Return");
                 button1.width = "150px"
                 button1.height = "40px";
                 button1.color = "white";
@@ -92,7 +92,7 @@ class Model3d extends HTMLElement{
                 button1.background = "black";
                 button1.isVisible = false;
                 button1.onPointerClickObservable.add(function() {
-                    console.log('building button clicked');
+                    console.log('return button clicked');
                     animateBuilding();
                     zoomFloors();
                     floorFocus = false;
