@@ -88,7 +88,7 @@ class Model3d extends HTMLElement{
                 button1.color = "white";
                 button1.cornerRadius = 15;
                 button1.background = "black";
-                button1.isVisible = false;
+                // button1.isVisible = false;
                 button1.onPointerClickObservable.add(function() {
                     console.log('building button clicked');
                     animateBuilding();
@@ -208,8 +208,8 @@ class Model3d extends HTMLElement{
                 });
                 // panel.addControl(button6);
 
-                panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-                panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+                panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+                panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
                 advancedTexture.addControl(panel);    
 
                 // animation loop for camera to sweep round
