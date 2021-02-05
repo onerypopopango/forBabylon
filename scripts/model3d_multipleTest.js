@@ -210,8 +210,6 @@ class Model3d extends HTMLElement{
                 panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
                 advancedTexture.addControl(panel);    
 
-                
-
                 // animation loop for camera to sweep round
                 // (name, property, frames per second, property type, loop mode)
                 var rotate = new BABYLON.Animation(
@@ -510,7 +508,7 @@ class Model3d extends HTMLElement{
                     expand = !expand;
                 };    
                 
-                function zoomFloors() {
+                function zoomFloorsInside() {
                     if (floorExpand == true) {
                         floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                         floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
@@ -527,7 +525,7 @@ class Model3d extends HTMLElement{
                     floorExpand = !floorExpand;
                 }
 
-                function focusFloor(num) {
+                function focusFloorInside(num) {
                     switch (num) {
                         case 1:
                             console.log('Floor 1 selected...')
