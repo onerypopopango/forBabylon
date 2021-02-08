@@ -479,8 +479,8 @@ class Model3d extends HTMLElement{
                         officeFace01Expand = task.loadedAnimationGroups[1];
                         officeFace02Contract = task.loadedAnimationGroups[2];
                         officeFace02Expand = task.loadedAnimationGroups[3];
-                        officeFace03Contract = task.loadedAnimationGroups[4];
-                        officeFace03Expand = task.loadedAnimationGroups[5];
+                        officeFace03Contract = task.loadedAnimationGroups[5];
+                        officeFace03Expand = task.loadedAnimationGroups[4];
                         officeFace04Contract = task.loadedAnimationGroups[6];
                         officeFace04Expand = task.loadedAnimationGroups[7];
                         officeFace05Contract = task.loadedAnimationGroups[8];
@@ -677,7 +677,7 @@ class Model3d extends HTMLElement{
                             officeFace03Contract.start(false, 1.0, frameRate, frameRate * 12, false);
                             officeFace04Contract.start(false, 1.0, frameRate, frameRate * 12, false);
                             officeFace05Contract.start(false, 1.0, frameRate, frameRate * 12, false);
-                            buildingGroundContract.start(false, 1.0, frameRate, frameRate * 12, false);
+                            buidlingGroundContract.start(false, 1.0, frameRate, frameRate * 12, false);
                             floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                             floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                             floor3Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
