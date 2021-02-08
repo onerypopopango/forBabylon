@@ -95,7 +95,6 @@ class Model3d extends HTMLElement{
                     console.log('return button clicked');
                     animateBuilding();
                     zoomFloors();
-                    floorFocus = false;
                     buildingButtonClicked = !buildingButtonClicked;
                 });
                 panel.addControl(button1);
