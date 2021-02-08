@@ -15,7 +15,12 @@ class Model3d extends HTMLElement{
         let BJSloaded = false;
 
         //meshes
-        var building;
+        // var building;
+        var buildingFace01;
+        var buildingFace02;
+        var buildingFace03;
+        var buildingFace04;
+        var buildingFace05;
         var buidlingGround;
         var floorOne;
         var floorTwo;
@@ -515,8 +520,13 @@ class Model3d extends HTMLElement{
             });
 
             assetsManager.onFinish = function (tasks) {
-                building = scene.getMeshByName("SiteOffice001");
-                buidlingGround = scene.getMeshByName("SiteOffice_Ground");
+                // building = scene.getMeshByName("SiteOffice001");
+                buildingFace01 = scene.getMeshByName("officeFace01");
+                buildingFace02 = scene.getMeshByName("officeFace02");
+                buildingFace03 = scene.getMeshByName("officeFace03");
+                buildingFace04 = scene.getMeshByName("officeFace04");
+                buildingFace05 = scene.getMeshByName("officeFace05");
+                buidlingGround = scene.getMeshByName("officeGround");
                 floorOne = scene.getMeshByName("2.5D Floorplan.001");
                 floorTwo = scene.getMeshByName("2.5D Floorplan.002");
                 floorThree = scene.getMeshByName("2.5D Floorplan.003");
@@ -693,10 +703,14 @@ class Model3d extends HTMLElement{
                 } else if (!floorOne) {
                     console.log('there is no floorplan');
                 } else {
-                    console.log('there is a building: ', building);
+                    console.log('there is a building: ', buildingFace01);
                     console.log('there are also floorPlans, eg: ', floorOne);
 
-                    building.actionManager = new BABYLON.ActionManager(scene);
+                    buildingFace01.actionManager = new BABYLON.ActionManager(scene);
+                    buildingFace02.actionManager = new BABYLON.ActionManager(scene);
+                    buildingFace03.actionManager = new BABYLON.ActionManager(scene);
+                    buildingFace04.actionManager = new BABYLON.ActionManager(scene);
+                    buildingFace05.actionManager = new BABYLON.ActionManager(scene);
                     buidlingGround.actionManager = new BABYLON.ActionManager(scene);
                     floorOne.actionManager = new BABYLON.ActionManager(scene);
                     floorTwo.actionManager = new BABYLON.ActionManager(scene);
@@ -704,14 +718,25 @@ class Model3d extends HTMLElement{
                     floorFour.actionManager = new BABYLON.ActionManager(scene);
                     floorFive.actionManager = new BABYLON.ActionManager(scene);
 
-                    makeOverOut(building);
+                    // makeOverOut(building);
+
+                    makeOverOut(buildingFace01);
+                    makeOverOut(buildingFace02);
+                    makeOverOut(buildingFace03);
+                    makeOverOut(buildingFace04);
+                    makeOverOut(buildingFace05);
                     makeOverOut(floorOne);
                     makeOverOut(floorTwo);
                     makeOverOut(floorThree);
                     makeOverOut(floorFour);
                     makeOverOut(floorFive);
 
-                    meshClick(building);
+                    meshClick(buildingFace01);
+                    meshClick(buildingFace02);
+                    meshClick(buildingFace03);
+                    meshClick(buildingFace04);
+                    meshClick(buildingFace05);
+                    meshClick(buidlingGround);
 
                     // On pick interpolations
                     // var prepareButton = function (mesh, color, light) {
