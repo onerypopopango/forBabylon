@@ -319,7 +319,7 @@ class Model3d extends HTMLElement{
                     mesh.actionManager.registerAction(
                         new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
                     mesh.actionManager.registerAction(
-                    new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color3.Teal()));
+                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color4.FromColor3(BABYLON.Color3.Teal(), 0.1)));
 
                     // mesh.actionManager.registerAction(
                     //     new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "ambientColor", mesh.material.ambientColor));
@@ -333,7 +333,6 @@ class Model3d extends HTMLElement{
                     console.log('MeshClick: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-                            // buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
                             officeFace01Contract.start(false, 1.0, frameRate, frameRate * 12, false);
                             officeFace02Contract.start(false, 1.0, frameRate, frameRate * 12, false);
                             officeFace03Contract.start(false, 1.0, frameRate, frameRate * 12, false);
