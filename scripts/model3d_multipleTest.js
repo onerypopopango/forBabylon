@@ -470,8 +470,18 @@ class Model3d extends HTMLElement{
                     // assigning animations from imported glbs
                     if (task.name === "officeBlockMoreAnims.glb") {
                         console.log('Transfering animation from: ', task.name);
-                        buildingAnimContract = task.loadedAnimationGroups[0];
-                        buildingAnimExpand = task.loadedAnimationGroups[1];
+                        officeFace01Contract = task.loadedAnimationGroups[0];
+                        officeFace01Expand = task.loadedAnimationGroups[1];
+                        officeFace02Contract = task.loadedAnimationGroups[2];
+                        officeFace02Expand = task.loadedAnimationGroups[3];
+                        officeFace03Contract = task.loadedAnimationGroups[4];
+                        officeFace03Expand = task.loadedAnimationGroups[5];
+                        officeFace04Contract = task.loadedAnimationGroups[6];
+                        officeFace04Expand = task.loadedAnimationGroups[7];
+                        officeFace05Contract = task.loadedAnimationGroups[8];
+                        officeFace05Expand = task.loadedAnimationGroups[9];
+                        buidlingGroundContract = task.loadedAnimationGroups[10];
+                        buildingGroundExpand = task.loadedAnimationGroups[11];
                     } else if (task.name === "floorPlanMultipleForAnim.glb") {
                         console.log('Transfering animation from: ', task.name);
                         floor1Contract = task.loadedAnimationGroups[8];
@@ -651,7 +661,13 @@ class Model3d extends HTMLElement{
                     console.log('MeshClick: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-                            buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                            // buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                            officeFace01Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                            officeFace02Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                            officeFace03Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                            officeFace04Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                            officeFace05Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                            buildingGroundContract.start(false, 1.0, frameRate, frameRate * 12, false);
                             floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                             floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                             floor3Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
