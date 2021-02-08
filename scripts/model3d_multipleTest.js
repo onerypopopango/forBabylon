@@ -698,7 +698,7 @@ class Model3d extends HTMLElement{
                 //         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, animateBuildingInside()));
                 // }
 
-                if (!building) {
+                if (!buildingFace01) {
                     console.log('there is no building');
                 } else if (!floorOne) {
                     console.log('there is no floorplan');
