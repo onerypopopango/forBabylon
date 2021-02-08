@@ -468,7 +468,7 @@ class Model3d extends HTMLElement{
                     console.log('task: ', task);
 
                     // assigning animations from imported glbs
-                    if (task.name === "officeBlock.glb") {
+                    if (task.name === "officeBlockMoreAnims.glb") {
                         console.log('Transfering animation from: ', task.name);
                         buildingAnimContract = task.loadedAnimationGroups[0];
                         buildingAnimExpand = task.loadedAnimationGroups[1];
