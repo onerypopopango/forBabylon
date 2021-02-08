@@ -26,6 +26,20 @@ class Model3d extends HTMLElement{
         // animation groups and animation stuff
         var buildingAnimExpand;
         var buildingAnimContract;
+        
+        var officeFace01Contract;
+        var officeFace01Expand;
+        var officeFace02Contract;
+        var officeFace02Expand;
+        var officeFace03Contract;
+        var officeFace03Expand;
+        var officeFace04Contract;
+        var officeFace04Expand;
+        var officeFace05Contract;
+        var officeFace05Expand;
+        var buidlingGroundContract;
+        var buildingGroundExpand;
+
         var expand = true;
         var animating = false;
 
