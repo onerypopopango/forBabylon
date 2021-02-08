@@ -59,7 +59,7 @@ class Model3d extends HTMLElement{
         var button1;
         var frameRate = 24;
 
-        var highlightLayer;
+        var glowLayer;
 
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
@@ -81,9 +81,9 @@ class Model3d extends HTMLElement{
                 var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
                 var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
 
-                // highlight layer
-                highlightLayer = new BABYLON.HighlightLayer("hl1", scene);
-                highlightLayer.intensity = 0.5;
+                // glowLayer
+                glowLayer = new BABYLON.GlowLayer("glow", scene);
+                glowLayer.intensity = 0.2;
 
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
@@ -319,7 +319,7 @@ class Model3d extends HTMLElement{
                     mesh.actionManager.registerAction(
                         new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
                     mesh.actionManager.registerAction(
-                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color3.Teal()));
+                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color4(0,128, 128, 1)));
 
                     // mesh.actionManager.registerAction(
                     //     new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "ambientColor", mesh.material.ambientColor));
