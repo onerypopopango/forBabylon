@@ -59,7 +59,7 @@ class Model3d extends HTMLElement{
         var button1;
         var frameRate = 24;
 
-        var glowLayer;
+        var highlightLayer;
 
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
@@ -81,9 +81,9 @@ class Model3d extends HTMLElement{
                 var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
                 var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
 
-                // glowLayer
-                glowLayer = new BABYLON.GlowLayer("glow", scene);
-                glowLayer.intensity = 0.1;
+                // highlight layer
+                highlightLayer = new BABYLON.HighlightLayer("glow", scene);
+                highlightLayer.intensity = 0.5;
 
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
