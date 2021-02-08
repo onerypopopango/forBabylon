@@ -83,6 +83,7 @@ class Model3d extends HTMLElement{
 
                 // glowLayer
                 glowLayer = new BABYLON.GlowLayer("glow", scene);
+                glowLayer.intensity = 0.5;
 
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
