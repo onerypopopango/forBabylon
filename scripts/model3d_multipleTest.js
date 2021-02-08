@@ -282,11 +282,23 @@ class Model3d extends HTMLElement{
                     // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
                     if (expand == true) {
                         console.log('building expand');
-                        buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        // buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace01Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace02Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace03Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace04Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace05Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        buidlingGroundContract.start(false, 1.0, frameRate, frameRate * 12, false);
                         button1.isVisible = true;
                     } else {
                         console.log('contract');
-                        buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        // buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace01Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace02Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace03Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace04Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace05Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        buildingGroundExpand.start(false, 1.0, frameRate, frameRate * 12, false);
                         button1.isVisible = false;
                     }
                     expand = !expand;
@@ -532,127 +544,6 @@ class Model3d extends HTMLElement{
                 floorThree = scene.getMeshByName("2.5D Floorplan.003");
                 floorFour = scene.getMeshByName("2.5D Floorplan.004");
                 floorFive = scene.getMeshByName("2.5D Floorplan.005");
-
-                //**************************************************************************************************//
-                //                      Animation Code Section Bit For Flash And Sizzle                             //
-                //**************************************************************************************************//
-                function animateBuildingInside() {
-                    // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
-                    if (expand == true) {
-                        console.log('building expand');
-                        buildingAnimExpand.start(false, 1.0, frameRate, frameRate * 12, false);
-                    } else {
-                        console.log('contract');
-                        buildingAnimContract.start(false, 1.0, frameRate, frameRate * 12, false);
-                    }
-                    expand = !expand;
-                };    
-                
-                function zoomFloorsInside() {
-                    if (floorExpand == true) {
-                        floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor3Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor4Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor5Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                    } else {
-                        floor1Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor2Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor3Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor4Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                        floor5Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                    }
-                    floorExpand = !floorExpand;
-                }
-
-                function focusFloorInside(num) {
-                    switch (num) {
-                        case 1:
-                            console.log('Floor 1 selected...')
-                            if (floorFocus == false) {
-                                floor1Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break;
-                        case 2:
-                            console.log('Floor 2 selected...')
-                            if (floorFocus == false) {
-                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break;
-                        case 3:
-                            console.log('Floor 3 selected...')
-                            if (floorFocus == false) {
-                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break;
-                        case 4:
-                            console.log('Floor 4 selected...')
-                            if (floorFocus == false) {
-                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break; 
-                        case 5:
-                            console.log('Floor 5 selected...')
-                            if (floorFocus == false) {
-                                floor1Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                            } else if (floorFocus == true) {
-                                floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                floor5Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                            };
-                            break; 
-                        default:
-                            console.log('Sorry, something went wrong...')
-                    }
-                    floorFocus = !floorFocus
-                }
-                //**************************************************************************************************//
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
