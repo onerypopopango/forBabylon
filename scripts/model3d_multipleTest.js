@@ -59,6 +59,8 @@ class Model3d extends HTMLElement{
         var button1;
         var frameRate = 24;
 
+        var glowLayer;
+
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
         function setUp3DEnvironment(){
@@ -78,6 +80,9 @@ class Model3d extends HTMLElement{
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
                 var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
                 var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
+
+                // glowLayer
+                glowLayer = new BABYLON.GlowLayer("glow", scene);
 
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
@@ -310,15 +315,15 @@ class Model3d extends HTMLElement{
                 //****************************************************//
                 var makeOverOut = function (mesh) {
                     console.log('makeOverOut: ', mesh);
-                    // mesh.actionManager.registerAction(
-                    //     new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
-                    // mesh.actionManager.registerAction(
-                    //     new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color3.White()));
+                    mesh.actionManager.registerAction(
+                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
+                    mesh.actionManager.registerAction(
+                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color4(128, 0, 0, 256)));
 
-                    mesh.actionManager.registerAction(
-                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "ambientColor", mesh.material.ambientColor));
-                    mesh.actionManager.registerAction(
-                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "ambientColor", BABYLON.Color3.White()));
+                    // mesh.actionManager.registerAction(
+                    //     new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "ambientColor", mesh.material.ambientColor));
+                    // mesh.actionManager.registerAction(
+                    //     new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "ambientColor", BABYLON.Color3.White()));
                     // mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh, "scaling", new BABYLON.Vector3(1, 1, 1), 150));
                     // mesh.actionManager.registerAction(new BABYLON.InterpolateValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh, "scaling", new BABYLON.Vector3(1.1, 1.1, 1.1), 150));
                 }
