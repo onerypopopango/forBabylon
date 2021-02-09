@@ -59,6 +59,9 @@ class Model3d extends HTMLElement{
         var button1;
         var frameRate = 24;
 
+        // highlight layer
+        var hl;
+
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
         function setUp3DEnvironment(){
@@ -78,6 +81,9 @@ class Model3d extends HTMLElement{
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
                 var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
                 var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
+
+                // highlight layer
+                hl = new BABYLON.HighlightLayer("hl1", scene);
 
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
@@ -311,9 +317,30 @@ class Model3d extends HTMLElement{
                 var makeOverOut = function (mesh) {
                     console.log('makeOverOut: ', mesh);
                     mesh.actionManager.registerAction(
-                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
+                        new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOutTrigger, function () {
+                            hl.addMash(buildingFace01, BABYLON.Color3.Teal());
+                            hl.addMash(buildingFace02, BABYLON.Color3.Teal());
+                            hl.addMash(buildingFace03, BABYLON.Color3.Teal());
+                            hl.addMash(buildingFace04, BABYLON.Color3.Teal());
+                            hl.addMash(buildingFace05, BABYLON.Color3.Teal());
+                        })
+                    );
                     mesh.actionManager.registerAction(
-                        new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color4.FromColor3(BABYLON.Color3.Teal(), 1)));
+                        new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOutTrigger, function () {
+                            hl.removeMesh(buildingFace01, BABYLON.Color3.Teal());
+                            hl.removeMesh(buildingFace02, BABYLON.Color3.Teal());
+                            hl.removeMesh(buildingFace03, BABYLON.Color3.Teal());
+                            hl.removeMesh(buildingFace04, BABYLON.Color3.Teal());
+                            hl.removeMesh(buildingFace05, BABYLON.Color3.Teal());
+                        })
+                    );
+
+                    // mesh.actionManager.registerAction(
+                    //     new BABYLON.SetValueAction(
+                    //         BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "emissiveColor", mesh.material.emissiveColor));
+                    // mesh.actionManager.registerAction(
+                    //     new BABYLON.SetValueAction(
+                    //         BABYLON.ActionManager.OnPointerOverTrigger, mesh.material, "emissiveColor", BABYLON.Color4.FromColor3(BABYLON.Color3.Teal(), 1)));
 
                     // mesh.actionManager.registerAction(
                     //     new BABYLON.SetValueAction(BABYLON.ActionManager.OnPointerOutTrigger, mesh.material, "ambientColor", mesh.material.ambientColor));
