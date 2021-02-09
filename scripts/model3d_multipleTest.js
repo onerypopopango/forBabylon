@@ -315,10 +315,11 @@ class Model3d extends HTMLElement{
                 //  Over/Out <= this is it!!!! for hover flash anims  //
                 //****************************************************//
                 var makeOverOut = function (mesh) {
+                    var testWord = "buildingFace";
                     console.log('makeOverOut: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOverTrigger, function () {
-                            if (mesh.includes("buildingFace")) {
+                            if (mesh.includes(testWord)) {
                                 hl.addMesh(buildingFace01, BABYLON.Color3.Teal());
                                 hl.addMesh(buildingFace02, BABYLON.Color3.Teal());
                                 hl.addMesh(buildingFace03, BABYLON.Color3.Teal());
@@ -331,7 +332,7 @@ class Model3d extends HTMLElement{
                     );
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOutTrigger, function () {
-                            if (mesh.includes("buildingFace")) {
+                            if (mesh.includes(testWord)) {
                                 hl.removeMesh(buildingFace01);
                                 hl.removeMesh(buildingFace02);
                                 hl.removeMesh(buildingFace03);
