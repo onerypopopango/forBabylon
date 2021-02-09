@@ -316,7 +316,7 @@ class Model3d extends HTMLElement{
                 //****************************************************//
                 var makeOverOut = function (mesh) {
                     var check = mesh.name.includes('building');
-                    console.log('makeOverOut: ', check);
+                    console.log('makeOverOut: ', mesh.name);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOverTrigger, function () {
                             if (check > 0) {
