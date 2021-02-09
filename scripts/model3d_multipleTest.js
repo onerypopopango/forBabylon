@@ -317,13 +317,13 @@ class Model3d extends HTMLElement{
                 var makeOverOut = function (mesh) {
                     console.log('makeOverOut: ', mesh);
                     mesh.actionManager.registerAction(
-                        new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOutTrigger, function () {
+                        new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOverTrigger, function () {
                             hl.addMesh(mesh, BABYLON.Color3.Teal());
                         })
                     );
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOutTrigger, function () {
-                            hl.removeMesh(mesh, BABYLON.Color3.Teal());
+                            hl.removeMesh(mesh);
                         })
                     );
 
