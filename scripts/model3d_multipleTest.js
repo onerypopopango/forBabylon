@@ -318,11 +318,11 @@ class Model3d extends HTMLElement{
                     console.log('makeOverOut: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOutTrigger, function () {
-                            hl.addMash(buildingFace01, BABYLON.Color3.Teal());
-                            hl.addMash(buildingFace02, BABYLON.Color3.Teal());
-                            hl.addMash(buildingFace03, BABYLON.Color3.Teal());
-                            hl.addMash(buildingFace04, BABYLON.Color3.Teal());
-                            hl.addMash(buildingFace05, BABYLON.Color3.Teal());
+                            hl.addMesh(buildingFace01, BABYLON.Color3.Teal());
+                            hl.addMesh(buildingFace02, BABYLON.Color3.Teal());
+                            hl.addMesh(buildingFace03, BABYLON.Color3.Teal());
+                            hl.addMesh(buildingFace04, BABYLON.Color3.Teal());
+                            hl.addMesh(buildingFace05, BABYLON.Color3.Teal());
                         })
                     );
                     mesh.actionManager.registerAction(
