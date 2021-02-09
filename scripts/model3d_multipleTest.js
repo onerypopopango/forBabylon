@@ -59,10 +59,6 @@ class Model3d extends HTMLElement{
         var button1;
         var frameRate = 24;
 
-        var glowLayer;
-        var glowMask;
-        var emissiveStrength;
-
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
         function setUp3DEnvironment(){
@@ -82,14 +78,6 @@ class Model3d extends HTMLElement{
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
                 var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
                 var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
-
-                // get shader values to drive glow
-                glowMask = lightNodeMat.getBlockByName("glowMask");
-                emissiveStrength = lightNodeMat.getBlockByName("emissiveStrength");
-
-                // glowLayer
-                glowLayer = new BABYLON.GlowLayer("glow", scene);
-                glowLayer.intensity = 1.25;
 
                 // GUI
                 var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
@@ -316,17 +304,6 @@ class Model3d extends HTMLElement{
                 floorThree = scene.getMeshByName("2.5D Floorplan.003");
                 floorFour = scene.getMeshByName("2.5D Floorplan.004");
                 floorFive = scene.getMeshByName("2.5D Floorplan.005");
-
-                // set up material to use glow layer
-                glowLayer.referenceMeshToUseItsOwnMaterial(buildingFace01);
-
-                // enable glow mask to render only emissive into glow layer, and then disable glow mask
-                glowLayer.onBeforeRenderMeshToEffect.add(() => {
-                    glowMask.value = 1.0;
-                });
-                glowLayer.onAfterRenderMeshToEffect.add(() => {
-                    glowMask.value = 0.0;
-                });
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
