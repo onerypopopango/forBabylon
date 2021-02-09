@@ -83,16 +83,16 @@ class Model3d extends HTMLElement{
 
                 // glowLayer
                 glowLayer = new BABYLON.GlowLayer("glow", scene);
-                gl.intensity = 1.25;
+                glowLayer.intensity = 1.25;
 
                 // set up material to use glow layer
-                gl.referenceMeshToUseItsOwnMaterial(buildingFace01);
+                glowLayer.referenceMeshToUseItsOwnMaterial(buildingFace01);
 
                 // enable glow mask to render only emissive into glow layer, and then disable glow mask
-                gl.onBeforeRenderMeshToEffect.add(() => {
+                glowLayer.onBeforeRenderMeshToEffect.add(() => {
                     glowMask.value = 1.0;
                 });
-                gl.onAfterRenderMeshToEffect.add(() => {
+                glowLayer.onAfterRenderMeshToEffect.add(() => {
                     glowMask.value = 0.0;
                 });
 
