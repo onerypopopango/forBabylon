@@ -318,20 +318,12 @@ class Model3d extends HTMLElement{
                     console.log('makeOverOut: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOutTrigger, function () {
-                            hl.addMesh(buildingFace01, BABYLON.Color3.Teal());
-                            hl.addMesh(buildingFace02, BABYLON.Color3.Teal());
-                            hl.addMesh(buildingFace03, BABYLON.Color3.Teal());
-                            hl.addMesh(buildingFace04, BABYLON.Color3.Teal());
-                            hl.addMesh(buildingFace05, BABYLON.Color3.Teal());
+                            hl.addMesh(mesh, BABYLON.Color3.Teal());
                         })
                     );
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOutTrigger, function () {
-                            hl.removeMesh(buildingFace01, BABYLON.Color3.Teal());
-                            hl.removeMesh(buildingFace02, BABYLON.Color3.Teal());
-                            hl.removeMesh(buildingFace03, BABYLON.Color3.Teal());
-                            hl.removeMesh(buildingFace04, BABYLON.Color3.Teal());
-                            hl.removeMesh(buildingFace05, BABYLON.Color3.Teal());
+                            hl.removeMesh(mesh, BABYLON.Color3.Teal());
                         })
                     );
 
