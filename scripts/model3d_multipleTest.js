@@ -60,6 +60,8 @@ class Model3d extends HTMLElement{
         var frameRate = 24;
 
         var glowLayer;
+        var glowMask;
+        var emissiveStrength;
 
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
@@ -80,6 +82,10 @@ class Model3d extends HTMLElement{
                 var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
                 var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
                 var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
+
+                // get shader values to drive glow
+                glowMask = lightNodeMat.getBlockByName("glowMask");
+                emissiveStrength = lightNodeMat.getBlockByName("emissiveStrength");
 
                 // glowLayer
                 glowLayer = new BABYLON.GlowLayer("glow", scene);
