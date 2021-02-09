@@ -315,7 +315,7 @@ class Model3d extends HTMLElement{
                 //  Over/Out <= this is it!!!! for hover flash anims  //
                 //****************************************************//
                 var makeOverOut = function (mesh) {
-                    var check = mesh.indexOf('building');
+                    var check = mesh.name.indexOf('building');
                     console.log('makeOverOut: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOverTrigger, function () {
