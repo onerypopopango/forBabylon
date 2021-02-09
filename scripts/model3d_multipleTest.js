@@ -85,9 +85,6 @@ class Model3d extends HTMLElement{
                 glowLayer = new BABYLON.GlowLayer("glow", scene);
                 glowLayer.intensity = 1.25;
 
-                // set up material to use glow layer
-                glowLayer.referenceMeshToUseItsOwnMaterial(buildingFace01);
-
                 // enable glow mask to render only emissive into glow layer, and then disable glow mask
                 glowLayer.onBeforeRenderMeshToEffect.add(() => {
                     glowMask.value = 1.0;
@@ -321,6 +318,9 @@ class Model3d extends HTMLElement{
                 floorThree = scene.getMeshByName("2.5D Floorplan.003");
                 floorFour = scene.getMeshByName("2.5D Floorplan.004");
                 floorFive = scene.getMeshByName("2.5D Floorplan.005");
+
+                // set up material to use glow layer
+                glowLayer.referenceMeshToUseItsOwnMaterial(buildingFace01);
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
