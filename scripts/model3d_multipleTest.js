@@ -244,12 +244,10 @@ class Model3d extends HTMLElement{
 
         /*LOAD 3D MODELS*/
         //method that loads 3d models into the created scene via assetsManager
-        let loadGLTFAux = function(fileArray){
+        let loadGLTFAux = function(fileArray) {
             console.log('file: ', fileArray);
             scene.meshes.pop();
             var assetsManager = new BABYLON.AssetsManager(scene);
-
-            // scene.ambientColor = new BABYLON.Color3(1, 1, 1);
 
             // lights in scene
             var light = new BABYLON.DirectionalLight("DirectionalLight1", new BABYLON.Vector3(4, -1, 2), scene);  

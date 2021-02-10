@@ -59,6 +59,8 @@ class Model3d extends HTMLElement{
 
         var button1;
 
+        var floorPlanMaterial;
+
         // highlight layer
         var hl;
 
@@ -76,15 +78,6 @@ class Model3d extends HTMLElement{
                 // Parameters: name, alpha, beta, radius, target position (x, y, z), scene
                 // var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(15, 0, 22), scene);
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
-
-                // lights in scene
-                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
-                var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
-                var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
-
-                light.intensity = 1.2;
-                lightSecond.intensity = 1.2;
-                lightThird.intensity = 1.2;
 
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
@@ -437,10 +430,25 @@ class Model3d extends HTMLElement{
 
         /*LOAD 3D MODELS*/
         //method that loads 3d models into the created scene via assetsManager
-        let loadGLTFAux = function(fileArray){
+        let loadGLTFAux = function(fileArray) {
             console.log('file: ', fileArray);
             scene.meshes.pop();
             var assetsManager = new BABYLON.AssetsManager(scene);
+
+            // lights in scene
+            var light = new BABYLON.DirectionalLight("DirectionalLight1", new BABYLON.Vector3(4, -1, 2), scene);  
+            var lightSecond = new BABYLON.DirectionalLight("DirectionalLight2", new BABYLON.Vector3(2, -1, 3), scene);
+            var lightThird= new BABYLON.DirectionalLight("DirectionalLight3", new BABYLON.Vector3(-2, -1, -3), scene);
+            var lightFourth= new BABYLON.DirectionalLight("DirectionalLight3", new BABYLON.Vector3(-1, -1, -3), scene);
+
+            light.intensity = 2;
+
+            light.specular = new BABYLON.Color3(0, 0, 0);
+            lightSecond.specular = new BABYLON.Color3(0, 0, 0);
+            lightThird.specular = new BABYLON.Color3(0, 0, 0);
+            lightFourth.specular = new BABYLON.Color3(0, 0, 0);
+
+            floorPlanMaterial = new BABYLON.Texture("../textures/Floorplan_2_Base.png", scene);
 
             fileArray.forEach(file => {
                 const path = decodePath(file);
@@ -610,6 +618,11 @@ class Model3d extends HTMLElement{
                     );
                 }
 
+                var editMesh = function (mesh) {
+                    mesh.material.albedoTexture = floorPlanMaterial;
+                    mesh.material.alpha = 0.2;
+                }
+
                 if (!floorOne) {
                     console.log('there is no floorplan');
                 } else {
@@ -620,6 +633,12 @@ class Model3d extends HTMLElement{
                     floorThree.actionManager = new BABYLON.ActionManager(scene);
                     floorFour.actionManager = new BABYLON.ActionManager(scene);
                     floorFive.actionManager = new BABYLON.ActionManager(scene);
+
+                    editMesh(floorOne);
+                    editMesh(floorTwo);
+                    editMesh(floorThree);
+                    editMesh(floorFour);
+                    editMesh(floorFive);
 
                     makeOverOut(floorOne);
                     makeOverOut(floorTwo);
