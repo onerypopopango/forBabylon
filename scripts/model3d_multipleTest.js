@@ -417,7 +417,7 @@ class Model3d extends HTMLElement{
                     editLightMesh(buildingFace03);
                     editLightMesh(buildingFace04);
                     editLightMesh(buildingFace05);
-                    editLightMesh(buildingGround);
+                    editLightMesh(buidlingGround);
 
                     makeOverOut(buildingFace01);
                     makeOverOut(buildingFace02);
