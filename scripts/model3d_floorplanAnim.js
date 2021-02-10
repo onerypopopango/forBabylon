@@ -336,6 +336,7 @@ class Model3d extends HTMLElement{
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                     };
+                                    break;
                                 default:
                                     console.log("no floorplan mesh??")
                             }
