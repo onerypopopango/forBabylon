@@ -82,6 +82,10 @@ class Model3d extends HTMLElement{
                 var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
                 var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
 
+                light.intensity = 1.2;
+                lightSecond.intensity = 1.2;
+                lightThird.intensity = 1.2;
+
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
 
