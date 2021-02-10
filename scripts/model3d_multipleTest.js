@@ -400,7 +400,7 @@ class Model3d extends HTMLElement{
 
                 var editMesh = function (mesh) {
                     // mesh.material.lightmapTexture = lightmap;
-                    var check = mesh.name.includes('officeFace');
+                    var check = mesh.name.includes('office');
 
                     if (check > 0) {
                         mesh.receiveShadows = true;
