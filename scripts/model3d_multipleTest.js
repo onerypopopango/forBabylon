@@ -257,6 +257,8 @@ class Model3d extends HTMLElement{
             var lightThird= new BABYLON.DirectionalLight("DirectionalLight3", new BABYLON.Vector3(-2, -1, -3), scene);
             var lightFourth= new BABYLON.DirectionalLight("DirectionalLight3", new BABYLON.Vector3(-1, -1, -3), scene);
 
+            light.intensity = 2;
+
             light.specular = new BABYLON.Color3(0, 0, 0);
             lightSecond.specular = new BABYLON.Color3(0, 0, 0);
             lightThird.specular = new BABYLON.Color3(0, 0, 0);
