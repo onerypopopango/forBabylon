@@ -389,7 +389,8 @@ class Model3d extends HTMLElement{
                 }
 
                 var editLightMesh = function (mesh) {
-                    mesh.material.lightmapTexture = lightmap;
+                    // mesh.material.lightmapTexture = lightmap;
+                    mesh.receiveShadows = true;
                 }
 
                 if (!buildingFace01) {
