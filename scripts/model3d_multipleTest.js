@@ -408,7 +408,7 @@ class Model3d extends HTMLElement{
                         mesh.receiveShadows = true;
                         shadowGenerator.addShadowCaster(mesh);
                     } else {
-                        mesh.material.emissiveColor = new BABYLON.Color3.Teal();
+                        // mesh.material.emissiveColor = new BABYLON.Color3.Teal();
                         mesh.material.albedoTexture = floorPlanMaterial;
                     }
                 }
