@@ -82,11 +82,6 @@ class Model3d extends HTMLElement{
                 // var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(15, 0, 22), scene);
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
 
-                // lights in scene
-                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
-                var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
-                var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
-
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
 
@@ -252,6 +247,11 @@ class Model3d extends HTMLElement{
             console.log('file: ', fileArray);
             scene.meshes.pop();
             var assetsManager = new BABYLON.AssetsManager(scene);
+
+            // lights in scene
+            var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
+            var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
+            var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
 
             // create lightmap texture & shadow generator
             lightmap = new BABYLON.Texture("../textures/Lightmap-0_comp_light.exr", scene);
