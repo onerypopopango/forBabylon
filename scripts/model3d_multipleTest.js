@@ -62,9 +62,10 @@ class Model3d extends HTMLElement{
         // highlight layer
         var hl;
 
-        // lightmaps stuff
+        // lightmaps and shadow stuff
         var lightmap;
         var material;
+        var shadowGenerator;
 
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
@@ -252,8 +253,9 @@ class Model3d extends HTMLElement{
             scene.meshes.pop();
             var assetsManager = new BABYLON.AssetsManager(scene);
 
-            // create lightmap texture
+            // create lightmap texture & shadow generator
             lightmap = new BABYLON.Texture("../textures/Lightmap-0_comp_light.exr", scene);
+            shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
 
             // for multiple loaded glbs
             fileArray.forEach(file => {
@@ -391,6 +393,7 @@ class Model3d extends HTMLElement{
                 var editLightMesh = function (mesh) {
                     // mesh.material.lightmapTexture = lightmap;
                     mesh.receiveShadows = true;
+                    shadowGenerator.addShadowCaster(mesh);
                 }
 
                 if (!buildingFace01) {
