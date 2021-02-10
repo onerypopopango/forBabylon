@@ -398,10 +398,16 @@ class Model3d extends HTMLElement{
                     );
                 }
 
-                var editLightMesh = function (mesh) {
+                var editMesh = function (mesh) {
                     // mesh.material.lightmapTexture = lightmap;
-                    mesh.receiveShadows = true;
-                    shadowGenerator.addShadowCaster(mesh);
+                    var check = mesh.name.includes('officeFace');
+
+                    if (check > 0) {
+                        mesh.receiveShadows = true;
+                        shadowGenerator.addShadowCaster(mesh);
+                    } else {
+                        mesh.material.emissiveColor = new BABYLON.Color3.Blue();
+                    }
                 }
 
                 if (!buildingFace01) {
@@ -424,12 +430,17 @@ class Model3d extends HTMLElement{
                     floorFour.actionManager = new BABYLON.ActionManager(scene);
                     floorFive.actionManager = new BABYLON.ActionManager(scene);
 
-                    editLightMesh(buildingFace01);
-                    editLightMesh(buildingFace02);
-                    editLightMesh(buildingFace03);
-                    editLightMesh(buildingFace04);
-                    editLightMesh(buildingFace05);
-                    editLightMesh(buidlingGround);
+                    editMesh(buildingFace01);
+                    editMesh(buildingFace02);
+                    editMesh(buildingFace03);
+                    editMesh(buildingFace04);
+                    editMesh(buildingFace05);
+                    editMesh(buidlingGround);
+                    editMesh(floorOne);
+                    editMesh(floorTwo);
+                    editMesh(floorThree);
+                    editMesh(floorFour);
+                    editMesh(floorFive);
 
                     makeOverOut(buildingFace01);
                     makeOverOut(buildingFace02);
