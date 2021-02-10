@@ -259,6 +259,7 @@ class Model3d extends HTMLElement{
             light.specular = new BABYLON.Color3(0, 0, 0);
             lightSecond.specular = new BABYLON.Color3(0, 0, 0);
             lightThird.specular = new BABYLON.Color3(0, 0, 0);
+            lightFourth.specular = new BABYLON.Color3(0, 0, 0);
 
             // create lightmap texture & shadow generator
             lightmap = new BABYLON.Texture("../textures/Lightmap-0_comp_light.exr", scene);
