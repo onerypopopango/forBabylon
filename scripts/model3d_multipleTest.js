@@ -62,6 +62,10 @@ class Model3d extends HTMLElement{
         // highlight layer
         var hl;
 
+        // lightmaps stuff
+        var lightmap;
+        var material;
+
         // sets up the babylon environment for loading object into it
         // this was called fourth (4)
         function setUp3DEnvironment(){
@@ -248,18 +252,21 @@ class Model3d extends HTMLElement{
             scene.meshes.pop();
             var assetsManager = new BABYLON.AssetsManager(scene);
 
+            // create lightmap texture
+            lightmap = new BABYLON.Texture("lightmap.png", scene);
+
             // for multiple loaded glbs
             fileArray.forEach(file => {
                 const path = decodePath(file);
                 console.log('path: ', path);
 
-                // taskName, meshesNames, rootUrl, sceneFilename
+                // .addMeshTask(taskName, meshesNames, rootUrl, sceneFilename)
                 const meshTask = assetsManager.addMeshTask(path[1], '', path[0], path[1]);
                 meshTask.onSuccess = function (task){
                     
                     task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
                     task.loadedAnimationGroups[0].stop();   // stops default anim from playing
-                    console.log('task: ', task);
+                    // console.log('task: ', task);
 
                     // assigning animations from imported glbs
                     if (task.name === "officeBlockMoreAnims.glb") {
@@ -289,7 +296,7 @@ class Model3d extends HTMLElement{
                         floor5Contract = task.loadedAnimationGroups[16];
                         floor5Expand = task.loadedAnimationGroups[17];
                     } else {
-                        console.log("ERROR: No task to transfer animations from...")
+                        console.log("ERROR: No task to transfer animations from...");
                     }
                 }
 
@@ -316,7 +323,7 @@ class Model3d extends HTMLElement{
                 //****************************************************//
                 var makeOverOut = function (mesh) {
                     var check = mesh.name.includes('officeFace');
-                    console.log('makeOverOut: ', check);
+                    // console.log('makeOverOut: ', check);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOverTrigger, function () {
                             if (check > 0) {
@@ -381,6 +388,10 @@ class Model3d extends HTMLElement{
                     );
                 }
 
+                var editLightMesh = function (mesh) {
+                    mesh.material.lightmapTexture = lightmap;
+                }
+
                 if (!buildingFace01) {
                     console.log('there is no building');
                 } else if (!floorOne) {
@@ -400,6 +411,13 @@ class Model3d extends HTMLElement{
                     floorThree.actionManager = new BABYLON.ActionManager(scene);
                     floorFour.actionManager = new BABYLON.ActionManager(scene);
                     floorFive.actionManager = new BABYLON.ActionManager(scene);
+
+                    editLightMesh(buildingFace01);
+                    editLightMesh(buildingFace02);
+                    editLightMesh(buildingFace03);
+                    editLightMesh(buildingFace04);
+                    editLightMesh(buildingFace05);
+                    editLightMesh(buildingGround);
 
                     makeOverOut(buildingFace01);
                     makeOverOut(buildingFace02);
