@@ -410,6 +410,7 @@ class Model3d extends HTMLElement{
                     } else {
                         // mesh.material.emissiveColor = new BABYLON.Color3.Teal();
                         mesh.material.albedoTexture = floorPlanMaterial;
+                        mesh.material.alpha = 0.5;
                     }
                 }
 
