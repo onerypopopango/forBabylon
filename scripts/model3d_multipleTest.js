@@ -248,7 +248,7 @@ class Model3d extends HTMLElement{
             scene.meshes.pop();
             var assetsManager = new BABYLON.AssetsManager(scene);
 
-            scene.ambientColor = new BABYLON.Color3(1, 1, 1);
+            // scene.ambientColor = new BABYLON.Color3(1, 1, 1);
 
             // lights in scene
             var light = new BABYLON.DirectionalLight("DirectionalLight1", new BABYLON.Vector3(4, -1, -2), scene);  
