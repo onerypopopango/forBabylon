@@ -253,7 +253,7 @@ class Model3d extends HTMLElement{
             var assetsManager = new BABYLON.AssetsManager(scene);
 
             // create lightmap texture
-            lightmap = new BABYLON.Texture("lightmap.png", scene);
+            lightmap = new BABYLON.Texture("../textures/Lightmap-0_comp_light.exr", scene);
 
             // for multiple loaded glbs
             fileArray.forEach(file => {
