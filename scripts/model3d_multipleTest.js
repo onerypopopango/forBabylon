@@ -249,7 +249,7 @@ class Model3d extends HTMLElement{
             var assetsManager = new BABYLON.AssetsManager(scene);
 
             // lights in scene
-            var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);  
+            var light = new BABYLON.PointLight("PointLight", new BABYLON.Vector3(0, -1, 0), scene);  
             var lightSecond = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(2, 1, -3), scene);
             var lightThird= new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-2, -1, 3), scene);
 
