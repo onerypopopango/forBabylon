@@ -83,9 +83,6 @@ class Model3d extends HTMLElement{
                 // old vector coordinates for target position => new BABYLON.Vector3(15, 0, 22)
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
 
-                var hemiLight = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
-                hemiLight.specular = new BABYLON.Color3(0, 0, 0);
-
                 // Skybox
                 // var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size: 100.0}, scene);
                 // var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
@@ -268,7 +265,11 @@ class Model3d extends HTMLElement{
             // var lightSecond = new BABYLON.DirectionalLight("DirectionalLight2", new BABYLON.Vector3(2, -1, 3), scene);
             // var lightThird= new BABYLON.DirectionalLight("DirectionalLight3", new BABYLON.Vector3(-2, -1, -3), scene);
 
-            light.intensity = 3;
+            // this adds a lot of light
+            var hemiLight = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
+            hemiLight.specular = new BABYLON.Color3(0, 0, 0);
+
+            light.intensity = 2;
 
             light.specular = new BABYLON.Color3(0, 0, 0);
             // lightSecond.specular = new BABYLON.Color3(0, 0, 0);
