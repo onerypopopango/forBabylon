@@ -81,7 +81,7 @@ class Model3d extends HTMLElement{
 
                 // Parameters: name, alpha, beta, radius, target position (x, y, z), scene
                 // old vector coordinates for target position => new BABYLON.Vector3(15, 0, 22)
-                var camera = new BABYLON.FreeCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
+                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
 
                 // Skybox
                 var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size: 10.0}, scene);
@@ -149,7 +149,7 @@ class Model3d extends HTMLElement{
                 rotate.setKeys(rotate_keys);
                 
                 // Positions the camera overwriting alpha, beta, radius
-                // camera.setPosition(new BABYLON.Vector3(0, 30, 120));
+                camera.setPosition(new BABYLON.Vector3(0, 30, 120));
                 // camera.attachControl(cnv, true);
 
                 //so beginDirectAnimation didn't work... this did instead
