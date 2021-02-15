@@ -83,6 +83,9 @@ class Model3d extends HTMLElement{
                 // old vector coordinates for target position => new BABYLON.Vector3(15, 0, 22)
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
 
+                var hemiLight = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
+	            hemiLight.diffuse = new BABYLON.Color3(1, 0, 0);
+
                 // Skybox
                 var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size: 100.0}, scene);
                 var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
