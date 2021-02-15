@@ -84,7 +84,7 @@ class Model3d extends HTMLElement{
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
 
                 // Skybox
-                var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size: 52.0}, scene);
+                var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size: 10.0}, scene);
                 var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
                 skyboxMaterial.backFaceCulling = false;
                 skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("../textures/skybox", scene);
