@@ -85,6 +85,7 @@ class Model3d extends HTMLElement{
 
                 var hemiLight = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
 	            hemiLight.diffuse = new BABYLON.Color3(1, 0, 0);
+                hemiLight.specular = new BABYLON.Color3(0, 0, 0);
 
                 // Skybox
                 var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size: 100.0}, scene);
