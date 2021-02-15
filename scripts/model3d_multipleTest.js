@@ -87,7 +87,7 @@ class Model3d extends HTMLElement{
                 var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:1000.0}, scene);
                 var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
                 skyboxMaterial.backFaceCulling = false;
-                skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("skybox.jpg", scene);
+                skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("skybox", scene, ".jpg");
                 skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
                 skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
                 skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
