@@ -87,14 +87,14 @@ class Model3d extends HTMLElement{
                 hemiLight.specular = new BABYLON.Color3(0, 0, 0);
 
                 // Skybox
-                var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size: 100.0}, scene);
-                var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-                skyboxMaterial.backFaceCulling = false;
-                skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("../textures/skybox", scene);
-                skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-                skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-                skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-                skybox.material = skyboxMaterial;
+                // var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size: 100.0}, scene);
+                // var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+                // skyboxMaterial.backFaceCulling = false;
+                // skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("../textures/skybox", scene);
+                // skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+                // skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+                // skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+                // skybox.material = skyboxMaterial;
 
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
