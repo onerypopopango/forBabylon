@@ -269,7 +269,7 @@ class Model3d extends HTMLElement{
             var hemiLight = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
             hemiLight.specular = new BABYLON.Color3(0, 0, 0);
 
-            light.intensity = 2;
+            light.intensity = 10;
 
             light.specular = new BABYLON.Color3(0, 0, 0);
             // lightSecond.specular = new BABYLON.Color3(0, 0, 0);
