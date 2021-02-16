@@ -147,7 +147,7 @@ class Model3d extends HTMLElement{
 
                 // try this one for auto rotate camera instead...
                 camera.useAutoRotationBehavior = true;
-                scene.activeCamera.autoRotationBehavior.idleRotationSpeed = 0.5;
+                scene.activeCamera.autoRotationBehavior.idleRotationSpeed = -0.5;
                 scene.activeCamera.autoRotationBehavior.idleRotationWaitTime = 10;
                 scene.activeCamera.autoRotationBehavior.idleRotationSpinupTime = 10;
 
