@@ -68,42 +68,16 @@ class Model3d extends HTMLElement{
 
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
-
-                // animation loop for camera to sweep round
-                // (name, property, frames per second, property type, loop mode)
-                var rotate = new BABYLON.Animation(
-                    "rotate",
-                    "alpha",
-                    frameRate,
-                    BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-                    BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
-                );
-
-                var rotate_keys = [];
-
-                rotate_keys.push({
-                    frame: 0,
-                    value: 0
-                });
-
-                rotate_keys.push({
-                    frame: frameRate * 8,
-                    value: Math.PI
-                });
-
-                rotate_keys.push({
-                    frame: frameRate * 16,
-                    value: Math.PI * 2
-                });
-
-                rotate.setKeys(rotate_keys);
                 
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 30, 120));
                 // camera.attachControl(cnv, true);
 
-                //so beginDirectAnimation didn't work... this did instead
-                camera.animations.push(rotate);
+                // try this one for auto rotate camera instead...
+                camera.useAutoRotationBehavior = true;
+                scene.activeCamera.autoRotationBehavior.idleRotationSpeed = 0.5;
+                scene.activeCamera.autoRotationBehavior.idleRotationWaitTime = 10;
+                scene.activeCamera.autoRotationBehavior.idleRotationSpinupTime = 10;
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
