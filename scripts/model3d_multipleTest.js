@@ -83,16 +83,6 @@ class Model3d extends HTMLElement{
                 // old vector coordinates for target position => new BABYLON.Vector3(15, 0, 22)
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
 
-                // Skybox
-                // var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size: 100.0}, scene);
-                // var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-                // skyboxMaterial.backFaceCulling = false;
-                // skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("../textures/skybox", scene);
-                // skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-                // skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-                // skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-                // skybox.material = skyboxMaterial;
-
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
 
@@ -152,8 +142,12 @@ class Model3d extends HTMLElement{
                 camera.setPosition(new BABYLON.Vector3(0, 30, 120));
                 // camera.attachControl(cnv, true);
 
-                //so beginDirectAnimation didn't work... this did instead
-                camera.animations.push(rotate);
+                // so beginDirectAnimation didn't work... this did instead
+                // camera.animations.push(rotate);
+
+                // try this one for auto rotate camera instead...
+                camera.useAutoRotationBehavior = true;
+                scene.activeCamera.autoRotationBehavior.idleRotationSpeed = 0.5;
 
                 function animateBuilding() {
                     // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
@@ -413,14 +407,12 @@ class Model3d extends HTMLElement{
                 }
 
                 var editMesh = function (mesh) {
-                    // mesh.material.lightmapTexture = lightmap;
                     var check = mesh.name.includes('office');
 
                     if (check > 0) {
                         mesh.receiveShadows = true;
                         shadowGenerator.addShadowCaster(mesh);
                     } else {
-                        // mesh.material.emissiveColor = new BABYLON.Color3.Teal();
                         mesh.material.albedoTexture = floorPlanMaterial;
                         mesh.material.alpha = 0.2;
                     }
