@@ -226,13 +226,14 @@ class Model3d extends HTMLElement{
 
             // lights in scene
             var light = new BABYLON.DirectionalLight("DirectionalLight1", new BABYLON.Vector3(4, -1, 2), scene);  
-            // var lightSecond = new BABYLON.DirectionalLight("DirectionalLight2", new BABYLON.Vector3(2, -1, 3), scene);
-            // var lightThird= new BABYLON.DirectionalLight("DirectionalLight3", new BABYLON.Vector3(-2, -1, -3), scene);
+            var lightSecond = new BABYLON.DirectionalLight("DirectionalLight2", new BABYLON.Vector3(2, -1, 3), scene);
+            var lightThird= new BABYLON.DirectionalLight("DirectionalLight3", new BABYLON.Vector3(-2, -1, -3), scene);
             
             light.intensity = 5;
+            lightSecond.intensity = 4;
             light.specular = new BABYLON.Color3(0, 0, 0);
-            // lightSecond.specular = new BABYLON.Color3(0, 0, 0);
-            // lightThird.specular = new BABYLON.Color3(0, 0, 0);
+            lightSecond.specular = new BABYLON.Color3(0, 0, 0);
+            lightThird.specular = new BABYLON.Color3(0, 0, 0);
 
             // this adds a lot of light
             var hemiLight = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
