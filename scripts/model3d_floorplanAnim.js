@@ -219,12 +219,12 @@ class Model3d extends HTMLElement{
 
                 // GUI
                 var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-                var target = new BABYLON.GUI.Ellipse();
-                target.width = "40px";
-                target.height = "40px";
-                target.color = "Orange";
-                target.thickness = 4;
-                target.background = "green";
+                var targetFirstDoor = new BABYLON.GUI.Ellipse();
+                targetFirstDoor.width = "40px";
+                targetFirstDoor.height = "40px";
+                targetFirstDoor.color = "Orange";
+                targetFirstDoor.thickness = 4;
+                targetFirstDoor.background = "green";
                 
 
                 // var rect1 = new BABYLON.GUI.Rectangle();
@@ -283,15 +283,15 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.addControl(target);
-                                        target.linkWithMesh(doorOne);   
+                                        gui.addControl(targetFirstDoor);
+                                        targetFirstDoor.linkWithMesh(doorOne);   
                                     } else if (floorFocus == true) {
                                         floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.removeControl(target);
+                                        gui.removeControl(targetFirstDoor);
                                     };
                                     break;
                                 case floorTwo:
