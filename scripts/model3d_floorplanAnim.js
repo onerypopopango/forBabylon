@@ -21,6 +21,22 @@ class Model3d extends HTMLElement{
         var floorFour;
         var floorFive;
 
+        var doorOne;
+        var doorTwo;
+        var doorThree;
+        var doorFour;
+        var doorFive;
+        var doorSix;
+        var doorSeven;
+        var doorEight;
+        var doorNine;
+        var doorTen;
+        var doorEleven;
+        var doorTwelve;
+        var doorThirteen;
+        var doorFourteen;
+        var doorFifteen;
+
         // animation groups and animation stuff
         var floor1Expand;
         var floor1Contract;
@@ -68,6 +84,25 @@ class Model3d extends HTMLElement{
 
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
+
+                // GUI
+                var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+                var rect1 = new BABYLON.GUI.Rectangle();
+                rect1.width = 0.2;
+                rect1.height = "40px";
+                rect1.cornerRadius = 20;
+                rect1.color = "Orange";
+                rect1.thickness = 4;
+                rect1.background = "green";
+                advancedTexture.addControl(rect1);
+                rect1.linkWithMesh(doorOne);   
+                rect1.linkOffsetY = -150;
+                
+                var label = new BABYLON.GUI.TextBlock();
+                label.text = "Sphere";
+                rect1.addControl(label);
+
+
                 
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 30, 120));
@@ -207,6 +242,22 @@ class Model3d extends HTMLElement{
                 floorThree = scene.getMeshByName("2.5D Floorplan.001");
                 floorFour = scene.getMeshByName("2.5D Floorplan.004");
                 floorFive = scene.getMeshByName("2.5D Floorplan.005");
+
+                doorOne = scene.getMeshByName("doorPosition.001");
+                doorTwo = scene.getMeshByName("doorPosition.002");
+                doorThree = scene.getMeshByName("doorPosition.003");
+                doorFour = scene.getMeshByName("doorPosition.004");
+                doorFive = scene.getMeshByName("doorPosition.005");
+                doorSix = scene.getMeshByName("doorPosition.006");
+                doorSeven = scene.getMeshByName("doorPosition.007");
+                doorEight = scene.getMeshByName("doorPosition.008");
+                doorNine = scene.getMeshByName("doorPosition.009");
+                doorTen = scene.getMeshByName("doorPosition.010");
+                doorEleven = scene.getMeshByName("doorPosition.011");
+                doorTwelve = scene.getMeshByName("doorPosition.012");
+                doorThirteen = scene.getMeshByName("doorPosition.013");
+                doorFourteen = scene.getMeshByName("doorPosition.014");
+                doorFifteen = scene.getMeshByName("doorPosition.015");
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
