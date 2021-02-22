@@ -94,7 +94,7 @@ class Model3d extends HTMLElement{
                 rect1.color = "Orange";
                 rect1.thickness = 4;
                 rect1.background = "green";
-                advancedTexture.addControl(rect1);
+                gui.addControl(rect1);
                 rect1.linkWithMesh(doorOne);   
                 rect1.linkOffsetY = -150;
                 
