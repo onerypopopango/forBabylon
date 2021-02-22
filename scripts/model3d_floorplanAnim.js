@@ -102,14 +102,14 @@ class Model3d extends HTMLElement{
                 label.text = "Sphere";
                 rect1.addControl(label);
 
-                 var target = new BABYLON.GUI.Ellipse();
+                var target = new BABYLON.GUI.Ellipse();
                 target.width = "40px";
                 target.height = "40px";
                 target.color = "Orange";
                 target.thickness = 4;
                 target.background = "green";
                 gui.addControl(target);
-                target.linkWithMesh(sphere);   
+                target.linkWithMesh(doorOne);   
 
                 var line = new BABYLON.GUI.Line();
                 line.lineWidth = 4;
@@ -117,7 +117,7 @@ class Model3d extends HTMLElement{
                 line.y2 = 20;
                 line.linkOffsetY = -20;
                 gui.addControl(line);
-                line.linkWithMesh(sphere); 
+                line.linkWithMesh(doorOne); 
                 line.connectedControl = rect1;  
 
 
