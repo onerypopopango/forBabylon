@@ -302,12 +302,15 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.addControl(targetFirstDoor);
+                                        targetFirstDoor.linkWithMesh(doorFour);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.removeControl(targetFirstDoor);
                                     };
                                     break;
                                 case floorThree:
@@ -318,12 +321,15 @@ class Model3d extends HTMLElement{
                                         floor3Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.addControl(targetFirstDoor);
+                                        targetFirstDoor.linkWithMesh(doorSeven);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor3Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.removeControl(targetFirstDoor);
                                     };
                                     break;
                                 case floorFour:
@@ -334,12 +340,15 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.addControl(targetFirstDoor);
+                                        targetFirstDoor.linkWithMesh(doorTen);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.removeControl(targetFirstDoor);
                                     };
                                     break; 
                                 case floorFive:
@@ -350,12 +359,15 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.addControl(targetFirstDoor);
+                                        targetFirstDoor.linkWithMesh(doorThirteen);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.removeControl(targetFirstDoor);
                                     };
                                     break;
                                 default:
