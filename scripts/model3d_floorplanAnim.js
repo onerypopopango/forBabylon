@@ -219,7 +219,7 @@ class Model3d extends HTMLElement{
 
                 // GUI
                 var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-                var targetFirstDoor = new BABYLON.GUI.Image("button", "../textures/skybox_nx.jpg");;
+                var targetFirstDoor = new BABYLON.GUI.Button.CreateImageButton("button", "", "../textures/grass.jpg");;
                 targetFirstDoor.width = "40px";
                 targetFirstDoor.height = "40px";
                 targetFirstDoor.color = "Orange";
