@@ -102,6 +102,24 @@ class Model3d extends HTMLElement{
                 label.text = "Sphere";
                 rect1.addControl(label);
 
+                 var target = new BABYLON.GUI.Ellipse();
+                target.width = "40px";
+                target.height = "40px";
+                target.color = "Orange";
+                target.thickness = 4;
+                target.background = "green";
+                gui.addControl(target);
+                target.linkWithMesh(sphere);   
+
+                var line = new BABYLON.GUI.Line();
+                line.lineWidth = 4;
+                line.color = "Orange";
+                line.y2 = 20;
+                line.linkOffsetY = -20;
+                gui.addControl(line);
+                line.linkWithMesh(sphere); 
+                line.connectedControl = rect1;  
+
 
                 
                 // Positions the camera overwriting alpha, beta, radius
