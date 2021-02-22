@@ -303,7 +303,7 @@ class Model3d extends HTMLElement{
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(targetFirstDoor);
-                                        targetFirstDoor.linkWithMesh(doorFour);  
+                                        targetFirstDoor.linkWithMesh(doorSix);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -322,7 +322,7 @@ class Model3d extends HTMLElement{
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(targetFirstDoor);
-                                        targetFirstDoor.linkWithMesh(doorSeven);  
+                                        targetFirstDoor.linkWithMesh(doorNine);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -341,7 +341,7 @@ class Model3d extends HTMLElement{
                                         floor4Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(targetFirstDoor);
-                                        targetFirstDoor.linkWithMesh(doorTen);  
+                                        targetFirstDoor.linkWithMesh(doorTwelve);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -360,7 +360,7 @@ class Model3d extends HTMLElement{
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(targetFirstDoor);
-                                        targetFirstDoor.linkWithMesh(doorThirteen);  
+                                        targetFirstDoor.linkWithMesh(doorFifteen);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
