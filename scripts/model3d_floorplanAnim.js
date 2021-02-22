@@ -85,8 +85,7 @@ class Model3d extends HTMLElement{
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
 
-                // GUI
-                var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+                
 
                 // var rect1 = new BABYLON.GUI.Rectangle();
                 // rect1.width = 0.2;
@@ -103,14 +102,7 @@ class Model3d extends HTMLElement{
                 // label.text = "Test";
                 // rect1.addControl(label);
 
-                var target = new BABYLON.GUI.Ellipse();
-                target.width = "40px";
-                target.height = "40px";
-                target.color = "Orange";
-                target.thickness = 4;
-                target.background = "green";
-                gui.addControl(target);
-                target.linkWithMesh(doorOne);   
+                
 
                 // var line = new BABYLON.GUI.Line();
                 // line.lineWidth = 4;
@@ -277,6 +269,17 @@ class Model3d extends HTMLElement{
                 doorThirteen = scene.getMeshByName("doorPosition.013");
                 doorFourteen = scene.getMeshByName("doorPosition.014");
                 doorFifteen = scene.getMeshByName("doorPosition.015");
+
+                // GUI
+                var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+                var target = new BABYLON.GUI.Ellipse();
+                target.width = "40px";
+                target.height = "40px";
+                target.color = "Orange";
+                target.thickness = 4;
+                target.background = "green";
+                gui.addControl(target);
+                target.linkWithMesh(doorOne);   
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
