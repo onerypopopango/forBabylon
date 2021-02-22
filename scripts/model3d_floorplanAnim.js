@@ -225,7 +225,6 @@ class Model3d extends HTMLElement{
                 targetFirstDoor.color = "Orange";
                 targetFirstDoor.thickness = 4;
                 targetFirstDoor.background = "green";
-                
 
                 // var rect1 = new BABYLON.GUI.Rectangle();
                 // rect1.width = 0.2;
