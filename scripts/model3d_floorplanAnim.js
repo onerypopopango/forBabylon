@@ -225,7 +225,6 @@ class Model3d extends HTMLElement{
                 target.color = "Orange";
                 target.thickness = 4;
                 target.background = "green";
-                gui.addControl(target);
                 target.linkWithMesh(doorOne);   
 
                 // var rect1 = new BABYLON.GUI.Rectangle();
@@ -284,12 +283,14 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.addControl(target);
                                     } else if (floorFocus == true) {
                                         floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        gui.removeControl(target);
                                     };
                                     break;
                                 case floorTwo:
