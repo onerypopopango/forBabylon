@@ -220,11 +220,11 @@ class Model3d extends HTMLElement{
                 // GUI
                 var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
                 var targetFirstDoor = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_online.png");
-                targetFirstDoor.width = "40px";
-                targetFirstDoor.height = "40px";
-                targetFirstDoor.color = "Orange";
-                targetFirstDoor.thickness = 4;
-                targetFirstDoor.background = "green";
+                targetFirstDoor.width = "50px";
+                targetFirstDoor.height = "50px";
+                // targetFirstDoor.color = "Orange";
+                // targetFirstDoor.thickness = 4;
+                // targetFirstDoor.background = "green";
 
                 // var rect1 = new BABYLON.GUI.Rectangle();
                 // rect1.width = 0.2;
