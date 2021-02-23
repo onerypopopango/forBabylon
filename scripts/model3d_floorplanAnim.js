@@ -247,6 +247,27 @@ class Model3d extends HTMLElement{
                 var doorOnlineTwo = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_red.png");
                 doorOnlineTwo.width = "50px";
                 doorOnlineTwo.height = "50px";
+                var cctvOne = new BABYLON.GUI.Image("button", "../textures/Icons/cctv_red.png");
+                cctvOne.width = "50px";
+                cctvOne.height = "50px";
+                var cctvTwo = new BABYLON.GUI.Image("button", "../textures/Icons/cctv_red.png");
+                cctvTwo.width = "50px";
+                cctvTwo.height = "50px";
+                var cctvThree = new BABYLON.GUI.Image("button", "../textures/Icons/cctv_red.png");
+                cctvThree.width = "50px";
+                cctvThree.height = "50px";
+                var cctvFour = new BABYLON.GUI.Image("button", "../textures/Icons/cctv_online.png");
+                cctvFour.width = "50px";
+                cctvFour.height = "50px";
+                var cctvFive = new BABYLON.GUI.Image("button", "../textures/Icons/cctv_online.png");
+                cctvFive.width = "50px";
+                cctvFive.height = "50px";
+                var cctvSix = new BABYLON.GUI.Image("button", "../textures/Icons/cctv_online.png");
+                cctvSix.width = "50px";
+                cctvSix.height = "50px";
+                var cctvSeven = new BABYLON.GUI.Image("button", "../textures/Icons/cctv_online.png");
+                cctvSeven.width = "50px";
+                cctvSeven.height = "50px";
                 
 
                 //****************************************************//
@@ -359,10 +380,24 @@ class Model3d extends HTMLElement{
                                         gui.addControl(doorOnline);
                                         gui.addControl(doorOnlineOne);
                                         gui.addControl(doorOnlineTwo);
+                                        gui.addControl(cctvOne);
+                                        gui.addControl(cctvTwo);
+                                        gui.addControl(cctvThree);
+                                        gui.addControl(cctvFour);
+                                        gui.addControl(cctvFive);
+                                        gui.addControl(cctvSix);
+                                        gui.addControl(cctvSeven);
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
-                                        camera.setPosition(new BABYLON.Vector3(0, 120, 220));
+                                        cctvOne.linkWithMesh(cameraFifteen);
+                                        cctvTwo.linkWithMesh(cameraSixteen);
+                                        cctvThree.linkWithMesh(cameraSeventeen);
+                                        cctvFour.linkWithMesh(cameraEighteen);
+                                        cctvFive.linkWithMesh(cameraNineteen);
+                                        cctvSix.linkWithMesh(cameraTwenty);
+                                        cctvSeven.linkWithMesh(cameraTwentyone);
+                                        camera.setPosition(new BABYLON.Vector3(0, 100, 200));
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -372,6 +407,13 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(doorOnline);
                                         gui.removeControl(doorOnlineOne);
                                         gui.removeControl(doorOnlineTwo);
+                                        gui.removeControl(cctvOne);
+                                        gui.removeControl(cctvTwo);
+                                        gui.removeControl(cctvThree);
+                                        gui.removeControl(cctvFour);
+                                        gui.removeControl(cctvFive);
+                                        gui.removeControl(cctvSix);
+                                        gui.removeControl(cctvSeven);
                                         camera.setPosition(new BABYLON.Vector3(0, 30, 120));
                                     };
                                     break;
@@ -386,6 +428,40 @@ class Model3d extends HTMLElement{
                 var editMesh = function (mesh) {
                     mesh.material.albedoTexture = floorPlanMaterial;
                     mesh.material.alpha = 0.2;
+                }
+
+                var camZoomIn = function () {
+                    // animation loop for camera to sweep round
+                    // (name, property, frames per second, property type, loop mode)
+                    var zoomIn = new BABYLON.Animation(
+                        "zoomIn",
+                        "alpha",
+                        frameRate,
+                        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+                    );
+
+                    var zoomIn_keys = [];
+
+                    zoomIn_keys.push({
+                        frame: 0,
+                        value: 0
+                    });
+
+                    zoomIn_keys.push({
+                        frame: frameRate * 8,
+                        value: Math.PI
+                    });
+
+                    zoomIn_keys.push({
+                        frame: frameRate * 16,
+                        value: Math.PI * 2
+                    });
+
+                    zoomIn.setKeys(zoomIn_keys);
+
+                    camera.animations.push(zoomIn);
+                    scene.beginAnimation(camera, 0, frameRate * 16, false);
                 }
 
                 if (!floorOne) {
