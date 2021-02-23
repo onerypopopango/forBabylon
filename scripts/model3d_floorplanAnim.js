@@ -68,7 +68,7 @@ class Model3d extends HTMLElement{
 
                 // try this one for auto rotate camera instead...
                 camera.useAutoRotationBehavior = true;
-                scene.activeCamera.autoRotationBehavior.idleRotationSpeed = 0.5;
+                scene.activeCamera.autoRotationBehavior.idleRotationSpeed = 0.1;
                 scene.activeCamera.autoRotationBehavior.idleRotationWaitTime = 10;
                 scene.activeCamera.autoRotationBehavior.idleRotationSpinupTime = 10;
 
@@ -397,7 +397,8 @@ class Model3d extends HTMLElement{
                                         cctvFive.linkWithMesh(cameraNineteen);
                                         cctvSix.linkWithMesh(cameraTwenty);
                                         cctvSeven.linkWithMesh(cameraTwentyone);
-                                        camera.setPosition(new BABYLON.Vector3(0, 100, 200));
+                                        // camera.setPosition(new BABYLON.Vector3(0, 100, 200));
+                                        camZoomOut();
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -414,7 +415,8 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvFive);
                                         gui.removeControl(cctvSix);
                                         gui.removeControl(cctvSeven);
-                                        camera.setPosition(new BABYLON.Vector3(0, 30, 120));
+                                        // camera.setPosition(new BABYLON.Vector3(0, 30, 120));
+                                        camZoomIn();
                                     };
                                     break;
                                 default:
@@ -430,12 +432,41 @@ class Model3d extends HTMLElement{
                     mesh.material.alpha = 0.2;
                 }
 
+                var camZoomOut = function () {
+                    // animation loop for camera to sweep round
+                    // (name, property, frames per second, property type, loop mode)
+                    var zoomOut = new BABYLON.Animation(
+                        "zoomOut",
+                        "radius",
+                        frameRate,
+                        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+                    );
+
+                    var zoomOut_keys = [];
+
+                    zoomOut_keys.push({
+                        frame: 0,
+                        value: 120
+                    });
+
+                    zoomOut_keys.push({
+                        frame: frameRate * 16,
+                        value: 200
+                    });
+
+                    zoomOut.setKeys(zoomOut_keys);
+
+                    camera.animations.push(zoomOut);
+                    scene.beginAnimation(camera, 0, frameRate * 16, false);
+                }
+
                 var camZoomIn = function () {
                     // animation loop for camera to sweep round
                     // (name, property, frames per second, property type, loop mode)
                     var zoomIn = new BABYLON.Animation(
                         "zoomIn",
-                        "alpha",
+                        "radius",
                         frameRate,
                         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
                         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
@@ -445,20 +476,15 @@ class Model3d extends HTMLElement{
 
                     zoomIn_keys.push({
                         frame: 0,
-                        value: 0
-                    });
-
-                    zoomIn_keys.push({
-                        frame: frameRate * 8,
-                        value: Math.PI
+                        value: 200
                     });
 
                     zoomIn_keys.push({
                         frame: frameRate * 16,
-                        value: Math.PI * 2
+                        value: 120
                     });
 
-                    zoomIn.setKeys(zoomIn_keys);
+                    zoomIn.setKeys(zoomOut_keys);
 
                     camera.animations.push(zoomIn);
                     scene.beginAnimation(camera, 0, frameRate * 16, false);
