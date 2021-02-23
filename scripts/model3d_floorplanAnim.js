@@ -399,6 +399,7 @@ class Model3d extends HTMLElement{
                                         cctvSeven.linkWithMesh(cameraTwentyone);
                                         // camera.setPosition(new BABYLON.Vector3(0, 100, 200));
                                         camZoomOut();
+                                        camTiltUp();
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -417,6 +418,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvSeven);
                                         // camera.setPosition(new BABYLON.Vector3(0, 30, 120));
                                         camZoomIn();
+                                        camTiltDown();
                                     };
                                     break;
                                 default:
@@ -443,17 +445,8 @@ class Model3d extends HTMLElement{
                         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
                     );
 
-                    var tiltUp = new BABYLON.Animation(
-                        "tiltUp",
-                        "beta",
-                        frameRate,
-                        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-                        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
-                    );
-
                     var zoomOut_keys = [];
-                    var tiltUp_keys = [];
-
+                    
                     zoomOut_keys.push({
                         frame: 0,
                         value: 120
@@ -463,6 +456,23 @@ class Model3d extends HTMLElement{
                         frame: frameRate/2,
                         value: 200
                     });
+
+                    zoomOut.setKeys(zoomOut_keys);
+
+                    camera.animations.push(zoomOut);
+                    scene.beginAnimation(camera, 0, frameRate, false);
+                }
+
+                var camTiltUp = function () {
+                    var tiltUp = new BABYLON.Animation(
+                        "tiltUp",
+                        "beta",
+                        frameRate,
+                        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+                    );
+
+                    var tiltUp_keys = [];
 
                     tiltUp_keys.push({
                         frame: 0,
@@ -474,10 +484,8 @@ class Model3d extends HTMLElement{
                         value: 100
                     });
 
-                    zoomOut.setKeys(zoomOut_keys);
                     tiltUp.setKeys(tiltUp_keys);
 
-                    camera.animations.push(zoomOut);
                     camera.animations.push(tiltUp);
                     scene.beginAnimation(camera, 0, frameRate, false);
                 }
@@ -493,16 +501,7 @@ class Model3d extends HTMLElement{
                         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
                     );
 
-                    var tiltDown = new BABYLON.Animation(
-                        "tiltDown",
-                        "beta",
-                        frameRate,
-                        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-                        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
-                    );
-
                     var zoomIn_keys = [];
-                    var tiltDown_keys = [];
 
                     zoomIn_keys.push({
                         frame: 0,
@@ -514,6 +513,24 @@ class Model3d extends HTMLElement{
                         value: 120
                     });
 
+                    zoomIn.setKeys(zoomIn_keys);
+                    
+                    camera.animations.push(zoomIn);
+                    
+                    scene.beginAnimation(camera, 0, frameRate, false);
+                }
+
+                var camTiltDown = function () {
+                    var tiltDown = new BABYLON.Animation(
+                        "tiltDown",
+                        "beta",
+                        frameRate,
+                        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+                    );
+
+                    var tiltDown_keys = [];
+
                     tiltDown_keys.push({
                         frame: 0,
                         value: 100
@@ -524,10 +541,8 @@ class Model3d extends HTMLElement{
                         value: 30
                     });
 
-                    zoomIn.setKeys(zoomIn_keys);
-                    tiltUp.setKeys(tiltDown_keys);
+                    tiltDown.setKeys(tiltDown_keys);
 
-                    camera.animations.push(zoomIn);
                     camera.animations.push(tiltDown);
                     scene.beginAnimation(camera, 0, frameRate, false);
                 }
