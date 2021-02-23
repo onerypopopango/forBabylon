@@ -240,6 +240,15 @@ class Model3d extends HTMLElement{
                 doorRed.width = "50px";
                 doorRed.height = "50px";
 
+                // temp
+                var doorOnlineOne = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_red.png");
+                doorOnline.width = "50px";
+                doorOnline.height = "50px";
+                var doorOnlineTwo = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_red.png");
+                doorOnline.width = "50px";
+                doorOnline.height = "50px";
+                
+
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
                 //****************************************************//
@@ -272,8 +281,7 @@ class Model3d extends HTMLElement{
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(doorOnline);
-                                        doorOnline.linkWithMesh(doorOne);   
-                                        doorOnline.linkWithMesh(doorTwo);
+                                        doorOnline.linkWithMesh(doorOne);
                                     } else if (floorFocus == true) {
                                         floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -349,7 +357,11 @@ class Model3d extends HTMLElement{
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(doorOnline);
-                                        doorOnline.linkWithMesh(doorFifteen);  
+                                        gui.addControl(doorOnlineOne);
+                                        gui.addControl(doorOnlineTwo);
+                                        doorOnline.linkWithMesh(doorThirteen);
+                                        doorOnlineOne.linkWithMesh(doorFourteen);
+                                        doorOnlineTwo.linkWithMesh(doorFifteen);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -357,6 +369,8 @@ class Model3d extends HTMLElement{
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.removeControl(doorOnline);
+                                        gui.removeControl(doorOnlineOne);
+                                        gui.removeControl(doorOnlineTwo);
                                     };
                                     break;
                                 default:
