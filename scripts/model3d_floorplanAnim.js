@@ -458,7 +458,7 @@ class Model3d extends HTMLElement{
                     zoomOut.setKeys(zoomOut_keys);
 
                     camera.animations.push(zoomOut);
-                    scene.beginAnimation(camera, 0, frameRate * 16, false);
+                    scene.beginAnimation(camera, 0, frameRate, false);
                 }
 
                 var camZoomIn = function () {
@@ -484,10 +484,10 @@ class Model3d extends HTMLElement{
                         value: 120
                     });
 
-                    zoomIn.setKeys(zoomOut_keys);
+                    zoomIn.setKeys(zoomIn_keys);
 
                     camera.animations.push(zoomIn);
-                    scene.beginAnimation(camera, 0, frameRate * 16, false);
+                    scene.beginAnimation(camera, 0, frameRate, false);
                 }
 
                 if (!floorOne) {
