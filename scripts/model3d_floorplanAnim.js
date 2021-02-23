@@ -359,9 +359,9 @@ class Model3d extends HTMLElement{
                                         gui.addControl(doorOnline);
                                         gui.addControl(doorOnlineOne);
                                         gui.addControl(doorOnlineTwo);
-                                        doorOnline.linkWithMesh(doorThirteen);
+                                        doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
-                                        doorOnlineTwo.linkWithMesh(doorFifteen);  
+                                        doorOnlineTwo.linkWithMesh(doorThirteen);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
