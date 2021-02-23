@@ -301,6 +301,7 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        camZoomOut();
                                         gui.addControl(doorOnline);
                                         doorOnline.linkWithMesh(doorOne);
                                     } else if (floorFocus == true) {
@@ -309,6 +310,7 @@ class Model3d extends HTMLElement{
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        camZoomIn();
                                         gui.removeControl(doorOnline);
                                     };
                                     break;
@@ -320,6 +322,7 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        camZoomOut();
                                         gui.addControl(doorOnline);
                                         doorOnline.linkWithMesh(doorSix);  
                                     } else if (floorFocus == true) {
@@ -328,6 +331,7 @@ class Model3d extends HTMLElement{
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        camZoomIn();
                                         gui.removeControl(doorOnline);
                                     };
                                     break;
@@ -339,6 +343,7 @@ class Model3d extends HTMLElement{
                                         floor3Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        camZoomOut();
                                         gui.addControl(doorOnline);
                                         doorOnline.linkWithMesh(doorNine);  
                                     } else if (floorFocus == true) {
@@ -347,6 +352,7 @@ class Model3d extends HTMLElement{
                                         floor3Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        camZoomIn();
                                         gui.removeControl(doorOnline);
                                     };
                                     break;
@@ -358,6 +364,7 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        camZoomOut();
                                         gui.addControl(doorOnline);
                                         doorOnline.linkWithMesh(doorTwelve);  
                                     } else if (floorFocus == true) {
@@ -366,6 +373,7 @@ class Model3d extends HTMLElement{
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
+                                        camZoomIn();
                                         gui.removeControl(doorOnline);
                                     };
                                     break; 
