@@ -399,7 +399,7 @@ class Model3d extends HTMLElement{
                                         cctvSeven.linkWithMesh(cameraTwentyone);
                                         // camera.setPosition(new BABYLON.Vector3(0, 100, 200));
                                         camZoomOut();
-                                        camTiltUp();
+                                        // camTiltUp();
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -418,7 +418,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvSeven);
                                         // camera.setPosition(new BABYLON.Vector3(0, 30, 120));
                                         camZoomIn();
-                                        camTiltDown();
+                                        // camTiltDown();
                                     };
                                     break;
                                 default:
