@@ -362,7 +362,7 @@ class Model3d extends HTMLElement{
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
-                                        camera.setPosition(new BABYLON.Vector3(0, 45, 220));
+                                        camera.setPosition(new BABYLON.Vector3(0, 80, 220));
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
