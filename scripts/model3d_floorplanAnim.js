@@ -242,11 +242,11 @@ class Model3d extends HTMLElement{
 
                 // temp
                 var doorOnlineOne = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_red.png");
-                doorOnline.width = "50px";
-                doorOnline.height = "50px";
+                doorOnlineOne.width = "50px";
+                doorOnlineOne.height = "50px";
                 var doorOnlineTwo = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_red.png");
-                doorOnline.width = "50px";
-                doorOnline.height = "50px";
+                doorOnlineTwo.width = "50px";
+                doorOnlineTwo.height = "50px";
                 
 
                 //****************************************************//
