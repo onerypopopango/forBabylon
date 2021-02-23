@@ -219,37 +219,18 @@ class Model3d extends HTMLElement{
 
                 // GUI
                 var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-                var targetFirstDoor = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_online.png");
-                targetFirstDoor.width = "50px";
-                targetFirstDoor.height = "50px";
-                // targetFirstDoor.color = "Orange";
-                // targetFirstDoor.thickness = 4;
-                // targetFirstDoor.background = "green";
-
-                // var rect1 = new BABYLON.GUI.Rectangle();
-                // rect1.width = 0.2;
-                // rect1.height = "40px";
-                // rect1.cornerRadius = 20;
-                // rect1.color = "Orange";
-                // rect1.thickness = 4;
-                // rect1.background = "green";
-                // gui.addControl(rect1);
-                // rect1.linkWithMesh(doorOne);   
-                // rect1.linkOffsetY = -300;
-                
-                // var label = new BABYLON.GUI.TextBlock();
-                // label.text = "Test";
-                // rect1.addControl(label);
-
-                // var line = new BABYLON.GUI.Line();
-                // line.lineWidth = 4;
-                // line.color = "Orange";
-                // line.y2 = 20;
-                // line.linkOffsetY = -20;
-                // gui.addControl(line);
-                // line.linkWithMesh(doorOne); 
-                // line.connectedControl = rect1; 
-
+                var doorOnline = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_online.png");
+                doorOnline.width = "50px";
+                doorOnline.height = "50px";
+                var doorOffline = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_offline.png");
+                doorOffline.width = "50px";
+                doorOffline.height = "50px";
+                var doorOrange = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_orange.png");
+                doorOrange.width = "50px";
+                doorOrange.height = "50px";
+                var doorRed = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_red.png");
+                doorRed.width = "50px";
+                doorRed.height = "50px";
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
@@ -282,7 +263,7 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.addControl(targetFirstDoor);
+                                        gui.addControl(doorOnline);
                                         targetFirstDoor.linkWithMesh(doorOne);   
                                     } else if (floorFocus == true) {
                                         floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -290,7 +271,7 @@ class Model3d extends HTMLElement{
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.removeControl(targetFirstDoor);
+                                        gui.removeControl(doorOnline);
                                     };
                                     break;
                                 case floorTwo:
@@ -301,7 +282,7 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.addControl(targetFirstDoor);
+                                        gui.addControl(doorOnline);
                                         targetFirstDoor.linkWithMesh(doorSix);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -309,7 +290,7 @@ class Model3d extends HTMLElement{
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.removeControl(targetFirstDoor);
+                                        gui.removeControl(doorOnline);
                                     };
                                     break;
                                 case floorThree:
@@ -320,7 +301,7 @@ class Model3d extends HTMLElement{
                                         floor3Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.addControl(targetFirstDoor);
+                                        gui.addControl(doorOnline);
                                         targetFirstDoor.linkWithMesh(doorNine);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -328,7 +309,7 @@ class Model3d extends HTMLElement{
                                         floor3Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.removeControl(targetFirstDoor);
+                                        gui.removeControl(doorOnline);
                                     };
                                     break;
                                 case floorFour:
@@ -339,7 +320,7 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.addControl(targetFirstDoor);
+                                        gui.addControl(doorOnline);
                                         targetFirstDoor.linkWithMesh(doorTwelve);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -347,7 +328,7 @@ class Model3d extends HTMLElement{
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Expand.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.removeControl(targetFirstDoor);
+                                        gui.removeControl(doorOnline);
                                     };
                                     break; 
                                 case floorFive:
@@ -358,7 +339,7 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.addControl(targetFirstDoor);
+                                        gui.addControl(doorOnline);
                                         targetFirstDoor.linkWithMesh(doorFifteen);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -366,7 +347,7 @@ class Model3d extends HTMLElement{
                                         floor3Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.removeControl(targetFirstDoor);
+                                        gui.removeControl(doorOnline);
                                     };
                                     break;
                                 default:
