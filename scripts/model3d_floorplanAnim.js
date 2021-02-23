@@ -38,7 +38,7 @@ class Model3d extends HTMLElement{
         var floorFocus = false;
 
         var frameRate = 24;
-
+        var camera;
         var floorPlanMaterial;
 
         // highlight layer
@@ -57,7 +57,7 @@ class Model3d extends HTMLElement{
 
                 // Parameters: name, alpha, beta, radius, target position (x, y, z), scene
                 // var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(15, 0, 22), scene);
-                var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
+                camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
 
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
@@ -361,7 +361,8 @@ class Model3d extends HTMLElement{
                                         gui.addControl(doorOnlineTwo);
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
-                                        doorOnlineTwo.linkWithMesh(doorThirteen);  
+                                        doorOnlineTwo.linkWithMesh(doorThirteen);
+                                        camera.setPosition(new BABYLON.Vector3(0, 45, 220));
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -371,6 +372,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(doorOnline);
                                         gui.removeControl(doorOnlineOne);
                                         gui.removeControl(doorOnlineTwo);
+                                        camera.setPosition(new BABYLON.Vector3(0, 30, 120));
                                     };
                                     break;
                                 default:
