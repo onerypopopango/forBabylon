@@ -451,7 +451,7 @@ class Model3d extends HTMLElement{
                     });
 
                     zoomOut_keys.push({
-                        frame: frameRate,
+                        frame: frameRate/2,
                         value: 200
                     });
 
@@ -480,7 +480,7 @@ class Model3d extends HTMLElement{
                     });
 
                     zoomIn_keys.push({
-                        frame: frameRate,
+                        frame: frameRate/2,
                         value: 120
                     });
 
