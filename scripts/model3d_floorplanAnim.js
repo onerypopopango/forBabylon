@@ -217,13 +217,13 @@ class Model3d extends HTMLElement{
                 var doorFourteen = scene.getMeshByName("doorPosition.014");
                 var doorFifteen = scene.getMeshByName("doorPosition.015");
 
-                var cameraFifteen = scene.getMeshByName("cameraLocation.029");
-                var cameraSixteen = scene.getMeshByName("cameraLocation.030");
-                var cameraSeventeen = scene.getMeshByName("cameraLocation.031");
-                var cameraEighteen = scene.getMeshByName("cameraLocation.032");
-                var cameraNineteen = scene.getMeshByName("cameraLocation.033");
-                var cameraTwenty = scene.getMeshByName("cameraLocation.034");
-                var cameraTwentyone = scene.getMeshByName("cameraLocation.035");
+                var cameraFifteen = scene.getMeshByName("cameraLocation.032");
+                var cameraSixteen = scene.getMeshByName("cameraLocation.033");
+                var cameraSeventeen = scene.getMeshByName("cameraLocation.035");
+                var cameraEighteen = scene.getMeshByName("cameraLocation.029");
+                var cameraNineteen = scene.getMeshByName("cameraLocation.030");
+                var cameraTwenty = scene.getMeshByName("cameraLocation.031");
+                var cameraTwentyone = scene.getMeshByName("cameraLocation.034");
 
                 // GUI
                 var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
