@@ -217,6 +217,14 @@ class Model3d extends HTMLElement{
                 var doorFourteen = scene.getMeshByName("doorPosition.014");
                 var doorFifteen = scene.getMeshByName("doorPosition.015");
 
+                var cameraFifteen = scene.getMeshByName("cameraLocation.015");
+                var cameraSixteen = scene.getMeshByName("cameraLocation.016");
+                var cameraSeventeen = scene.getMeshByName("cameraLocation.017");
+                var cameraEighteen = scene.getMeshByName("cameraLocation.018");
+                var cameraNineteen = scene.getMeshByName("cameraLocation.019");
+                var cameraTwenty = scene.getMeshByName("cameraLocation.020");
+                var cameraTwentyone = scene.getMeshByName("cameraLocation.021");
+
                 // GUI
                 var gui = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
                 var doorOnline = new BABYLON.GUI.Image("button", "../textures/Icons/DoorContact_online.png");
@@ -264,7 +272,8 @@ class Model3d extends HTMLElement{
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(doorOnline);
-                                        targetFirstDoor.linkWithMesh(doorOne);   
+                                        doorOnline.linkWithMesh(doorOne);   
+                                        doorOnline.linkWithMesh(doorTwo);
                                     } else if (floorFocus == true) {
                                         floor1Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -283,7 +292,7 @@ class Model3d extends HTMLElement{
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(doorOnline);
-                                        targetFirstDoor.linkWithMesh(doorSix);  
+                                        doorOnline.linkWithMesh(doorSix);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Unfocus.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -302,7 +311,7 @@ class Model3d extends HTMLElement{
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(doorOnline);
-                                        targetFirstDoor.linkWithMesh(doorNine);  
+                                        doorOnline.linkWithMesh(doorNine);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -321,7 +330,7 @@ class Model3d extends HTMLElement{
                                         floor4Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(doorOnline);
-                                        targetFirstDoor.linkWithMesh(doorTwelve);  
+                                        doorOnline.linkWithMesh(doorTwelve);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -340,7 +349,7 @@ class Model3d extends HTMLElement{
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
                                         gui.addControl(doorOnline);
-                                        targetFirstDoor.linkWithMesh(doorFifteen);  
+                                        doorOnline.linkWithMesh(doorFifteen);  
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
