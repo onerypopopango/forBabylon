@@ -443,7 +443,16 @@ class Model3d extends HTMLElement{
                         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
                     );
 
+                    var tiltUp = new BABYLON.Animation(
+                        "tiltUp",
+                        "beta",
+                        frameRate,
+                        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+                    );
+
                     var zoomOut_keys = [];
+                    var tiltUp_keys = [];
 
                     zoomOut_keys.push({
                         frame: 0,
@@ -455,9 +464,21 @@ class Model3d extends HTMLElement{
                         value: 200
                     });
 
+                    tiltUp_keys.push({
+                        frame: 0,
+                        value: 30
+                    });
+
+                    tiltUp_keys.push({
+                        frame: frameRate/2,
+                        value: 100
+                    });
+
                     zoomOut.setKeys(zoomOut_keys);
+                    tiltUp.setKeys(tiltUp_keys);
 
                     camera.animations.push(zoomOut);
+                    camera.animations.push(tiltUp);
                     scene.beginAnimation(camera, 0, frameRate, false);
                 }
 
@@ -472,7 +493,16 @@ class Model3d extends HTMLElement{
                         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
                     );
 
+                    var tiltDown = new BABYLON.Animation(
+                        "tiltDown",
+                        "beta",
+                        frameRate,
+                        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+                    );
+
                     var zoomIn_keys = [];
+                    var tiltDown_keys = [];
 
                     zoomIn_keys.push({
                         frame: 0,
@@ -484,9 +514,21 @@ class Model3d extends HTMLElement{
                         value: 120
                     });
 
+                    tiltDown_keys.push({
+                        frame: 0,
+                        value: 100
+                    });
+
+                    tiltDown_keys.push({
+                        frame: frameRate/2,
+                        value: 30
+                    });
+
                     zoomIn.setKeys(zoomIn_keys);
+                    tiltUp.setKeys(tiltDown_keys);
 
                     camera.animations.push(zoomIn);
+                    camera.animations.push(tiltDown);
                     scene.beginAnimation(camera, 0, frameRate, false);
                 }
 
