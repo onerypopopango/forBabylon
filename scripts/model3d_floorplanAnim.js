@@ -482,10 +482,10 @@ class Model3d extends HTMLElement{
 
                     var tiltUp_keys = [];
 
-                    // tiltUp_keys.push({
-                    //     frame: 0,
-                    //     value: 30
-                    // });
+                    tiltUp_keys.push({
+                        frame: 0,
+                        value: 30
+                    });
 
                     tiltUp_keys.push({
                         frame: frameRate*16,
@@ -495,7 +495,7 @@ class Model3d extends HTMLElement{
                     tiltUp.setKeys(tiltUp_keys);
 
                     camera.animations.push(tiltUp);
-                    scene.beginAnimation(camera, 0, frameRate, false);
+                    scene.beginAnimation(camera, 0, frameRate*16, false);
                 }
 
                 var camZoomIn = function () {
