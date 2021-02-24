@@ -484,12 +484,12 @@ class Model3d extends HTMLElement{
 
                     tiltUp_keys.push({
                         frame: 0,
-                        value: 0
+                        value: 30
                     });
 
                     tiltUp_keys.push({
-                        frame: frameRate/2,
-                        value: 30
+                        frame: frameRate,
+                        value: 60
                     });
 
                     tiltUp.setKeys(tiltUp_keys);
