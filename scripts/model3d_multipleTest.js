@@ -322,7 +322,11 @@ class Model3d extends HTMLElement{
                                 hl.addMesh(buildingFace04, BABYLON.Color3.Teal());
                                 hl.addMesh(buildingFace05, BABYLON.Color3.Teal());
                             } else {
-                                hl.addMesh(mesh, BABYLON.Color3.Teal());
+                                hl.addMesh(floorOne, BABYLON.Color3.Teal());
+                                hl.addMesh(floorTwo, BABYLON.Color3.Teal());
+                                hl.addMesh(floorThree, BABYLON.Color3.Teal());
+                                hl.addMesh(floorFour, BABYLON.Color3.Teal());
+                                hl.addMesh(floorFive, BABYLON.Color3.Teal());
                             }
                         })
                     );
@@ -335,7 +339,11 @@ class Model3d extends HTMLElement{
                                 hl.removeMesh(buildingFace04);
                                 hl.removeMesh(buildingFace05);
                             } else {
-                                hl.removeMesh(mesh);
+                                hl.removeMesh(floorOne, BABYLON.Color3.Teal());
+                                hl.removeMesh(floorTwo, BABYLON.Color3.Teal());
+                                hl.removeMesh(floorThree, BABYLON.Color3.Teal());
+                                hl.removeMesh(floorFour, BABYLON.Color3.Teal());
+                                hl.removeMesh(floorFive, BABYLON.Color3.Teal());
                             }
                         })
                     );
