@@ -363,14 +363,35 @@ class Model3d extends HTMLElement{
                     floor5Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
                     expand = !expand;
                     floorExpand = !floorExpand;
-                    button1.isVisible = true;
+                    // button1.isVisible = true;
+                }
+
+                var closeBuilding = function () {
+                    officeFace01Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                    officeFace02Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                    officeFace03Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                    officeFace04Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                    officeFace05Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                    buildingGroundExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                    floor1Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    floor2Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    floor3Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    floor4Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    floor5Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    expand = !expand;
+                    floorExpand = !floorExpand;
                 }
 
                 var meshClick = function (mesh) {
-                    console.log('MeshClick: ', mesh);
+                    // console.log('MeshClick: ', mesh);
+                    var check = mesh.name.includes('officeFace');
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-                            openBuilding();
+                            if (check > 0) {
+                                openBuilding();
+                            } else {
+                                closeBuilding();
+                            }
                         })
                     );
                 }

@@ -393,16 +393,16 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        // gui.addControl(doorOnline);
-                                        // gui.addControl(doorOnlineOne);
-                                        // gui.addControl(doorOnlineTwo);
-                                        // gui.addControl(cctvOne);
-                                        // gui.addControl(cctvTwo);
-                                        // gui.addControl(cctvThree);
-                                        // gui.addControl(cctvFour);
-                                        // gui.addControl(cctvFive);
-                                        // gui.addControl(cctvSix);
-                                        // gui.addControl(cctvSeven);
+                                        gui.addControl(doorOnline);
+                                        gui.addControl(doorOnlineOne);
+                                        gui.addControl(doorOnlineTwo);
+                                        gui.addControl(cctvOne);
+                                        gui.addControl(cctvTwo);
+                                        gui.addControl(cctvThree);
+                                        gui.addControl(cctvFour);
+                                        gui.addControl(cctvFive);
+                                        gui.addControl(cctvSix);
+                                        gui.addControl(cctvSeven);
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
@@ -413,7 +413,7 @@ class Model3d extends HTMLElement{
                                         cctvFive.linkWithMesh(cameraNineteen);
                                         cctvSix.linkWithMesh(cameraTwenty);
                                         cctvSeven.linkWithMesh(cameraTwentyone);
-                                        // camZoomOut();
+                                        camZoomOut();
                                         camTiltUp();
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -431,7 +431,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvFive);
                                         gui.removeControl(cctvSix);
                                         gui.removeControl(cctvSeven);
-                                        // camZoomIn();
+                                        camZoomIn();
                                         camTiltDown();
                                     };
                                     break;
