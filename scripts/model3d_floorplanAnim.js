@@ -488,7 +488,7 @@ class Model3d extends HTMLElement{
                     // });
 
                     tiltUp_keys.push({
-                        frame: frameRate,
+                        frame: frameRate*16,
                         value: Math.PI
                     });
 
