@@ -426,7 +426,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvSeven);
                                         // camera.setPosition(new BABYLON.Vector3(0, 30, 120));
                                         camZoomIn();
-                                        // camTiltDown();
+                                        camTiltDown();
                                     };
                                     break;
                                 default:
@@ -541,12 +541,12 @@ class Model3d extends HTMLElement{
 
                     tiltDown_keys.push({
                         frame: 0,
-                        value: 180
+                        value: camera.beta
                     });
 
                     tiltDown_keys.push({
-                        frame: frameRate/2,
-                        value: 60
+                        frame: frameRate,
+                        value: camera.beta + 0.05
                     });
 
                     tiltDown.setKeys(tiltDown_keys);
