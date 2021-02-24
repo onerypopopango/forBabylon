@@ -458,6 +458,11 @@ class Model3d extends HTMLElement{
                     meshClick(buildingFace04);
                     meshClick(buildingFace05);
                     meshClick(buidlingGround);
+                    meshClick(floorOne);
+                    meshClick(floorTwo);
+                    meshClick(floorThree);
+                    meshClick(floorFour);
+                    meshClick(floorFive);
                 }
             };
             assetsManager.load();
