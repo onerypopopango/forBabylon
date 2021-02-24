@@ -387,11 +387,12 @@ class Model3d extends HTMLElement{
                     var check = mesh.name.includes('officeFace');
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-                            if (check > 0) {
-                                openBuilding();
-                            } else {
-                                closeBuilding();
-                            }
+                            // if (check > 0) {
+                            //     openBuilding();
+                            // } else {
+                            //     closeBuilding();
+                            // }
+                            openBuilding();
                         })
                     );
                 }
