@@ -474,7 +474,7 @@ class Model3d extends HTMLElement{
                 var camTiltUp = function () {
                     var tiltUp = new BABYLON.Animation(
                         "tiltUp",
-                        "beta",
+                        "alpha",
                         frameRate,
                         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
                         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
