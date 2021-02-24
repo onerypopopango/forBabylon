@@ -407,7 +407,7 @@ class Model3d extends HTMLElement{
                                         cctvSeven.linkWithMesh(cameraTwentyone);
                                         // camera.setPosition(new BABYLON.Vector3(0, 100, 200));
                                         camZoomOut();
-                                        // camTiltUp();
+                                        camTiltUp();
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -484,12 +484,12 @@ class Model3d extends HTMLElement{
 
                     tiltUp_keys.push({
                         frame: 0,
-                        value: 60
+                        value: 0
                     });
 
                     tiltUp_keys.push({
                         frame: frameRate/2,
-                        value: 180
+                        value: 30
                     });
 
                     tiltUp.setKeys(tiltUp_keys);
