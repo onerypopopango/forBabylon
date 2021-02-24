@@ -14,6 +14,19 @@ class Model3d extends HTMLElement{
         let scene = null;
         let BJSloaded = false;
 
+        // meshes
+        var buildingFace01;
+        var buildingFace02;
+        var buildingFace03;
+        var buildingFace04;
+        var buildingFace05;
+        var buidlingGround;
+        var floorOne;
+        var floorTwo;
+        var floorThree;
+        var floorFour;
+        var floorFive;
+
         // animation groups and animation stuff
         var officeFace01Contract;
         var officeFace01Expand;
@@ -42,6 +55,8 @@ class Model3d extends HTMLElement{
         var floor5Contract;
         var floorExpand = true;
 
+        var buildingButtonClicked = false;
+        var button1;
         var frameRate = 24;
 
         // highlight layer
@@ -69,7 +84,30 @@ class Model3d extends HTMLElement{
                 var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
 
                 // highlight layer
-                hl = new BABYLON.HighlightLayer("hl1", scene); 
+                hl = new BABYLON.HighlightLayer("hl1", scene);
+
+                // GUI
+                var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+                var panel = new BABYLON.GUI.StackPanel();
+                panel.width = 0.2; // need to add this for alignment to work on panel
+
+                button1 = BABYLON.GUI.Button.CreateSimpleButton("but1", "Return");
+                button1.width = "150px"
+                button1.height = "40px";
+                button1.color = "white";
+                button1.cornerRadius = 15;
+                button1.background = "black";
+                button1.isVisible = false;
+                button1.onPointerClickObservable.add(function() {
+                    console.log('return button clicked');
+                    animateBuilding();
+                    zoomFloors();
+                    buildingButtonClicked = !buildingButtonClicked;
+                });
+                panel.addControl(button1);
+                panel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+                panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+                advancedTexture.addControl(panel);    
 
                 // Positions the camera overwriting alpha, beta, radius
                 camera.setPosition(new BABYLON.Vector3(0, 30, 120));
@@ -80,6 +118,47 @@ class Model3d extends HTMLElement{
                 scene.activeCamera.autoRotationBehavior.idleRotationSpeed = 0.1;
                 scene.activeCamera.autoRotationBehavior.idleRotationWaitTime = 10;
                 scene.activeCamera.autoRotationBehavior.idleRotationSpinupTime = 10;
+
+                function animateBuilding() {
+                    // start(loop?: boolean, speedRatio?: number, from?: number, to?: number, isAdditive?: boolean)
+                    if (expand == true) {
+                        console.log('building expand');
+                        officeFace01Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace02Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace03Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace04Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace05Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        buidlingGroundContract.start(false, 1.0, frameRate, frameRate * 12, false);
+                        button1.isVisible = true;
+                    } else {
+                        console.log('contract');
+                        officeFace01Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace02Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace03Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace04Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        officeFace05Expand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        buildingGroundExpand.start(false, 1.0, frameRate, frameRate * 12, false);
+                        button1.isVisible = false;
+                    }
+                    expand = !expand;
+                };    
+                
+                function zoomFloors() {
+                    if (floorExpand == true) {
+                        floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor3Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor4Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor5Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    } else {
+                        floor1Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor2Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor3Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor4Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                        floor5Contract.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    }
+                    floorExpand = !floorExpand;
+                }
 
                 // target: any, from: number, to: number, loop?: boolean, 
                 // speedRatio?: number, onAnimationEnd?: () => void, animatable?: Animatable, 
@@ -216,17 +295,17 @@ class Model3d extends HTMLElement{
             });
 
             assetsManager.onFinish = function (tasks) {
-                var buildingFace01 = scene.getMeshByName("officeFace01");
-                var buildingFace02 = scene.getMeshByName("officeFace02");
-                var buildingFace03 = scene.getMeshByName("officeFace03");
-                var buildingFace04 = scene.getMeshByName("officeFace04");
-                var buildingFace05 = scene.getMeshByName("officeFace05");
-                var buidlingGround = scene.getMeshByName("officeGround");
-                var floorOne = scene.getMeshByName("2.5D Floorplan.001");
-                var floorTwo = scene.getMeshByName("2.5D Floorplan.002");
-                var floorThree = scene.getMeshByName("2.5D Floorplan.003");
-                var floorFour = scene.getMeshByName("2.5D Floorplan.004");
-                var floorFive = scene.getMeshByName("2.5D Floorplan.005");
+                buildingFace01 = scene.getMeshByName("officeFace01");
+                buildingFace02 = scene.getMeshByName("officeFace02");
+                buildingFace03 = scene.getMeshByName("officeFace03");
+                buildingFace04 = scene.getMeshByName("officeFace04");
+                buildingFace05 = scene.getMeshByName("officeFace05");
+                buidlingGround = scene.getMeshByName("officeGround");
+                floorOne = scene.getMeshByName("2.5D Floorplan.001");
+                floorTwo = scene.getMeshByName("2.5D Floorplan.002");
+                floorThree = scene.getMeshByName("2.5D Floorplan.003");
+                floorFour = scene.getMeshByName("2.5D Floorplan.004");
+                floorFive = scene.getMeshByName("2.5D Floorplan.005");
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
