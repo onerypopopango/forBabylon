@@ -488,14 +488,14 @@ class Model3d extends HTMLElement{
                     });
 
                     tiltUp_keys.push({
-                        frame: frameRate*16,
-                        value: -1
+                        frame: frameRate,
+                        value: -0.2
                     });
 
                     tiltUp.setKeys(tiltUp_keys);
 
                     camera.animations.push(tiltUp);
-                    scene.beginAnimation(camera, 0, frameRate*16, false);
+                    scene.beginAnimation(camera, 0, frameRate, false);
                 }
 
                 var camZoomIn = function () {
