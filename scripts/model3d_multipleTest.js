@@ -349,24 +349,28 @@ class Model3d extends HTMLElement{
                     );
                 }
 
+                var openBuilding = function () {
+                    officeFace01Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                    officeFace02Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                    officeFace03Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                    officeFace04Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                    officeFace05Contract.start(false, 1.0, frameRate, frameRate * 12, false);
+                    buidlingGroundContract.start(false, 1.0, frameRate, frameRate * 12, false);
+                    floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    floor3Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    floor4Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    floor5Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
+                    expand = !expand;
+                    floorExpand = !floorExpand;
+                    button1.isVisible = true;
+                }
+
                 var meshClick = function (mesh) {
                     console.log('MeshClick: ', mesh);
                     mesh.actionManager.registerAction(
                         new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-                            officeFace01Contract.start(false, 1.0, frameRate, frameRate * 12, false);
-                            officeFace02Contract.start(false, 1.0, frameRate, frameRate * 12, false);
-                            officeFace03Contract.start(false, 1.0, frameRate, frameRate * 12, false);
-                            officeFace04Contract.start(false, 1.0, frameRate, frameRate * 12, false);
-                            officeFace05Contract.start(false, 1.0, frameRate, frameRate * 12, false);
-                            buidlingGroundContract.start(false, 1.0, frameRate, frameRate * 12, false);
-                            floor1Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            floor2Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            floor3Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            floor4Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            floor5Expand.start(false, 1.0, frameRate * 16, frameRate * 32, false);
-                            expand = !expand;
-                            floorExpand = !floorExpand;
-                            button1.isVisible = true;
+                            openBuilding();
                         })
                     );
                 }
