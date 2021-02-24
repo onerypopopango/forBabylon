@@ -393,9 +393,9 @@ class Model3d extends HTMLElement{
                                         floor3Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor4Contract.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor5Focus.start(false, 1.0, frameRate, frameRate * 16, false);
-                                        gui.addControl(doorOnline);
-                                        gui.addControl(doorOnlineOne);
-                                        gui.addControl(doorOnlineTwo);
+                                        // gui.addControl(doorOnline);
+                                        // gui.addControl(doorOnlineOne);
+                                        // gui.addControl(doorOnlineTwo);
                                         gui.addControl(cctvOne);
                                         gui.addControl(cctvTwo);
                                         gui.addControl(cctvThree);
