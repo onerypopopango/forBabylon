@@ -505,8 +505,6 @@ class Model3d extends HTMLElement{
                 }
 
                 var camZoomIn = function () {
-                    // animation loop for camera to sweep round
-                    // (name, property, frames per second, property type, loop mode)
                     var zoomIn = new BABYLON.Animation(
                         "zoomIn",
                         "radius",
