@@ -474,7 +474,7 @@ class Model3d extends HTMLElement{
                 var camTiltUp = function () {
                     var tiltUp = new BABYLON.Animation(
                         "tiltUp",
-                        "alpha",
+                        "beta",
                         frameRate,
                         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
                         BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
@@ -489,7 +489,7 @@ class Model3d extends HTMLElement{
 
                     tiltUp_keys.push({
                         frame: frameRate,
-                        value: 60
+                        value: Math.PI
                     });
 
                     tiltUp.setKeys(tiltUp_keys);
