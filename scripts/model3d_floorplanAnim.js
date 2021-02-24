@@ -413,7 +413,7 @@ class Model3d extends HTMLElement{
                                         cctvFive.linkWithMesh(cameraNineteen);
                                         cctvSix.linkWithMesh(cameraTwenty);
                                         cctvSeven.linkWithMesh(cameraTwentyone);
-                                        camZoomOut();
+                                        // camZoomOut();
                                         camTiltUp();
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -431,7 +431,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvFive);
                                         gui.removeControl(cctvSix);
                                         gui.removeControl(cctvSeven);
-                                        camZoomIn();
+                                        // camZoomIn();
                                         camTiltDown();
                                     };
                                     break;
