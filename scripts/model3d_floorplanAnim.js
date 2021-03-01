@@ -271,6 +271,13 @@ class Model3d extends HTMLElement{
                 cctvSeven.width = "50px";
                 cctvSeven.height = "50px";
                 
+                // gui video?
+                var videoMat = new BABYLON.StandardMaterial("textVid", scene);
+                videoMat.diffuseTexture = new BABYLON.VideoTexture("video", "https://youtu.be/cZLpH7VVf1E", scene, false);
+                videoMat.backFaceCulling = false;
+                var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
+                videoCCTV.width = "400px";
+                videoCCTV.height = "600px";
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
@@ -405,6 +412,7 @@ class Model3d extends HTMLElement{
                                         gui.addControl(cctvFive);
                                         gui.addControl(cctvSix);
                                         gui.addControl(cctvSeven);
+                                        gui.addControl(videoCCTV);
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
@@ -415,6 +423,7 @@ class Model3d extends HTMLElement{
                                         cctvFive.linkWithMesh(cameraNineteen);
                                         cctvSix.linkWithMesh(cameraTwenty);
                                         cctvSeven.linkWithMesh(cameraTwentyone);
+                                        videoCCTV.linkWithMesh(doorFifteen);
                                         camZoomOut();
                                         camTiltUp();
                                     } else if (floorFocus == true) {
@@ -433,6 +442,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvFive);
                                         gui.removeControl(cctvSix);
                                         gui.removeControl(cctvSeven);
+                                        gui.removeControl(videoCCTV);
                                         camZoomIn();
                                         camTiltDown();
                                     };
