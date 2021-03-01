@@ -272,16 +272,19 @@ class Model3d extends HTMLElement{
                 cctvSeven.height = "50px";
                 
                 // gui video?
-                // var videoMat = new BABYLON.StandardMaterial("textVid", scene);
-                // videoMat.diffuseTexture = new BABYLON.VideoTexture("video", ["../textures/cctvFootage.mp4"], scene, false);
-                // videoMat.backFaceCulling = false;
-                var videoMat = new BABYLON.VideoTexture("video", ["../textures/cctvFootage.mp4"], scene, false);
+                var videoMat = new BABYLON.StandardMaterial("textVid", scene);
+                videoMat.diffuseTexture = new BABYLON.VideoTexture("video", ["../textures/cctvFootage.mp4"], scene, false);
+                videoMat.backFaceCulling = false;
                 var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
                 videoCCTV.width = "400px";
                 videoCCTV.height = "600px";
 
                 scene.onPointerUp = function () {
-                    videoMat.video.play();
+                    if (htmlVideo.paused) {
+                        htmlVideo.play();
+                    } else {
+                        htmlVideo.pause();
+                    }
                 }
 
                 //****************************************************//
