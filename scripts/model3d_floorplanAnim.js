@@ -273,7 +273,7 @@ class Model3d extends HTMLElement{
                 
                 // gui video?
                 var videoMat = new BABYLON.StandardMaterial("textVid", scene);
-                videoMat.diffuseTexture = new BABYLON.VideoTexture("video", "https://youtu.be/cZLpH7VVf1E", scene, false);
+                videoMat.diffuseTexture = new BABYLON.VideoTexture("video", ["https://youtu.be/cZLpH7VVf1E"], scene, false);
                 videoMat.backFaceCulling = false;
                 var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
                 videoCCTV.width = "400px";
