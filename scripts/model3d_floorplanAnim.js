@@ -278,6 +278,15 @@ class Model3d extends HTMLElement{
                 var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
                 videoCCTV.width = "400px";
                 videoCCTV.height = "600px";
+                var htmlVideo = videoMat.diffuseTexture.video;
+
+                scene.onPointerUp = function () {
+                    if (htmlVideo.paused) {
+                        htmlVideo.play();
+                    } else {
+                        htmlVideo.pause();
+                    }
+                }
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
