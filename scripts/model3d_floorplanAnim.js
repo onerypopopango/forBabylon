@@ -298,8 +298,6 @@ class Model3d extends HTMLElement{
                 line.color = "Red";
                 line.y2 = 20;
                 line.linkOffsetY = -20;
-                line.linkWithMesh(doorFourteen); 
-                line.linkWithMesh(videoCCTV); 
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
@@ -435,6 +433,10 @@ class Model3d extends HTMLElement{
                                         gui.addControl(cctvSix);
                                         gui.addControl(cctvSeven);
                                         gui.addControl(line);
+
+                                        line.linkWithMesh(doorFourteen); 
+                                        line.linkWithMesh(videoCCTV); 
+
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
