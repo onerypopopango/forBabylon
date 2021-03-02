@@ -283,13 +283,13 @@ class Model3d extends HTMLElement{
 
                 var videoCCTV = BABYLON.MeshBuilder.CreatePlane("cctvFootage", {height:20, width: 10, sideOrientation: BABYLON.Mesh.DOUBLESIDE});
                 videoCCTV.parent = doorFifteen;
-                videoCCTV.position.y = 2;
+                // videoCCTV.position.y = 2;
+                // videoCCTV.isVisible = true;
 
                 // videoCCTV.material = videoMat;
                 // videoCCTV.width = "400px";
                 // videoCCTV.height = "600px";
-                videoCCTV.isVisible = true;
-
+                
                 // videoTexture.video.pause();
                 // videoTexture.video.preload = 'auto';
                 // videoTexture.video.autoload = true;
