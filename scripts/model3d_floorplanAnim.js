@@ -288,7 +288,7 @@ class Model3d extends HTMLElement{
                 // videoCCTV.material = videoMat;
                 // videoCCTV.width = "400px";
                 // videoCCTV.height = "600px";
-                // videoCCTV.isVisible = true;
+                videoCCTV.isVisible = true;
 
                 // videoTexture.video.pause();
                 // videoTexture.video.preload = 'auto';
