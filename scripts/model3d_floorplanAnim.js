@@ -270,25 +270,17 @@ class Model3d extends HTMLElement{
                 var cctvSeven = new BABYLON.GUI.Image("button", "../textures/Icons/CCTV_online.png");
                 cctvSeven.width = "50px";
                 cctvSeven.height = "50px";
-                
-                // gui video?
-                // var videoMat = new BABYLON.StandardMaterial("textVid", scene);
-                // videoMat.diffuseTexture = new BABYLON.VideoTexture("video", ["../textures/cctvFootage.mp4"], scene, false);
-                // videoMat.backFaceCulling = false;
 
+                // gui video? I don't know about this...
                 var videoMat = new BABYLON.VideoTexture("video", ["../textures/cctvFootage.mp4"], {resolution: 32, clickToPlay: true, size: 10}, scene, false);
                 var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
                 videoCCTV.width = "400px";
                 videoCCTV.height = "600px";
+                videoMat.video.pause();
 
-                scene.onPointerUp = function () {
-                    // if (htmlVideo.paused) {
-                    //     htmlVideo.play();
-                    // } else {
-                    //     htmlVideo.pause();
-                    // }
-                    videoMat.video.play();
-                }
+                // scene.onPointerUp = function () {
+                //     videoMat.video.play();
+                // }
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
@@ -437,6 +429,7 @@ class Model3d extends HTMLElement{
                                         videoCCTV.linkWithMesh(doorFifteen);
                                         camZoomOut();
                                         camTiltUp();
+                                        videoMat.video.play();
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -456,6 +449,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(videoCCTV);
                                         camZoomIn();
                                         camTiltDown();
+                                        videoMat.video.pause();
                                     };
                                     break;
                                 default:
