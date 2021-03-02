@@ -272,11 +272,11 @@ class Model3d extends HTMLElement{
                 cctvSeven.height = "50px";
 
                 // gui video? I don't know about this...
-                var videoMat = new BABYLON.StandardMaterial("vidMat", scene);
-                var videoTexture = new BABYLON.VideoTexture("videoTex", "../textures/cctvFootage.mp4", scene);
+                // var videoMat = new BABYLON.StandardMaterial("vidMat", scene);
+                // var videoTexture = new BABYLON.VideoTexture("videoTex", "../textures/cctvFootage.mp4", scene);
 
-                videoMat.diffuseTexture = videoTexture;
-                videoMat.emissiveColor = new BABYLON.Color3.White();
+                // videoMat.diffuseTexture = videoTexture;
+                // videoMat.emissiveColor = new BABYLON.Color3.White();
 
                 // var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
                 // var videoCCTV = new BABYLON.GUI.AdvancedDynamicTexture("cctvFootage", );
