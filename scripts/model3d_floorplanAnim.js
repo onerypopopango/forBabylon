@@ -299,7 +299,7 @@ class Model3d extends HTMLElement{
                 line.y2 = 20;
                 line.linkOffsetY = -20;
                 line.linkWithMesh(doorFourteen); 
-                line.connectedControl = videoCCTV; 
+                line.linkWithMesh(videoCCTV); 
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
