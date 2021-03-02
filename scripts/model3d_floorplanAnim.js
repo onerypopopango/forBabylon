@@ -274,13 +274,10 @@ class Model3d extends HTMLElement{
 
                 // gui video? I don't know about this...
                 var videoMat = new BABYLON.StandardMaterial("vidMat", scene);
-                // var videoTexture = new BABYLON.VideoTexture("videoTex", "../textures/cctvFootage.mp4", scene);
+                var videoTexture = new BABYLON.VideoTexture("videoTex", "../textures/cctvFootage.mp4", scene);
 
-                // videoMat.diffuseTexture = videoTexture;
+                videoMat.diffuseTexture = videoTexture;
                 // videoMat.emissiveColor = new BABYLON.Color3.White();
-
-                // var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
-                // var videoCCTV = new BABYLON.GUI.AdvancedDynamicTexture("cctvFootage", );
 
                 var videoCCTV = BABYLON.MeshBuilder.CreatePlane("cctvFootage", {height:10, width: 15, sideOrientation: BABYLON.Mesh.DOUBLESIDE}, scene);
                 
