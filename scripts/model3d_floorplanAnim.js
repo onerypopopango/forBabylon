@@ -284,18 +284,16 @@ class Model3d extends HTMLElement{
                 var videoCCTV = BABYLON.Mesh.CreatePlane("cctvFootage", {height:20, width: 10, sideOrientation: BABYLON.Mesh.DOUBLESIDE});
                 videoCCTV.parent = doorFifteen;
                 videoCCTV.position.y = 2;
-                videoCCTV.material = videoMat;
+
+                // videoCCTV.material = videoMat;
                 // videoCCTV.width = "400px";
                 // videoCCTV.height = "600px";
                 videoCCTV.isVisible = true;
-                // videoTexture.video.pause();
-                videoTexture.video.preload = 'auto';
-                videoTexture.video.autoload = true;
-                videoTexture.video.muted = true;
 
-                // scene.onPointerUp = function () {
-                //     videoMat.video.play();
-                // }
+                // videoTexture.video.pause();
+                // videoTexture.video.preload = 'auto';
+                // videoTexture.video.autoload = true;
+                // videoTexture.video.muted = true;
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
@@ -430,7 +428,7 @@ class Model3d extends HTMLElement{
                                         gui.addControl(cctvFive);
                                         gui.addControl(cctvSix);
                                         gui.addControl(cctvSeven);
-                                        // gui.addControl(videoCCTV);
+                                        
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
@@ -441,11 +439,11 @@ class Model3d extends HTMLElement{
                                         cctvFive.linkWithMesh(cameraNineteen);
                                         cctvSix.linkWithMesh(cameraTwenty);
                                         cctvSeven.linkWithMesh(cameraTwentyone);
-                                        // videoCCTV.linkWithMesh(doorFifteen);
-                                        videoCCTV.isVisible = true;
+                                        
+                                        // videoCCTV.isVisible = true;
                                         camZoomOut();
                                         camTiltUp();
-                                        videoTexture.video.play();
+                                        // videoTexture.video.play();
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -462,11 +460,11 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvFive);
                                         gui.removeControl(cctvSix);
                                         gui.removeControl(cctvSeven);
-                                        // gui.removeControl(videoCCTV);
-                                        videoCCTV.isVisible = false;
+                                        
+                                        // videoCCTV.isVisible = false;
                                         camZoomIn();
                                         camTiltDown();
-                                        videoTexture.video.pause();
+                                        // videoTexture.video.pause();
                                     };
                                     break;
                                 default:
