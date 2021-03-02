@@ -286,7 +286,7 @@ class Model3d extends HTMLElement{
                 
                 videoCCTV.isVisible = true;
                 videoCCTV.parent = doorFifteen;
-                videoCCTV.position.y = -10;
+                videoCCTV.position.y = -20;
                 videoCCTV.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
 
                 // videoCCTV.material = videoMat;
