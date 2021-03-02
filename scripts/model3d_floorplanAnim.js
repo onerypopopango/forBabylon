@@ -286,7 +286,7 @@ class Model3d extends HTMLElement{
                 // videoCCTV.width = "400px";
                 // videoCCTV.height = "600px";
                 videoCCTV.isVisible = false;
-                videoMat.video.pause();
+                videoTexture.video.pause();
 
                 // scene.onPointerUp = function () {
                 //     videoMat.video.play();
@@ -440,7 +440,7 @@ class Model3d extends HTMLElement{
                                         videoCCTV.isVisible = true;
                                         camZoomOut();
                                         camTiltUp();
-                                        videoMat.video.play();
+                                        videoTexture.video.play();
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -461,7 +461,7 @@ class Model3d extends HTMLElement{
                                         videoCCTV.isVisible = false;
                                         camZoomIn();
                                         camTiltDown();
-                                        videoMat.video.pause();
+                                        videoTexture.video.pause();
                                     };
                                     break;
                                 default:
