@@ -58,6 +58,7 @@ class Model3d extends HTMLElement{
                 // Parameters: name, alpha, beta, radius, target position (x, y, z), scene
                 // var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(15, 0, 22), scene);
                 camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
+                camera.maxZ = 100000;
 
                 // highlight layer
                 hl = new BABYLON.HighlightLayer("hl1", scene);
@@ -431,7 +432,7 @@ class Model3d extends HTMLElement{
                                         gui.addControl(cctvSix);
                                         gui.addControl(cctvSeven);
                                         
-                                        // doorOnline.linkWithMesh(doorFifteen);
+                                        doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
                                         cctvOne.linkWithMesh(cameraFifteen);
