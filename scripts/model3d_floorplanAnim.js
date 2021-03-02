@@ -281,7 +281,7 @@ class Model3d extends HTMLElement{
                 // var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
                 // var videoCCTV = new BABYLON.GUI.AdvancedDynamicTexture("cctvFootage", );
 
-                var videoCCTV = BABYLON.Mesh.CreatePlane("cctvFootage", 20);
+                var videoCCTV = BABYLON.Mesh.CreatePlane("cctvFootage", {height:2, width: 1, sideOrientation: BABYLON.Mesh.DOUBLESIDE});
                 videoCCTV.parent = doorFifteen;
                 videoCCTV.position.y = 2;
                 videoCCTV.material = videoMat;
