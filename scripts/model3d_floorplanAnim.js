@@ -273,7 +273,7 @@ class Model3d extends HTMLElement{
                 cctvSeven.height = "50px";
 
                 // gui video? I don't know about this...
-                // var videoMat = new BABYLON.StandardMaterial("vidMat", scene);
+                var videoMat = new BABYLON.StandardMaterial("vidMat", scene);
                 // var videoTexture = new BABYLON.VideoTexture("videoTex", "../textures/cctvFootage.mp4", scene);
 
                 // videoMat.diffuseTexture = videoTexture;
@@ -288,10 +288,7 @@ class Model3d extends HTMLElement{
                 videoCCTV.parent = doorFourteen;
                 videoCCTV.position.y = -20;
                 videoCCTV.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
-
-                // videoCCTV.material = videoMat;
-                // videoCCTV.width = "400px";
-                // videoCCTV.height = "600px";
+                videoCCTV.material = videoMat;
                 
                 // videoTexture.video.pause();
                 // videoTexture.video.preload = 'auto';
