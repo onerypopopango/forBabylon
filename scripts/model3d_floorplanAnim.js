@@ -292,6 +292,15 @@ class Model3d extends HTMLElement{
                 videoTexture.video.muted = true;
                 videoTexture.video.pause();
 
+                // gui line
+                var line = new BABYLON.GUI.Line();
+                line.lineWidth = 4;
+                line.color = "Red";
+                line.y2 = 20;
+                line.linkOffsetY = -20;
+                line.linkWithMesh(doorFourteen); 
+                line.connectedControl = videoCCTV; 
+
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
                 //****************************************************//
@@ -425,7 +434,7 @@ class Model3d extends HTMLElement{
                                         gui.addControl(cctvFive);
                                         gui.addControl(cctvSix);
                                         gui.addControl(cctvSeven);
-                                        
+                                        gui.addControl(line);
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
@@ -458,7 +467,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvFive);
                                         gui.removeControl(cctvSix);
                                         gui.removeControl(cctvSeven);
-                                        
+                                        gui.removeControl(line);
                                         videoCCTV.isVisible = false;
                                         videoTexture.video.pause();
                                         camZoomIn();
