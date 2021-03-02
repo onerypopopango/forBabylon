@@ -287,10 +287,10 @@ class Model3d extends HTMLElement{
                 videoCCTV.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
                 videoCCTV.material = videoMat;
                 
-                videoTexture.video.pause();
                 videoTexture.video.preload = 'auto';
                 videoTexture.video.autoload = true;
                 videoTexture.video.muted = true;
+                videoTexture.video.pause();
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
@@ -438,9 +438,10 @@ class Model3d extends HTMLElement{
                                         cctvSeven.linkWithMesh(cameraTwentyone);
                                         
                                         videoCCTV.isVisible = true;
+                                        videoTexture.video.play();
                                         camZoomOut();
                                         camTiltUp();
-                                        // videoTexture.video.play();
+                                        
                                     } else if (floorFocus == true) {
                                         floor1Expand.start(false, 1.0, frameRate, frameRate * 16, false);
                                         floor2Expand.start(false, 1.0, frameRate, frameRate * 16, false);
@@ -459,9 +460,10 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvSeven);
                                         
                                         videoCCTV.isVisible = false;
+                                        videoTexture.video.pause();
                                         camZoomIn();
                                         camTiltDown();
-                                        // videoTexture.video.pause();
+                                        
                                     };
                                     break;
                                 default:
