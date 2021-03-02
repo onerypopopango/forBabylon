@@ -285,7 +285,7 @@ class Model3d extends HTMLElement{
                 // videoCCTV.parent = doorFifteen;
                 
                 videoCCTV.isVisible = true;
-                videoCCTV.position.y = 2;
+                videoCCTV.position.y = 10;
 
                 // videoCCTV.material = videoMat;
                 // videoCCTV.width = "400px";
