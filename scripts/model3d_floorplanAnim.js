@@ -284,7 +284,7 @@ class Model3d extends HTMLElement{
                 var videoCCTV = BABYLON.MeshBuilder.CreatePlane("cctvFootage", {height:15, width: 20, sideOrientation: BABYLON.Mesh.DOUBLESIDE}, scene);
                 
                 videoCCTV.isVisible = true;
-                videoCCTV.parent = cameraFifteen;
+                videoCCTV.parent = doorFifteen;
                 videoCCTV.position.y = 10;
                 videoCCTV.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
 
@@ -431,7 +431,7 @@ class Model3d extends HTMLElement{
                                         gui.addControl(cctvSix);
                                         gui.addControl(cctvSeven);
                                         
-                                        doorOnline.linkWithMesh(doorFifteen);
+                                        // doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
                                         cctvOne.linkWithMesh(cameraFifteen);
