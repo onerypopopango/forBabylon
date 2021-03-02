@@ -296,7 +296,7 @@ class Model3d extends HTMLElement{
                 var line = new BABYLON.GUI.MultiLine();
                 line.lineWidth = 4;
                 line.color = "Red";
-                line.y2 = 20;
+                line.y2 = 15;
                 line.linkOffsetY = -20;
 
                 //****************************************************//
