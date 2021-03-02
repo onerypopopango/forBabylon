@@ -278,9 +278,14 @@ class Model3d extends HTMLElement{
                 videoMat.diffuseTexture = videoTexture;
                 videoMat.emissiveColor = new BABYLON.Color3.White();
 
-                var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
-                videoCCTV.width = "400px";
-                videoCCTV.height = "600px";
+                // var videoCCTV = new BABYLON.GUI.Image("cctvFootage", videoMat);
+                // var videoCCTV = new BABYLON.GUI.AdvancedDynamicTexture("cctvFootage", );
+
+                var videoCCTV = BABYLON.MeshBuilder.CreatePlane("cctvFootage", {height:2, width: 1, sideOrientation: BABYLON.Mesh.DOUBLESIDE})
+                videoCCTV.material = videoMat;
+                // videoCCTV.width = "400px";
+                // videoCCTV.height = "600px";
+                videoCCTV.isVisible = false;
                 videoMat.video.pause();
 
                 // scene.onPointerUp = function () {
@@ -420,7 +425,7 @@ class Model3d extends HTMLElement{
                                         gui.addControl(cctvFive);
                                         gui.addControl(cctvSix);
                                         gui.addControl(cctvSeven);
-                                        gui.addControl(videoCCTV);
+                                        // gui.addControl(videoCCTV);
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
                                         doorOnlineTwo.linkWithMesh(doorThirteen);
@@ -431,7 +436,8 @@ class Model3d extends HTMLElement{
                                         cctvFive.linkWithMesh(cameraNineteen);
                                         cctvSix.linkWithMesh(cameraTwenty);
                                         cctvSeven.linkWithMesh(cameraTwentyone);
-                                        videoCCTV.linkWithMesh(doorFifteen);
+                                        // videoCCTV.linkWithMesh(doorFifteen);
+                                        videoCCTV.isVisible = true;
                                         camZoomOut();
                                         camTiltUp();
                                         videoMat.video.play();
@@ -451,7 +457,8 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvFive);
                                         gui.removeControl(cctvSix);
                                         gui.removeControl(cctvSeven);
-                                        gui.removeControl(videoCCTV);
+                                        // gui.removeControl(videoCCTV);
+                                        videoCCTV.isVisible = false;
                                         camZoomIn();
                                         camTiltDown();
                                         videoMat.video.pause();
