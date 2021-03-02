@@ -287,10 +287,10 @@ class Model3d extends HTMLElement{
                 videoCCTV.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
                 videoCCTV.material = videoMat;
                 
-                // videoTexture.video.pause();
-                // videoTexture.video.preload = 'auto';
-                // videoTexture.video.autoload = true;
-                // videoTexture.video.muted = true;
+                videoTexture.video.pause();
+                videoTexture.video.preload = 'auto';
+                videoTexture.video.autoload = true;
+                videoTexture.video.muted = true;
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
