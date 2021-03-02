@@ -293,7 +293,7 @@ class Model3d extends HTMLElement{
                 videoTexture.video.pause();
 
                 // gui line
-                var line = new BABYLON.GUI.Line();
+                var line = new BABYLON.GUI.MultiLine();
                 line.lineWidth = 4;
                 line.color = "Red";
                 line.y2 = 20;
@@ -434,8 +434,8 @@ class Model3d extends HTMLElement{
                                         gui.addControl(cctvSeven);
                                         gui.addControl(line);
 
-                                        line.linkWithMesh(doorFourteen); 
-                                        line.linkWithMesh(videoCCTV); 
+                                        line.add(doorFourteen); 
+                                        line.add(videoCCTV); 
 
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
