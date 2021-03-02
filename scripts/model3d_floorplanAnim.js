@@ -291,6 +291,7 @@ class Model3d extends HTMLElement{
                 videoTexture.video.pause();
                 videoTexture.video.preload = 'auto';
                 videoTexture.video.autoload = true;
+                videoTexture.video.muted = true;
 
                 // scene.onPointerUp = function () {
                 //     videoMat.video.play();
