@@ -285,7 +285,6 @@ class Model3d extends HTMLElement{
                 
                 videoCCTV.isVisible = true;
                 videoCCTV.position.y = 10;
-                videoCCTV.parent = doorFifteen;
 
                 // videoCCTV.material = videoMat;
                 // videoCCTV.width = "400px";
@@ -441,6 +440,7 @@ class Model3d extends HTMLElement{
                                         cctvSix.linkWithMesh(cameraTwenty);
                                         cctvSeven.linkWithMesh(cameraTwentyone);
                                         
+                                        videoCCTV.parent = doorFifteen;
                                         videoCCTV.isVisible = true;
                                         camZoomOut();
                                         camTiltUp();
