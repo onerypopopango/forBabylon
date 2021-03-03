@@ -278,8 +278,8 @@ class Model3d extends HTMLElement{
 
                 videoMat.diffuseTexture = videoTexture;
                 videoMat.emissiveColor = new BABYLON.Color3.White();
-
-                var videoCCTV = BABYLON.MeshBuilder.CreatePlane("cctvFootage", {height:10, width: 15, sideOrientation: BABYLON.Mesh.DOUBLESIDE}, scene);
+                const f = new BABYLON.Vector4(0,0, 0.5, 1);
+                var videoCCTV = BABYLON.MeshBuilder.CreatePlane("cctvFootage", {height:10, width: 15, frontUVs: f, sideOrientation: BABYLON.Mesh.DOUBLESIDE}, scene);
                 
                 videoCCTV.isVisible = false;
                 videoCCTV.parent = doorFourteen;
