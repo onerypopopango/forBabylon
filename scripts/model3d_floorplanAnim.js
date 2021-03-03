@@ -297,7 +297,7 @@ class Model3d extends HTMLElement{
                 line.lineWidth = 4;
                 line.color = "Red";
                 line.clipContent = true;
-                line.scaleY = 0.9;
+                line.scaleY = 0.8;
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
