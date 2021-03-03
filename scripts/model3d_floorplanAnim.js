@@ -284,7 +284,6 @@ class Model3d extends HTMLElement{
                 videoCCTV.isVisible = false;
                 videoCCTV.parent = doorFourteen;
                 videoCCTV.position.y = -20;
-                videoCCTV.position.z = -10;
                 videoCCTV.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
                 videoCCTV.material = videoMat;
                 
@@ -298,7 +297,7 @@ class Model3d extends HTMLElement{
                 line.lineWidth = 4;
                 line.color = "Red";
                 line.y2 = 5;
-                line.linkOffsetY = -20;
+                line.linkOffsetY = -50;
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
