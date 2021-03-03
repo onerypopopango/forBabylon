@@ -296,8 +296,7 @@ class Model3d extends HTMLElement{
                 var line = new BABYLON.GUI.MultiLine();
                 line.lineWidth = 4;
                 line.color = "Red";
-                line.clipContent = true;
-                line.scaleY = 0.8;
+                line.scaleY = 0.7;
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
