@@ -292,6 +292,12 @@ class Model3d extends HTMLElement{
                 videoTexture.video.muted = true;
                 videoTexture.video.pause();
 
+                // gui text
+                var cctvName =  new BABYLON.GUI.TextBlock();
+                cctvName.text = "CCTV 1 - ALERT";
+                cctvName.color =  "red";
+                cctvName.linkWithMesh(videoCCTV);       
+
                 // gui line
                 var line = new BABYLON.GUI.MultiLine();
                 line.lineWidth = 4;
