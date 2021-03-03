@@ -297,7 +297,7 @@ class Model3d extends HTMLElement{
                 line.lineWidth = 4;
                 line.color = "Red";
                 line.y2 = 5;
-                line.linkOffsetY = -50;
+                line.linkOffsetY = -500;
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
