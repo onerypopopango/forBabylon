@@ -296,6 +296,7 @@ class Model3d extends HTMLElement{
                 var cctvName =  new BABYLON.GUI.TextBlock();
                 cctvName.text = "CCTV 1 - ALERT";
                 cctvName.color =  "red";
+                cctvName.position.y = -10;
                 cctvName.linkWithMesh(videoCCTV);       
 
                 // gui line
