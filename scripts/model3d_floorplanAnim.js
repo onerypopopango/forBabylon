@@ -296,14 +296,14 @@ class Model3d extends HTMLElement{
                 var cctvName =  new BABYLON.GUI.TextBlock();
                 cctvName.text = "CCTV 1 - ALERT";
                 cctvName.color =  "red";
-                cctvName.linkOffsetY = 100;
+                cctvName.linkOffsetY = 140;
 
                 // gui line
                 var line = new BABYLON.GUI.MultiLine();
                 line.lineWidth = 4;
                 line.color = "Red";
-                line.scaleY = 0.7;
-                line.transformCenterY = 0.9;
+                // line.scaleY = 0.7;
+                // line.transformCenterY = 0.9;
 
                 //****************************************************//
                 //  Over/Out <= this is it!!!! for hover flash anims  //
