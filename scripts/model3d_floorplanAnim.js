@@ -435,7 +435,8 @@ class Model3d extends HTMLElement{
                                         gui.addControl(line);
 
                                         line.add(doorFourteen); 
-                                        line.add(videoCCTV); 
+                                        line.add(videoCCTV);
+                                        hl.addMesh(videoCCTV, BABYLON.Color3.Red());
 
                                         doorOnline.linkWithMesh(doorFifteen);
                                         doorOnlineOne.linkWithMesh(doorFourteen);
@@ -470,6 +471,8 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvSix);
                                         gui.removeControl(cctvSeven);
                                         gui.removeControl(line);
+
+                                        hl.removeMesh(videoCCTV);
                                         videoCCTV.isVisible = false;
                                         videoTexture.video.pause();
                                         camZoomIn();
