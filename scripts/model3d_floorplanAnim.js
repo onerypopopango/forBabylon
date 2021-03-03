@@ -439,6 +439,7 @@ class Model3d extends HTMLElement{
                                         gui.addControl(cctvSix);
                                         gui.addControl(cctvSeven);
                                         gui.addControl(line);
+                                        gui.addControl(cctvName);
 
                                         line.add(doorFourteen); 
                                         line.add(videoCCTV);
@@ -477,6 +478,7 @@ class Model3d extends HTMLElement{
                                         gui.removeControl(cctvSix);
                                         gui.removeControl(cctvSeven);
                                         gui.removeControl(line);
+                                        gui.removeControl(cctvName);
 
                                         line.remove(doorFourteen); 
                                         line.remove(videoCCTV);
